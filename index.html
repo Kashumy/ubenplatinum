@@ -62,7 +62,7 @@ setTimeout(function (){
     	
     }
     );
-},1000)}
+},100)}
  }
   
 setTimeout(function(){
@@ -86,6 +86,35 @@ Array.from(elementsToHide).forEach(element => {
 requestAnimationFrame(hd)
   togglemode1()
 }
+
+
+
+
+
+setTimeout(function(){
+  
+  if(path!=="newproject"){
+    loadtestgame2()
+  setTimeout(function(){config.testmode=1},6000)
+  setTimeout(function(){
+    config.testmode=1
+  
+gravity=tdt.gravity
+  },10000)
+function hd(){
+    up1()
+    config.testmode=1
+  var elementsToHide = document.getElementsByClassName('notaproject');
+Array.from(elementsToHide).forEach(element => {
+  element.style.display="none"
+});
+}
+requestAnimationFrame(hd)
+  togglemode1()
+}
+
+
+},1000)
 },1000)
 </script>
 </project-loader>
