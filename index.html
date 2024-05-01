@@ -34,7 +34,11 @@ Loading A Game Please Wait
 
 <!--put your project here-->
 <project-loader author="" license="">
-<project-path>./uben.doglogproject</project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
+<project-path>
+	<script>
+		let path='./uben.doglogproject'
+	</script>
+</project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
 <about-project>
 <!-- some informations about project
  
@@ -43,7 +47,6 @@ Loading A Game Please Wait
 </about-project>
 <script>
 
-let path=document.querySelector('project-path').innerText;
 
 setTimeout(function(){
   document.querySelector('project-path').style.display="none"
@@ -59,7 +62,7 @@ setTimeout(function (){
     .then(data => handleFileContent(data)
     )
     .catch(error => {
-    	
+    	alert(error)
     }
     );
 },100)}
