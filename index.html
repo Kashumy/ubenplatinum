@@ -1,4 +1,5 @@
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <!-- put your water mark -->
@@ -1477,6 +1478,7 @@ const tileCoords2 = [x, y];
 let blockzindex=0
       matchingTiles.forEach((tileType) => {
        blockzindex++
+       let blockdataindex=0
        const tile = document.createElement('div');
           if (tileType) {
                           s = tileType[2];
@@ -1520,6 +1522,7 @@ const similarDeletedTile = deletedtiles.find((deletedTile) => {
                     tile.className = `tile alltiles${TILES[i][1]} entities`;
                     tile.style.backgroundImage = `url("${TILES[i][2]}")`;
                     const existingTile = document.querySelector(`.alltiles${TILES[i][1]}[data-x="${x}"][data-y="${y}"][data-s="${s}"]`);
+                    blockdataindex=1
 const similarDeletedTile = deletedtiles.find((deletedTile) => {
   return deletedTile.dataset.x === x.toString() && deletedTile.dataset.y === y.toString() && deletedTile.dataset.s === s.toString();
 });
@@ -1571,8 +1574,8 @@ const similarDeletedTile = deletedtiles.find((deletedTile) => {
             
             content.appendChild(fragment);
           }
-          if(blockzindex>1){
-          tile.style.zIndex=blockzindex+1
+          if(blockzindex>1||blockdataindex>0){
+          tile.style.zIndex=blockzindex+blockdataindex+1
           }
         });}
       }
