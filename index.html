@@ -3,8 +3,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <!-- put your water mark -->
-<!--
-<img src="./watermark.gif" onclick="config.testmode = config.testmode === 1 ? 0 : 1;up1();playUpdateSound2()"style="position: fixed; top:0; left:10px;  width:100px;height:30px; transform: translate(0,25%); z-index: 99999999999" >-->
+<div class="Ylyl" style="position: fixed; left:0; bottom:0px; background: #333 ; z-index: 9; width:30px;height:30px" onclick="saveToFile()">S</div>
+<div class="Ylyl" style="position: fixed; left:35px; bottom:0px; background: #333; z-index: 9; width:30px;height:30px" onclick="loadfile()">L</div>
+<img src="./watermark.gif" onclick="config.testmode = config.testmode === 1 ? 0 : 1;up1();playUpdateSound2()"style="position: fixed; top:0; left:10px;  width:100px;height:30px; transform: translate(0,25%); z-index: 99999999999" >
 <script>var config ={  "HpBarConfiguration": {
       "texture": "./cross.png",
       "textureempty": "./grass.png",
@@ -37,6 +38,9 @@ Loading A Game Please Wait
 <project-loader author="" license="">
 <project-path>
 	<script>
+	//./uben.doglogproject
+	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
+	
 		let path='./uben.doglogproject'
 	</script>
 </project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
@@ -72,6 +76,7 @@ setTimeout(function (){
 setTimeout(function(){
   
   if(path!=="newproject"){
+    document.querySelector('#playPauseButton').style.display="none"
     loadtestgame2()
   setTimeout(function(){config.testmode=1},6000)
   setTimeout(function(){
@@ -89,6 +94,10 @@ Array.from(elementsToHide).forEach(element => {
 }
 requestAnimationFrame(hd)
   togglemode1()
+}else{
+  document.querySelectorAll('.Ylyl').forEach(el=>{
+    el.style.display="none"
+  })
 }
 
 
@@ -2162,7 +2171,7 @@ if(!tile.dataset.ONESPAWN&&NPCdialogueends_spawn !== "" && NPCdialogueends_spawn
 }
 if (NPCdialogueends_spawn !== "" && NPCdialogueends_spawn !== "null" && NPCdialogueends_spawn !== undefined && NPCdialogueends_spawn !== null&&tile.dataset.ONESPAWN==0){
   
-setTimeout(function() {
+
 
   if (NPCdialogueends_spawn !== "" && NPCdialogueends_spawn !== "null" && NPCdialogueends_spawn !== undefined && NPCdialogueends_spawn !== null && indialogue == 0&&tile.dataset.ONESPAWN==0) {
     tile.dataset.ONESPAWN=1
@@ -2192,7 +2201,7 @@ tile.remove()
 
   }
 
-},1000)
+
 }
 if (NPCdialogueends_remove == 1 && indialogue == 0) {
   tile.remove()
