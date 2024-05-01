@@ -1,13 +1,37 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<!-- also your rights Reserved -->
-<!-- uben platinum consout rights Reserved -->
+<!-- put your water mark -->
 <!--
+<img src="./watermark.gif" onclick="config.testmode = config.testmode === 1 ? 0 : 1;up1();playUpdateSound2()"style="position: fixed; top:0; left:10px;  width:100px;height:30px; transform: translate(0,25%); z-index: 99999999999" >-->
+<script>var config ={  "HpBarConfiguration": {
+      "texture": "./cross.png",
+      "textureempty": "./grass.png",
+      "numberHP": 0,
+      "maxHp": 0,
+      "top": "10",
+      "left": "50",
+      "bottom": "",
+      "right": "",
+      "hurtDelay": 2000, // Opóźnienie przed kolejnym otrzymaniem obrażeń (w milisekundach)
+      "Work": true,
+    },"folder":{"texture":{"player":[],"projectile":[0,0]},"textures":{},"sounds":{"player":[],"ambients":[]},"script":{},"config":{}},"v":1,"playershoots":1,
+  "guiHTML2":"","gravitypower":0.1,"chrom":false,"engine":" DogLog beta 1.5.1","info":" experimental game editor some bugs but a lot\n  of stuffs :) \n  \n  ","width":400,"height":300,"asemblyinstructions":"","requests":0,"bgsize":0,"cameraX":201,"cameraY":200,"customcamera":1,"debugmode":0,"px":6.628533333333328,"py":6.690066666666651,"tilesize":30,"linesperframe":1,"entities":{"alltiles3":[8,"follow",10,3,0,199,[0,0,999999,999999],true,[[10,0],[-10,0]],null,1,1,,null,1],"alltiles5":[1,"null",4,3,0,0,[0,0,999999,999999],true,[[10,0],[-10,0]],0,1,1],"alltiles2":[2,"move",4,3,0,1,[0,0,999999,999999],true,[[5,0],[-5,0]]],"alltiles6":[2,"move",4,3,0,100,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0]},"Hz":0,
+  
+  "code":"1: l hp 10\n2:\n3: \n4: \n5: col player alltiles8 14\n6: l zero 0\n7: and hp zero +5\n8: col player alltiles99 +2\n9: jmp -5\n10: sub hp 1\n11: jmp -4\n12: ppos 202 180 0\n13: jmp 5\n14: movem 20 0 1 \n15: eval collect()\n16: jmp 1","zoomoff":0.2,"zoomadd":1,"customGUI":1,
+  "EMULATOR":0.1,"guiHTML":"  <div class=\"btns\">\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Up\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Left\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Right\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Down\"></div>\n      <div class=\"null added\"></div>\n  \n    </div>\n\n \t   \t  <div class=\"jumpbtn added\" id=\"Attack\" style=\"transform: translate(0%, -100%); right: 1px;\" onclick=\"attack2()\"></div>\n<div id=\"Start\" class=\" przesuwalny added\" style=\"width: 250px; height: 250px; background: rgb(80, 80, 200); display: none;\"></div><div id=\"Start\" class=\" przesuwalny added\" style=\"z-index: 217; width: 450px; height: 250px; background: rgb(80, 80, 200); display: none;\"></div>","longjump":28,"jumpingpower":0.09,"speed":2,"backspeed":1.3,"norspeed":2,"spawnX":200,"spawnY":200,"testmode":0,"collisions":0,"loadgamefile":0,"sidescroll":1,"ts":10,"gravity":0,"noasm":0,"bg":"/grass","playersize":0,"music":"/.wav","blocks":[[0,1,"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWNgqPj/HwAEagJ3t6MPBQAAAABJRU5ErkJggg==",1,0],[1,1,"/ NAN.png"],[2,0,"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z5D2HwAFzAJlXbviVwAAAABJRU5ErkJggg==",1,0],[3,1,"/ NAN.png"],[4,1,"/ NAN.png"]],"savedTileMap":[[[202,197,0],[201,197,0],[200,197,0],[199,197,0],[198,197,0],[197,197,0],[196,197,0],[196,198,0],[196,199,0],[196,200,0],[196,201,0],[196,202,0],[197,203,0],[196,203,0],[198,203,0],[199,203,0],[200,203,0],[201,203,0],[202,203,0],[203,197,0],[203,198,0],[203,199,0],[203,202,0],[203,200,0],[203,201,0],[203,203,0],[202,199,2],[202,198,2],[201,198,2],[201,199,2],[200,198,2],[200,199,2],[202,200,2],[201,200,2],[200,200,2],[200,201,2],[201,201,2],[202,201,2],[202,202,2],[201,202,2],[200,202,2],[199,201,2],[199,200,2],[199,199,2],[199,198,2],[198,198,2],[198,199,2],[197,198,2],[197,199,2],[197,200,2],[198,200,2],[198,201,2],[197,201,2],[197,202,2],[198,202,2],[199,202,2]],[],[]],"playerskin1":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWPgYfj/HwADMgIL4wnJsQAAAABJRU5ErkJggg=="}
 
- <img src="./watermark.gif" onclick="config.testmode = config.testmode === 1 ? 0 : 1;up1();playUpdateSound2()"style="position: fixed; top:0; left:10px;  width:100px;height:30px; transform: translate(0,25%); z-index: 99999999999" >
 
- -->
+
+</script>
+<script>
+  const textsArray = [
+`
+Loading A Game Please Wait
+`];
+</script>
+
+
 <!--put your project here-->
 <project-loader author="" license="">
 <project-path>./uben.doglogproject</project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
@@ -18,6 +42,7 @@
 -->
 </about-project>
 <script>
+
 let path=document.querySelector('project-path').innerText;
 
 setTimeout(function(){
@@ -230,7 +255,9 @@ for (var i = 0; i < y.length; i++) {
 <!-- Paste There Your Watermark ; ) -->
 <!-- author: none -->
 
-<style>
+
+
+ <style>
  :root{
    position:fixed;
   width: 100vw;
@@ -330,26 +357,7 @@ var downButtonDown = 0;
 
     <script>
       const helloWorldText = document.getElementById('helloWorldText');
-      const textsArray = [
-`
- Welcome In <img src="./logo.gif" style="width:100px;height:30px; transform: translate(0,25%)" >
-  `,
-`
-  <img src="./logo.gif" style="width:100px;height:30px; transform: translate(0,25%)" > is free open source program 
-  
-Consout all rights reserved © 
-version 2.7
-`,
-
-`
-<img src="./logo.gif" style="width:100px;height:30px; transform: translate(0,25%)" >
-
-added: added HP bar indicator 
-
-PRO TIP :
-1. click logo of paper maker to play game in Fullscreen
-2. always make backup of your project when you want to test it
-`];
+      
       let currentIndex = 0;
 
       setTimeout(() => {
