@@ -2913,7 +2913,7 @@ if(hurt==1){
 if (getPlayerPositionRelativeToTile(tile,parseFloat(tile.style.left)/ tileSize2,parseFloat(tile.style.top)/ tileSize2)&&moveonlywhenplayerlooking==1&&moveonlywhenplayerlookingaway!==1) {
 left += Math.cos(directionInRadians) * speed;
 top += Math.sin(directionInRadians) * speed;
-} else if(moveonlywhenplayerlookingaway==1&&moveonlywhenplayerlooking!==1&&getPlayerPositionRelativeToTile(tile,parseFloat(tile.style.left)/ tileSize2,parseFloat(tile.style.top)/ tileSize2)!==true){
+} else if(moveonlywhenplayerlookingaway==1&&moveonlywhenplayerlooking!==1&&!getPlayerPositionRelativeToTile(tile,parseFloat(tile.style.left)/ tileSize2,parseFloat(tile.style.top)/ tileSize2)){
   left += Math.cos(directionInRadians) * speed;
 top += Math.sin(directionInRadians) * speed;
 }else if(moveonlywhenplayerlooking!==1&&moveonlywhenplayerlookingaway!==1){
@@ -2926,15 +2926,15 @@ top += Math.sin(directionInRadians) * speed;
                     // Logic for avoiding the player
 
                     
-if (isPlayerLookingAtTile(tile, ostclick)||moveonlywhenplayerlooking!==1&&moveonlywhenplayerlookingaway!==1) {
-                    left -= Math.cos(directionInRadians) * speed;
-                    top -= Math.sin(directionInRadians) * speed;
-} else if(moveonlywhenplayerlookingaway==1&&moveonlywhenplayerlooking!==1&&isPlayernotLookingAtTile(tile, ostclick)){
-                      left -= Math.cos(directionInRadians) * speed;
-                    top -= Math.sin(directionInRadians) * speed;
-}else if(moveonlywhenplayerlooking!==1&&moveonlywhenplayerlookingaway!==1){
-                        left -= Math.cos(directionInRadians) * speed;
-                      top -= Math.sin(directionInRadians) * speed;
+if (getPlayerPositionRelativeToTile(tile, parseFloat(tile.style.left) / tileSize2, parseFloat(tile.style.top) / tileSize2) && moveonlywhenplayerlooking == 1 && moveonlywhenplayerlookingaway !== 1) {
+  left -= Math.cos(directionInRadians) * speed;
+  top -= Math.sin(directionInRadians) * speed;
+} else if (moveonlywhenplayerlookingaway == 1 && moveonlywhenplayerlooking !== 1 && !getPlayerPositionRelativeToTile(tile, parseFloat(tile.style.left) / tileSize2, parseFloat(tile.style.top) / tileSize2)) {
+  left -= Math.cos(directionInRadians) * speed;
+  top -= Math.sin(directionInRadians) * speed;
+} else if (moveonlywhenplayerlooking !== 1 && moveonlywhenplayerlookingaway !== 1) {
+  left -= Math.cos(directionInRadians) * speed;
+  top -= Math.sin(directionInRadians) * speed;
 }
 
                     
@@ -3274,21 +3274,26 @@ function attack2() {
       let yshootingspeed=4;
       let directionp=0
       let directionl=0
+      let speedvel=config.projetitlecfig.speed;
       switch (ostclick) {
   case "left":
     directionp = -shootingspeed;
+    speedvel=speedvel
     directionl = 0;
     break;
   case "right":
     directionp = shootingspeed;
+    speedvel=speedvel
     directionl = 0;
     break;
   case "up":
     directionl = -shootingspeed;
+    speedvel=speedvel
     directionp = 0;
     break;
   case "down":
     directionl = shootingspeed;
+    speedvel=speedvel
     directionp = 0;
     break;
   default:
@@ -3300,7 +3305,7 @@ function attack2() {
         directionX: directionp,
         directionY: directionl,
         lifespan: config.projetitlecfig.timelife||0, // Czas życia pocisku
-        speed:config.projetitlecfig.speed||0,
+        speed:speedvel||0,
         nomove:config.projetitlecfig.nomove||0,
         scale:scalee
       };
