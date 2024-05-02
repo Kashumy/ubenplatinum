@@ -5,7 +5,9 @@
 <!-- put your water mark -->
 <div class="Ylyl" style="position: fixed; left:0; bottom:0px; background: #333 ; z-index: 9; width:30px;height:30px" onclick="saveToFile()">S</div>
 <div class="Ylyl" style="position: fixed; left:35px; bottom:0px; background: #333; z-index: 9; width:30px;height:30px" onclick="loadfile()">L</div>
+<!--
 <img src="./watermark.gif" onclick="config.testmode = config.testmode === 1 ? 0 : 1;up1();playUpdateSound2()"style="position: fixed; top:0; left:10px;  width:100px;height:30px; transform: translate(0,25%); z-index: 99999999999" >
+-->
 <script>var config ={  "HpBarConfiguration": {
       "texture": "./cross.png",
       "textureempty": "./grass.png",
@@ -38,10 +40,10 @@ Loading A Game Please Wait
 <project-loader author="" license="">
 <project-path>
 	<script>
-	//./uben.doglogproject
+	//
 	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
 	
-		let path='./uben.doglogproject'
+		let path='./ubenplatinum'
 	</script>
 </project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
 <about-project>
@@ -1830,6 +1832,44 @@ var onece5 = 1
 var newtilemap=config.savedTileMap
 let Vables = {};
 
+function getPlayerPositionRelativeToTile(tile,left,top) {
+    const tileRect = tile.getBoundingClientRect();
+    const tileCenterX = left;
+    const tileCenterY = top;
+
+    const playerCenterX = playerX
+    const playerCenterY = playerY ;
+
+    const deltaX = playerCenterX - tileCenterX;
+    const deltaY = playerCenterY - tileCenterY;
+//ostclick
+    const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+let data=0;
+    if (angle > -45 && angle <= 45) {
+        data= 'right';
+        if(ostclick=='left'){
+return true;
+        }
+    } else if (angle > 45 && angle <= 135) {
+        data= 'bottom';
+        if (ostclick == 'up') {
+return true;
+}
+    } else if (angle > 135 || angle <= -135) {
+        data= 'left';
+        if (ostclick == 'right') {
+return true;
+}
+    } else {
+        data= 'top';
+        if (ostclick == 'down') {
+return true;
+}
+    }
+    
+}
+
+
 function moveTilesRandomly() {
   if(stop==0){
     for (let tileId in tileConfig) {
@@ -1861,9 +1901,11 @@ function moveTilesRandomly() {
 // making for full relase PM2.8
 moveonlywhenplayerlooking,// 1/0
 moveonlywhenplayerlookingaway,// 1/0
+randomteleporting,// [duration,xmin,xmax,ymin,ymax]
+/*
 spawningonlywhenlooking, // 1/0
 spawningonlywhenlookingaway, // 1/0
-spawn2onlyifrandom, // [min,max]
+spawn2onlyifrandom, // [min,max]*/
 
         ] = tileConfig[tileId];
         
@@ -1894,10 +1936,33 @@ var targetToY2 = null;
     var shootingTargettargetToX=-100;
     var shootingTargettargetToY=-100;
     
+
+
     const viewport = document.getElementById('viewport');
               let left = parseFloat(tile.style.left) || 0;
               let top = parseFloat(tile.style.top) || 0;
               
+
+
+if (randomteleporting!==undefined&&randomteleporting!==null&&randomteleporting!==""&&randomteleporting!=="undefined") {
+  if(!tile.dataset.teleporting){
+tile.dataset.teleporting=1
+  }
+  if(tile.dataset.teleporting==1){
+  const [duration, xmin, xmax, ymin, ymax] = randomteleporting;
+
+  // Random teleportation logic
+  setInterval(() => {
+    const newX = Math.random() * (xmax - xmin) + xmin;
+    const newY = Math.random() * (ymax - ymin) + ymin;
+
+    // Update tile position
+    left=newX
+    top=newY
+    tile.dataset.teleporting=0
+  }, duration);
+}}
+
 const currentX = parseInt(tile.dataset.x)
 const currentY = parseInt(tile.dataset.y)
 
@@ -2845,12 +2910,34 @@ if(hurt==1){
             if (isWithinArea(left / tileSize, top / tileSize, area)) {
                 if (movementType === 'follow' && distanceToPlayer <= distance || distanceToPlayer >= reversedistance && reversedistance!==undefined&&reversedistance!==null&&reversedistance!=="null") {
                     // Logic for following the player
-                    left += Math.cos(directionInRadians) * speed;
-                    top += Math.sin(directionInRadians) * speed;
+if (getPlayerPositionRelativeToTile(tile,parseFloat(tile.style.left)/ tileSize2,parseFloat(tile.style.top)/ tileSize2)&&moveonlywhenplayerlooking==1&&moveonlywhenplayerlookingaway!==1) {
+left += Math.cos(directionInRadians) * speed;
+top += Math.sin(directionInRadians) * speed;
+} else if(moveonlywhenplayerlookingaway==1&&moveonlywhenplayerlooking!==1&&getPlayerPositionRelativeToTile(tile,parseFloat(tile.style.left)/ tileSize2,parseFloat(tile.style.top)/ tileSize2)!==true){
+  left += Math.cos(directionInRadians) * speed;
+top += Math.sin(directionInRadians) * speed;
+}else if(moveonlywhenplayerlooking!==1&&moveonlywhenplayerlookingaway!==1){
+left += Math.cos(directionInRadians) * speed;
+top += Math.sin(directionInRadians) * speed;
+}
+
+                    
                 } else if (movementType === 'avoid' && distanceToPlayer <= distance||distanceToPlayer >= reversedistance && reversedistance!==undefined&&reversedistance!==null&&reversedistance!=="null") {
                     // Logic for avoiding the player
+
+                    
+if (isPlayerLookingAtTile(tile, ostclick)||moveonlywhenplayerlooking!==1&&moveonlywhenplayerlookingaway!==1) {
                     left -= Math.cos(directionInRadians) * speed;
                     top -= Math.sin(directionInRadians) * speed;
+} else if(moveonlywhenplayerlookingaway==1&&moveonlywhenplayerlooking!==1&&isPlayernotLookingAtTile(tile, ostclick)){
+                      left -= Math.cos(directionInRadians) * speed;
+                    top -= Math.sin(directionInRadians) * speed;
+}else if(moveonlywhenplayerlooking!==1&&moveonlywhenplayerlookingaway!==1){
+                        left -= Math.cos(directionInRadians) * speed;
+                      top -= Math.sin(directionInRadians) * speed;
+}
+
+                    
                 } else if (randomMovement === 1 && distanceToPlayer > distance||distanceToPlayer <= reversedistance && reversedistance!==undefined&&reversedistance!==null&&reversedistance!=="null") {
                     // Logic for random movement when outside the player's distance
                     let randomDirection = parseFloat(tile.dataset.randomDirection); // Get or set random direction from dataset
@@ -5718,7 +5805,10 @@ if (file) {
 "NPCdialogueends_spawn and kill this (i...)",
 "collisiondistance <num> 'disabled'",
 "Spawn 2 [duration,(i...)]",
-" show Hp near entity (1)/0"
+" show Hp near entity (1)/0",
+"moveonlywhenplayerlooking, // 1/0 ",
+"moveonlywhenplayerlookingaway // 1/0",
+"random teleporting [duration, xmin, xmax, ymin, ymax] !=='undefined' "
         ];
         
         /*gethurttexture,gethurtdelay,
