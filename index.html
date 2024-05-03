@@ -51,7 +51,7 @@ let targetFPS = 15;
 	//
 	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
 	
-		let path='./ubenplatinumexected2'
+		let path='./ubenplatinumterminated'
 	</script>
 </project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
 <about-project>
@@ -868,15 +868,7 @@ Licence MiT
 -->
 <title></title>
 
-<div class="f notaproject" style="position: fixed; width: 210px; height: calc(100vh - 5px) ; background: url('./box (3).png'); image-rendering: pixelated; background-size: 100% 100%; z-index: 0;overflow: hidden;right:0;
-white-space: pre-wrap; overflow : scroll;"><div onclick="toggleVS()" style="align-items: center; justify-content: center; width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime;
-padding:0px; margin:-5px; display: inline-block; font-size:20px; position: absolute; left: 10px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0">+</d></div>
-  <div onclick="toggleMENS(); playUpdateSound2()" style="align-items: center; justify-content: center;  width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime; 
-  padding:0px; margin:-5px; display: inline-block; font-size:20px;  position: absolute; left: 42px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0 ;">⚙️</d></div>
-  <div onclick="togglemode1(); playUpdateSound()" style="align-items: center; justify-content: center;  width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime; 
-  padding:0px; margin:-5px; display: inline-block; font-size:20px;  position: absolute; left: 74px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0 ;">...</d></div>
-  <div id="Iblocks" style="margin-top:0px;padding: 0;"></div>
-</div>
+
 <!--<div style="position: fixed; width: 210px; height: 50px; background: yellow; z-index:0;overflow: hidden;right:0;bottom:0px;
 white-space: pre-wrap; overflow : scroll; " onclick="togglemode1()" class="notaproject"></div>-->
 <style>
@@ -1941,6 +1933,8 @@ function moveTilesRandomly() {
 moveonlywhenplayerlooking,// 1/0
 moveonlywhenplayerlookingaway,// 1/0
 randomteleporting,// [duration,xmin,xmax,ymin,ymax]
+dialogueends_killedmoveandthisremove,//[killed===,(i),x,y]
+spawn_if_killed
 /*
 spawningonlywhenlooking, // 1/0
 spawningonlywhenlookingaway, // 1/0
@@ -1958,9 +1952,43 @@ spawn2onlyifrandom, // [min,max]*/
 tiles.forEach((tile) => {
   var closestIndex = 0;
   var closestDistance; // Zmienna closestDistance musi być zdefiniowana
+  function removefromtilemap(){
+    const currentX = parseInt(tile.dataset.x)
+const currentY = parseInt(tile.dataset.y)
+const currentS = parseInt(tile.dataset.s)
+//alert(currentX+" "+currentY+" "+currentS)
+//alert(currentX+' '+currentY+' '+currentS)
+// Znajdź indeks bloku w tileMap[dimension] na podstawie dataset x, y i s
+setTimeout(function() {
+  if (onece5 == 1) {
+    if (finishproject == 1) {
+      onece5 = 0;
+      for (var i = 0; i < 2; i++) {
+
+        const blocksToRemove = tileMap[dimension].filter(block =>
+          parseInt(block[0]) === currentX &&
+          parseInt(block[1]) === currentY &&
+          parseInt(block[2]) === currentS
+        );
+
+        blocksToRemove.forEach(blockToRemove => {
+          const indexToRemove = tileMap[dimension].indexOf(blockToRemove);
+          tileMap[dimension].splice(indexToRemove, 1);
+        });
+
+        config.savedTileMap = tileMap;
+
+        setTimeout(function() {
+          onece5 = 1;
+        }, 100);
+      }
+    }
+  }
+}, 300);
+
+  }
   
-  
-  if(codescript!==undefined&&codescript!==null&&codescript&&tile.dataset.executecode!==1){
+if(codescript!==undefined&&codescript!==null&&codescript&&tile.dataset.executecode!==1){
     if(!tile.dataset.executecode){
       tile.dataset.executecode=1
     }
@@ -1992,8 +2020,8 @@ tile.dataset.teleporting=1
 
   // Random teleportation logic
   setInterval(() => {
-    const newX = Math.random() * (xmax - xmin) + xmin;
-    const newY = Math.random() * (ymax - ymin) + ymin;
+    const newX = left+Math.random() * (xmax - xmin) + xmin;
+    const newY = top+Math.random() * (ymax - ymin) + ymin;
 
     // Update tile position
     left=newX
@@ -2251,6 +2279,13 @@ if(anableshootingattackforentities==1){
                 }
                 let distanceToPlayer = Math.sqrt((targetToX - left / tileSize) ** 2 + (targetToY - top / tileSize) ** 2);
                 if(distanceToPlayer <= 1.1 ){
+                  
+                  if (dialogueends_killedmoveandthisremove !== undefined && dialogueends_killedmoveandthisremove !== null && dialogueends_killedmoveandthisremove[0] <= killed) {
+  movemap(dialogueends_killedmoveandthisremove[2], dialogueends_killedmoveandthisremove[3], dialogueends_killedmoveandthisremove[1]);
+  deletedtiles.push(tile)
+  tile.remove()
+  removefromtilemap()
+}
                   
                   if (!tile.dataset.dialogue&&NPCdialogue!==undefined &&NPCdialogue!==null&& NPCdialogue!==""&& NPCdialogue!=="null") {
   tile.dataset.dialogue = 0
@@ -2571,7 +2606,26 @@ if(config.folder!==undefined){
 
                     
 
+if(spawn_if_killed!==undefined&&spawn_if_killed!==null&&spawn_if_killed!=="undefined"){
+  let el = document.createElement('div')
+let x = left
+let y = top
+let elm = parseInt(spawn_if_killed)
 
+el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
+
+el.style.backgroundImage = `url('${TILES[elm][2]}')`;
+
+el.style.left = x + "px"
+el.style.top = y + "px"
+el.style.zIndex = "5"
+el.classList.add('SPRITE')
+// tile.style.willChange = 'transform';
+el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
+el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
+//alert(TILES[elm][1]+' '+TILES[elm][2])
+document.querySelector('#Econtent').appendChild(el);
+}
 // Pobierz wartości dataset x, y i s dla bieżącego bloku
 const currentX = parseInt(tile.dataset.x)
 const currentY = parseInt(tile.dataset.y)
@@ -2681,7 +2735,26 @@ if(config.folder!==undefined){
                   if (tile.dataset.hp < 1) {
 
                     
+if (spawn_if_killed !== undefined && spawn_if_killed !== null && spawn_if_killed !== "undefined") {
+  let el = document.createElement('div')
+  let x = left
+  let y = top
+  let elm = parseInt(spawn_if_killed)
 
+  el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
+
+  el.style.backgroundImage = `url('${TILES[elm][2]}')`;
+
+  el.style.left = x + "px"
+  el.style.top = y + "px"
+  el.style.zIndex = "5"
+  el.classList.add('SPRITE')
+  // tile.style.willChange = 'transform';
+  el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
+  el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
+  //alert(TILES[elm][1]+' '+TILES[elm][2])
+  document.querySelector('#Econtent').appendChild(el);
+}
 // Pobierz wartości dataset x, y i s dla bieżącego bloku
 const currentX = parseInt(tile.dataset.x)
 const currentY = parseInt(tile.dataset.y)
@@ -4832,7 +4905,15 @@ function cofnijczas(ilerazycofnac) {
   
   </div>
 </gui>
-
+<div class="f notaproject" style="position: fixed; width: 210px; height: calc(100vh - 5px) ; background: url('./box (3).png'); image-rendering: pixelated; background-size: 100% 100%; z-index: 999999;overflow: hidden;right:0;
+white-space: pre-wrap; overflow : scroll;"><div onclick="toggleVS()" style="align-items: center; justify-content: center; width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime;
+padding:0px; margin:-5px; display: inline-block; font-size:20px; position: absolute; left: 10px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0">+</d></div>
+  <div onclick="toggleMENS(); playUpdateSound2()" style="align-items: center; justify-content: center;  width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime; 
+  padding:0px; margin:-5px; display: inline-block; font-size:20px;  position: absolute; left: 42px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0 ;">⚙️</d></div>
+  <div onclick="togglemode1(); playUpdateSound()" style="align-items: center; justify-content: center;  width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime; 
+  padding:0px; margin:-5px; display: inline-block; font-size:20px;  position: absolute; left: 74px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0 ;">...</d></div>
+  <div id="Iblocks" style="margin-top:0px;padding: 0;"></div>
+</div>
 <style>
   .btn{
     width:40px;
@@ -5051,8 +5132,8 @@ window.setInterval(testy, 3000);
     zoom:0.8;
   }
 </style>
-<div id="contentofjsoneditor">
-<div class="json-editor">
+<div id="contentofjsoneditor" style="z-index: 9999999999;">
+<div class="json-editor" >
     <button onclick="addEntity()">add</button>
     <button onclick="saveJson()">save</button>
   </div>
@@ -5147,9 +5228,10 @@ function toggleLayers() {
 
 
   <style>
-.menu-container {position: absolute;bottom: 15%;width:0%;height:0%;right: 15%;text-align: center;display: block;}
+.menu-container {position: absolute;bottom: 15%;width:0%;height:0%;right: 15%;text-align: center;display: block;z-index: 9999999;}
 .menu-content {
     background-color: #F0F0F0;
+    z-index: 9999999;
     padding: 30px;
     position: fixed;
     z-index: 2;
@@ -5220,7 +5302,7 @@ function toggleLayers() {
   
   
   
-    <div class="menu-content" >
+    <div class="menu-content" style="z-index: 999999999;" >
 <pre style="white-space: pre-wrap" class="mn">
   <h3>Menu</h3>
 <hr>
@@ -5598,7 +5680,7 @@ slider2.addEventListener('touchend', () => {stop=1; slider2.value = 0; currentVa
     
     entities":{"alltiles13":[0,"null",10,3,0,99999,[0,0,999999,999999],true,[[10,0],[-10,0]],null,1,1,null,null,1, , , ,1],"alltiles3":[8,"follow",10,3,0,199,[0,0,999999,999999],true,[[10,0],[-10,0]],null,1,1,null,null,1],"alltiles5":[1,"null",4,3,0,0,[0,0,999999,999999],true,[[10,0],[-10,0]],0,1,1],"alltiles2":[3,"move",4,3,0,1,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0,null,null,1,null,null,1],"alltiles10":[5,"follow",5,0,0,1,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0,null,"player",1,null,null,1],"alltiles6":[2,"move",4,3,0,100,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0,null,null,1]}
 */
-var testexample={"examples":{"alltiles0":[2,"move , follow , avoid",0,3,0,1,[0,0,999999,999999],true,"[[0,0],[0,0]]",0,1,"player",,0]}}
+var testexample={"examples":{"alltiles0":[2,"move , follow , avoid",0,3,0,1,[0,0,999999,999999],true,"[[0,0],[0,0]]",0,1,0,"player"]}}
 // speed, movementType, distance, randomMovement, collision, initialHp, area, deletebool,arena,hurt,vi,score1,collisionobject="player",detectanabled,collisionwithotherblocks,deletewhencustommoveended,anableshootingattackforentities,collectable,spawnpoint
     function displayEntities() {
         const container = document.getElementById('entities-container');
@@ -5634,20 +5716,20 @@ function addEntity() {
 }*/
     function addEntity() {
     const entityName = prompt("Enter entity identyficator in your sprite (S<number>):");
-    let  entityname2 = "alltiles"+parseInt(entityName)
-    let text = parseInt(entityName)
-    const entityId = parseInt(entityName);
-    if (!isNaN(text)) {
-    
-        let selectedExample = "alltiles0";
-        config.entities[entityname2] = Array(getOptionNames().length).fill(null);
-        config.entities[entityname2] = testexample.examples[selectedExample];
-       // alert(entityname2+" "+config.entities[entityname2]+" "+testexample.examples[selectedExample])
-        displayEntities();
-    } else {
-        alert("Please enter a valid number.");
+    if (entityName) {
+        const entityId = parseInt(entityName);
+        if (!isNaN(entityId)) {
+            const selectedExample = "alltiles0";
+            const entityKey = "alltiles" + entityId;
+            // Skopiuj obiekt konfiguracyjny zamiast przypisywać referencję
+            config.entities[entityKey] = JSON.parse(JSON.stringify(testexample.examples[selectedExample]));
+            displayEntities();
+        } else {
+            alert("Please enter a valid number.");
+        }
     }
 }
+
 
 
     function editEntity(entityName) {
@@ -5805,7 +5887,7 @@ if (file) {
             "Hurt(1/0)",
             "Script doesn't work if sprite is out of viewport(1/0)",
             "Score1(1/0)",
-            "Collision Object ('player' you can change to an 'alltiles<Snumber> or something THIS is REALLY HARD To Explain ! )",
+            "Collision Object type ('player') default class that it will be default even for example move follow for player",
             "Detect Enabled",
             "Collision with Other Blocks(1/0)",
             "Delete When Custom Move Ended(1/0)",
@@ -5851,7 +5933,9 @@ if (file) {
 " show Hp near entity (1)/0",
 "moveonlywhenplayerlooking, // 1/0 ",
 "moveonlywhenplayerlookingaway // 1/0",
-"random teleporting [duration, xmin, xmax, ymin, ymax] !=='undefined' "
+"random teleporting [duration, xmin, xmax, ymin, ymax] !=='undefined' ",
+"collision and killed then remove and move tiles [killed,(i..),x,y]",
+"spawn if defaced (i..)"
         ];
         
         /*gethurttexture,gethurtdelay,
@@ -6170,7 +6254,7 @@ setTimeout(function(){
 
   
   
-  <div class="hide menu2-content">
+  <div class="hide menu2-content" style="z-index: 9999999999;">
         <div class="teditor" onclick="TEditor()">
           editor
         </div>
@@ -6416,7 +6500,7 @@ function toggleVS() {
   <div id="container3">n</div>
   
   
-<div id="tutor" onclick="document.getElementById('tutor').style.display='none'" class="notaproject"style="position:absolute; top:50vh; left:50vw; transform: translate(-50%,-50%); width: 80vw; height: 80vh;background: rgb(50,50,50);z-index: 9999;overflow:hidden;overflow:scroll; display:none">
+<div id="tutor" onclick="document.getElementById('tutor').style.display='none'" class="notaproject"style="position:fixed; top:50vh; left:50vw; transform: translate(-50%,-50%); width: 80vw; height: 80vh;background: rgb(50,50,50);overflow:hidden;overflow:scroll; display:none; z-index: 999999999; " >
 
 <pre style="white-space: pre-wrap; color: white; font-family: 'Courier New', monospace;">
 
@@ -7771,7 +7855,9 @@ zrub ustawienia deweloperskie
 
         #modal-container {
             position: fixed;
-            
+            zoom:0.8;
+            overflow: hidden;
+            overflow: scroll;
             top: 0;
             left: 0;
             width: 100%;
@@ -7814,24 +7900,50 @@ zrub ustawienia deweloperskie
     font-size: 16px;
     margin: 4px 2px;" class="notaproject d" onclick="usunElementy()">Usun wsz</button>
 
-    <div id="modal-container">
+    <div id="modal-container" >
         <div id="modal-content">
             <input type="text" id="klasaInput" placeholder="Wprowadź klasę dla nowego przycisku">
             <br>
-            <input type="text" id="styleInput" placeholder="Wprowadź style CSS dla nowego przycisku" value="width:50px;height:50px;background:rgba(80,80,200,1)">
+            <input type="text" id="styleInput" placeholder="Wprowadź style CSS dla nowego przycisku" value="width:50px;height:50px;background:rgba(80,80,200,1); background-size:100%; border-radius:10%; left:;top:;right:;bottom:;">
             <br>
             <input type="text" id="tekstInput" placeholder="Wprowadź tekst dla nowego przycisku">
             <br>
             <input type="text" id="IdInput" placeholder="Left,Right,Up,Down,Attack,Jump">
             <br>
             <button onclick="dodajPrzyciskZModalu()">Dodaj przycisk</button>
+<button onclick="dodajPrzyciskZModalu2()">Dodaj przycisk ze zdjęciem</button>
             <button onclick="ukonczoneGUI()">Zakończ gui</button>
             <button onclick="dodajToProject()">dodaj  do project </button>
+<button onclick="dodajToProject2()">Dodaj do project ze zdjęciem</button>
+            <input type="file" name="background" id="background">
             <button onclick="schowajModal()">Anuluj</button>
         </div>
     </div>
 
     <script>
+let background_img=""
+document.getElementById('background').addEventListener('change',backgroundimg)
+function backgroundimg(event){
+  const fileInput = event.target;
+const files = fileInput.files;
+
+if (files.length > 0) {
+  const newBlockIndex = TILES.length; // Get the next iteration
+  const collisionValue = 0;
+  const image = event.target.files[0];
+
+  // Create file reader object
+  const reader = new FileReader()
+
+  // Convert image to data URL
+  reader.readAsDataURL(image)
+
+  reader.addEventListener('load', () => {
+    background_img=reader.result
+  })
+  updateViewport();
+}
+}
     function dodajCiemnote(){
   config.DarknessEffect=1
   setTimeout(function() {
@@ -7949,6 +8061,192 @@ if (atackelement) {
   });
 }
 }
+
+
+function dodajToProject2() {
+
+  const klasa = document.getElementById('klasaInput').value;
+  const style = document.getElementById('styleInput').value;
+  const tekstPrzycisku = document.getElementById('tekstInput').value;
+  const idPrzycisku = document.getElementById('IdInput').value;
+  const nowyPrzycisk = document.createElement('div');
+
+  if (klasa) {
+    nowyPrzycisk.className = klasa;
+  }
+  nowyPrzycisk.id = idPrzycisku;
+  if (style) {
+    nowyPrzycisk.style.cssText = style;
+  }
+nowyPrzycisk.style.backgroundImage=`url('${background_img}')`
+  nowyPrzycisk.textContent = tekstPrzycisku || '';
+  nowyPrzycisk.className += 'PROJECT przesuwalny added';
+  dodajObslugePrzesuwania(nowyPrzycisk);
+  dodajObslugeUsuwanie(nowyPrzycisk);
+  document.querySelector('#project2').appendChild(nowyPrzycisk);
+
+  schowajModal();
+
+  config.guiHTML2 = document.querySelector('#project2').innerHTML
+  alert(config.guiHTML2)
+  if (document.getElementById('Left')) {
+    document.getElementById('Left').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      leftButtonDown = 1;
+    });
+
+    document.getElementById('Left').addEventListener('touchend', function() {
+      leftButtonDown = 0;
+    });
+  }
+
+  if (document.getElementById('Right')) {
+    document.getElementById('Right').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      rightButtonDown = 1;
+    });
+
+    document.getElementById('Right').addEventListener('touchend', function() {
+      rightButtonDown = 0;
+    });
+  }
+
+  if (document.getElementById('Up')) {
+    document.getElementById('Up').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      upButtonDown = 1;
+    });
+
+    document.getElementById('Up').addEventListener('touchend', function() {
+      upButtonDown = 0;
+    });
+  }
+
+  if (document.getElementById('Down')) {
+    document.getElementById('Down').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      downButtonDown = 1;
+    });
+
+    document.getElementById('Down').addEventListener('touchend', function() {
+      downButtonDown = 0;
+    });
+  }
+
+  var jumpElement = document.getElementById('Jump');
+
+  if (jumpElement) {
+    jumpElement.addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      jump2(event);
+    });
+  }
+
+  var atackelement = document.getElementById('Attack');
+
+  if (atackelement) {
+    atackelement.addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      attack2();
+    });
+  }
+}
+
+function dodajPrzyciskZModalu2() {
+  const klasa = document.getElementById('klasaInput').value;
+  const style = document.getElementById('styleInput').value;
+  const tekstPrzycisku = document.getElementById('tekstInput').value;
+  const idPrzycisku = document.getElementById('IdInput').value;
+  const nowyPrzycisk = document.createElement('div');
+
+  if (klasa) {
+    nowyPrzycisk.className = klasa;
+  }
+  nowyPrzycisk.id = idPrzycisku;
+  if (style) {
+    nowyPrzycisk.style.cssText = style;
+  }
+nowyPrzycisk.style.backgroundImage=`url('${background_img}')`
+  nowyPrzycisk.textContent = tekstPrzycisku || '';
+  nowyPrzycisk.className += ' przesuwalny added';
+  dodajObslugePrzesuwania(nowyPrzycisk);
+  dodajObslugeUsuwanie(nowyPrzycisk);
+  document.querySelector('gui').appendChild(nowyPrzycisk);
+
+  schowajModal();
+
+
+  if (document.getElementById('Left')) {
+    document.getElementById('Left').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      leftButtonDown = 1;
+    });
+
+    document.getElementById('Left').addEventListener('touchend', function() {
+      leftButtonDown = 0;
+    });
+  }
+
+  if (document.getElementById('Right')) {
+    document.getElementById('Right').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      rightButtonDown = 1;
+    });
+
+    document.getElementById('Right').addEventListener('touchend', function() {
+      rightButtonDown = 0;
+    });
+  }
+
+  if (document.getElementById('Up')) {
+    document.getElementById('Up').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      upButtonDown = 1;
+    });
+
+    document.getElementById('Up').addEventListener('touchend', function() {
+      upButtonDown = 0;
+    });
+  }
+
+  if (document.getElementById('Down')) {
+    document.getElementById('Down').addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      downButtonDown = 1;
+    });
+
+    document.getElementById('Down').addEventListener('touchend', function() {
+      downButtonDown = 0;
+    });
+  }
+
+  var jumpElement = document.getElementById('Jump');
+
+  if (jumpElement) {
+    jumpElement.addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      jump2(event);
+    });
+  }
+
+  var atackelement = document.getElementById('Attack');
+
+  if (atackelement) {
+    atackelement.addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Prevent default behavior
+      attack2();
+    });
+  }
+}
+
+
+
+
+
+
+
+
+
         function dodajPrzyciskZModalu() {
             const klasa = document.getElementById('klasaInput').value;
             const style = document.getElementById('styleInput').value;
@@ -8079,7 +8377,7 @@ if (atackelement) {
         }
 
         function dodajObslugeUsuwanie(element) {
-            element.addEventListener('',
+            element.addEventListener('click',
             function(){usunelgui(element)}
             );
         }
