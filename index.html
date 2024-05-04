@@ -51,7 +51,7 @@ let targetFPS = 15;
 	//
 	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
 	
-		let path='./ubenterminating'
+		let path='./ubenplatina'
 	</script>
 </project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
 <about-project>
@@ -1934,7 +1934,12 @@ moveonlywhenplayerlooking,// 1/0
 moveonlywhenplayerlookingaway,// 1/0
 randomteleporting,// [duration,xmin,xmax,ymin,ymax]
 dialogueends_killedmoveandthisremove,//[killed===,(i),x,y]
-spawn_if_killed
+spawn_if_killed,
+changebackground, backgroundtexture,
+
+hideifevent,
+showifevent,
+
 /*
 spawningonlywhenlooking, // 1/0
 spawningonlywhenlookingaway, // 1/0
@@ -2279,7 +2284,44 @@ if(anableshootingattackforentities==1){
                 }
                 let distanceToPlayer = Math.sqrt((targetToX - left / tileSize) ** 2 + (targetToY - top / tileSize) ** 2);
                 if(distanceToPlayer <= 1.1 ){
-                  
+if(hideifevent!==undefined&&hideifevent!==null&&hideifevent!=="undefined"&&hideifevent!==""){
+  document.getElementById(hideifevent).style.display="none"
+}
+if (showifevent !== undefined && showifevent !== null && showifevent !== "undefined" && showifevent !== "" ) {
+  document.getElementById(showifevent).style.display = "block"
+}
+if(parseInt(changebackground)==1){
+  let texture=backgroundtexture
+                      document.getElementById('content').style.backgroundImage = `url('${TILES[texture][2]}')`
+
+
+                    if (!('stickybg1' in config)) {
+                      // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
+                      config['stickybg1'] = 0;
+                    } else {
+
+                    }
+
+                    if (config.stickybg1 == 0) {
+                      document.getElementById('content').style.backgroundImage = `url('${TILES[texture][2]}')`
+
+                      document.getElementById('content2').style.backgroundImage = ``
+                      bgimg = TILES[texture][2]
+                      config.bg = TILES[texture][2]
+
+                    } else {
+                      document.getElementById('content2').style.backgroundImage = `url('${TILES[texture][2]}')`
+
+                      document.getElementById('content').style.backgroundImage = ``
+                      bgimg = TILES[texture][2]
+                      config.bg = TILES[texture][2]
+                    }
+}
+
+
+
+
+
                   if (dialogueends_killedmoveandthisremove !== undefined && dialogueends_killedmoveandthisremove !== null && dialogueends_killedmoveandthisremove[0] <= killed) {
   movemap(dialogueends_killedmoveandthisremove[2], dialogueends_killedmoveandthisremove[3], dialogueends_killedmoveandthisremove[1]);
   deletedtiles.push(tile)
@@ -5935,7 +5977,13 @@ if (file) {
 "moveonlywhenplayerlookingaway // 1/0",
 "random teleporting [duration, xmin, xmax, ymin, ymax] !=='undefined' ",
 "collision and killed then remove and move tiles [killed,(i..),x,y]",
-"spawn if defaced (i..)"
+"spawn if defaced (i..)",
+"ChangeifcollisionBaclgroundtexture(1/0)",
+"backgroundimg from (i...)",
+"hide id when collision (ID)",
+"show id when collision (ID)",
+//"add ID (yourID)"
+//"can hurt and move when you damaged it (1/0)",
         ];
         
         /*gethurttexture,gethurtdelay,
