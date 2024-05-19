@@ -2,18 +2,43 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<script>
+
+  
+</script>
+<style>
+  html{
+    filter: brightness(0);
+  }
+</style>
 <!-- put your water mark -->
 <div class="Ylyl" style="position: fixed; left:0; bottom:0px; background: #333 ; z-index: 9; width:30px;height:30px" onclick="saveToFile()">S</div>
 <div class="Ylyl" style="position: fixed; left:30px; bottom:0px; background: #333; z-index: 9; width:30px;height:30px" onclick="loadfile()">L</div>
 
-<img src="./watermark.gif" id="pastemark" onclick="config.testmode = config.testmode === 1 ? 0 : 1;up1();playUpdateSound2()"style="position: fixed; top:0; left:10px;  width:100px;height:30px; transform: translate(0,25%); z-index: 99999999999" >
+<img src="./watermark.gif" id="pastemark" onclick="config.testmode = config.testmode === 1 ? 0 : 1;up1();playUpdateSound2()"style="position: fixed; top:5px; left:10px;  width:100px;height:30px; transform: translate(0,25%); z-index: 99999999999" >
+
+<style>
+  @font-face {
+  font-family: font;
+  src: url('./font.ttf');
+}
+
+* {
+  font-family: font;
+  
+}
+</style>
 
 <style>
   gui{
     margin-left: 50px
   }
 </style>
-<script>var config ={  "HpBarConfiguration": {
+<script>
+var editor="right"
+
+var config ={  "HpBarConfiguration": {
       "texture": "./cross.png",
       "textureempty": "./grass.png",
       "numberHP": 0,
@@ -28,7 +53,9 @@
   "guiHTML2":"","gravitypower":0.1,"chrom":false,"engine":" DogLog beta 1.5.1","info":" experimental game editor some bugs but a lot\n  of stuffs :) \n  \n  ","width":400,"height":300,"asemblyinstructions":"","requests":0,"bgsize":0,"cameraX":201,"cameraY":200,"customcamera":1,"debugmode":0,"px":6.628533333333328,"py":6.690066666666651,"tilesize":30,"linesperframe":1,"entities":{"alltiles3":[8,"follow",10,3,0,199,[0,0,999999,999999],true,[[10,0],[-10,0]],null,1,1,,null,1],"alltiles5":[1,"null",4,3,0,0,[0,0,999999,999999],true,[[10,0],[-10,0]],0,1,1],"alltiles2":[2,"move",4,3,0,1,[0,0,999999,999999],true,[[5,0],[-5,0]]],"alltiles6":[2,"move",4,3,0,100,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0]},"Hz":0,
   
   "code":"1: l hp 10\n2:\n3: \n4: \n5: col player alltiles8 14\n6: l zero 0\n7: and hp zero +5\n8: col player alltiles99 +2\n9: jmp -5\n10: sub hp 1\n11: jmp -4\n12: ppos 202 180 0\n13: jmp 5\n14: movem 20 0 1 \n15: eval collect()\n16: jmp 1","zoomoff":0.2,"zoomadd":1,"customGUI":1,
-  "EMULATOR":0.1,"guiHTML":"  <div class=\"btns\">\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Up\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Left\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Right\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Down\"></div>\n      <div class=\"null added\"></div>\n  \n    </div>\n\n \t   \t  <div class=\"jumpbtn added\" id=\"Attack\" style=\"transform: translate(0%, -100%); right: 1px;\" onclick=\"attack2()\"></div>\n<div id=\"Start\" class=\" przesuwalny added\" style=\"width: 250px; height: 250px; background: rgb(80, 80, 200); display: none;\"></div><div id=\"Start\" class=\" przesuwalny added\" style=\"z-index: 217; width: 450px; height: 250px; background: rgb(80, 80, 200); display: none;\"></div>","longjump":28,"jumpingpower":0.09,"speed":2,"backspeed":1.3,"norspeed":2,"spawnX":200,"spawnY":200,"testmode":0,"collisions":0,"loadgamefile":0,"sidescroll":1,"ts":10,"gravity":0,"noasm":0,"bg":"/grass","playersize":0,"music":"/.wav","blocks":[[0,1,"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWNgqPj/HwAEagJ3t6MPBQAAAABJRU5ErkJggg==",1,0],[1,1,"/ NAN.png"],[2,0,"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z5D2HwAFzAJlXbviVwAAAABJRU5ErkJggg==",1,0],[3,1,"/ NAN.png"],[4,1,"/ NAN.png"]],"savedTileMap":[[[202,197,0],[201,197,0],[200,197,0],[199,197,0],[198,197,0],[197,197,0],[196,197,0],[196,198,0],[196,199,0],[196,200,0],[196,201,0],[196,202,0],[197,203,0],[196,203,0],[198,203,0],[199,203,0],[200,203,0],[201,203,0],[202,203,0],[203,197,0],[203,198,0],[203,199,0],[203,202,0],[203,200,0],[203,201,0],[203,203,0],[202,199,2],[202,198,2],[201,198,2],[201,199,2],[200,198,2],[200,199,2],[202,200,2],[201,200,2],[200,200,2],[200,201,2],[201,201,2],[202,201,2],[202,202,2],[201,202,2],[200,202,2],[199,201,2],[199,200,2],[199,199,2],[199,198,2],[198,198,2],[198,199,2],[197,198,2],[197,199,2],[197,200,2],[198,200,2],[198,201,2],[197,201,2],[197,202,2],[198,202,2],[199,202,2]],[],[]],"playerskin1":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWPgYfj/HwADMgIL4wnJsQAAAABJRU5ErkJggg=="}
+  "EMULATOR":0.1,"guiHTML":"  <div class=\"btns\">\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Up\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Left\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Right\"></div>\n      <div class=\"null added\"></div>\n      <div class=\"btn added\" id=\"Down\"></div>\n      <div class=\"null added\"></div>\n  \n    </div>\n\n \t   \t  <div class=\"jumpbtn added\" id=\"Attack\" style=\"transform: translate(0%, -100%); right: 1px;\" onclick=\"attack2()\"></div>\n<div id=\"Start\" class=\" przesuwalny added\" style=\"width: 250px; height: 250px; background: rgb(80, 80, 200); display: none;\"></div><div id=\"Start\" class=\" przesuwalny added\" style=\"z-index: 217; width: 450px; height: 250px; background: rgb(80, 80, 200); display: none;\"></div>","longjump":28,"jumpingpower":0.09,"speed":2,
+  "backspeed":1.3,"norspeed":2,"spawnX":200,"spawnY":200,"testmode":0,"collisions":0,"loadgamefile":0,"sidescroll":1,"ts":10,"gravity":0,"noasm":0,"bg":"/grass","playersize":0,"music":"/.wav","blocks":[[0,1,"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWNgqPj/HwAEagJ3t6MPBQAAAABJRU5ErkJggg==",1,0],[1,1,"/ NAN.png"],[2,0,"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z5D2HwAFzAJlXbviVwAAAABJRU5ErkJggg==",1,0],[3,1,"/ NAN.png"],[4,1,"/ NAN.png"]],"savedTileMap":
+  [[],[],[]],"playerskin1":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWPgYfj/HwADMgIL4wnJsQAAAABJRU5ErkJggg=="}
 
 
 
@@ -36,7 +63,9 @@
 <script>
   const textsArray = [
 `
-Loading A Game Please Wait
+
+<p style='animation: 5s rainbow infinite; filter:sepia(50%);' > loading uben platin </p>
+v 1.0
 `];
 // changing max fps game change game 
 let defaultFps = 15;
@@ -50,8 +79,8 @@ let targetFPS = 15;
 	<script>
 	//
 	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
-	
-		let path='./ubenplatina'
+//	let savinggamestate=1
+		let path='./agame1.0.pme'
 	</script>
 </project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
 <about-project>
@@ -82,8 +111,19 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if(path!=="newproject"){
 //    loadtestgame2()
+
+
+
+/*
+
 document.querySelector('#playPauseButton').style.display = "none"
+
+*/
+
+
 document.querySelector('#pastemark').style.display = "none"
+document.querySelector('#resizableHandle').style.display = "none"
+resizableHandle
   setTimeout(function(){config.testmode=1},6000)
   setTimeout(function(){
     config.testmode=1
@@ -100,6 +140,8 @@ Array.from(elementsToHide).forEach(element => {
 }
 requestAnimationFrame(hd)
   togglemode1()
+}else{
+  
 }
 
 
@@ -113,6 +155,18 @@ requestAnimationFrame(hd)
     }
 if(path!=="newproject"){
     loadFile(path);
+}else{
+  document.getElementById('viewport').style.resize = "both"
+document.getElementById('viewport').style.border = "1px solid gray"
+
+  let container3 = document.getElementById("viewport");
+  container3.addEventListener("touchstart", touchStart);
+    container3.addEventListener("touchmove", touchMove);
+    container3.addEventListener("touchend", touchEnd);
+    container3.addEventListener("mouseenter", onMouseEnter);
+    container3.addEventListener("mouseleave", onMouseLeave);
+    container3.addEventListener("wheel", onWheel);
+
 }
 });
 
@@ -139,7 +193,7 @@ setTimeout(function (){
 setTimeout(function(){
   
   if(path!=="newproject"){
-    document.querySelector('#playPauseButton').style.display="none"
+  //  document.querySelector('#playPauseButton').style.display="none"
     document.querySelector('#pastemark').style.display="none"
   //  loadtestgame2()
   setTimeout(function(){config.testmode=1},6000)
@@ -194,72 +248,7 @@ function playUpdateSound3() {
   audio.play();
 }
 </script>
-<!-- 
-konfiguracje gracza:
 
-nothing:0/1
-killradius:num/ can be null
-killsprites:[ sprite 1...inf ]object/can be null
-code:{};
-speed:1
-gravity:def
-oncollision:[[tile,code line,scripname], ... ] ]object
-buttonsgui=[
-"up":moveUP(),
-"kill": remove_nearest_sprite(sprite)
-]
-
-sprite configuration:
-code:{}
-oncollision:[[tile,code line,scriptname], ... ] ]object
-entity: boolean1/0,
-npcrandommove: boolean1/0,
-npcconfig:[]
-blockwithcollisions: boolean1/0,
-havecollisionswithblocks:[],
-
-
-
-
-
-
-
-
-nowe komendy
-copy(sprite) 
- kopiuje bierzacą pozycje kafelka danego nie można określić wszystkich 
- robiąc coś takiego piszesz sprite1-0 
- 0 to orginał...  do nieskończoność
- -1 to ostatni klon
-paste(sprite)
-
-
-
-
-
-start: - funkcja startowa
-spzhz(hz) - funkcja na innych Hertzach
-root : kod systemowy biblioteki JS itp
-
-example code
-start:
-1:
-2:
-3: !scriptname!
-scriptname:
-1: 
-2:
-3:
-root:
-1:let state=0
-2:if state==0 
-3:state=1
-4: ; else
-5:state=0
-6: ;
-7: root!
-
--->
 
 <script>
   function loadtestgame(){
@@ -369,25 +358,7 @@ mbs.innerHTML = speed+'mb/s'
     }
 });
 </script>
-<script>
-  function togglemode1(){
-    var elementsToHide = document.getElementsByClassName('d');
-    Array.from(elementsToHide).forEach(element => {
-      element.classList.toggle('hide')
-    });
-  }
-  setTimeout(function(){
-    var elementsToHide = document.getElementsByClassName('d');
-    Array.from(elementsToHide).forEach(element => {
-      element.classList.toggle('hide')
-    });
-  },1000)
-  var leftButtonDown = 0;
-var rightButtonDown = 0;
-var upButtonDown = 0;
-var downButtonDown = 0;
 
-</script>
 <script src="./defaul.js"></script>
 <script src="./bigexample.js"></script>
 <script>
@@ -402,14 +373,16 @@ var downButtonDown = 0;
       
       
       display: none;
-      position: absolute;
-      z-index:999999999;
+      position: fixed;
+      order: 99;
+      z-index:999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       background-color: black;
      display: flex;
+     transform: translateZ(9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999);
       align-items: center;
       justify-content: center;
       color: white;
@@ -425,6 +398,7 @@ var downButtonDown = 0;
       display: block;
       position: absolute;
       top:50vh;
+      z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
       left:50vw;
       transform: translate(-50%,-50%);
       opacity: 1;
@@ -434,43 +408,6 @@ var downButtonDown = 0;
   </head>
 
   <body>
-    <div id="blackScreen">
-      <pre id="helloWorldText" style="white-space: pre-wrap"></pre>
-    </div>
-
-    <script>
-      const helloWorldText = document.getElementById('helloWorldText');
-      
-      let currentIndex = 0;
-
-      setTimeout(() => {
-        const blackScreen = document.getElementById('blackScreen');
-        fadeInNextText();
-
-        function fadeInNextText() {
-          helloWorldText.style.opacity = 0;
-
-          setTimeout(() => {
-            if (currentIndex < textsArray.length) {
-              helloWorldText.innerHTML = textsArray[currentIndex];
-              helloWorldText.style.opacity = 1;
-
-              setTimeout(() => {
-                fadeInNextText();
-              }, 1500);
-
-              currentIndex++;
-            } else {
-              blackScreen.style.opacity = 0;
-
-              setTimeout(() => {
-                blackScreen.style.display = 'none';
-              }, 2000);
-            }
-          }, 200);
-        }
-      }, 1000);
-    </script>
 
 
 
@@ -492,7 +429,7 @@ CONFIG VABLES
 var tileMap =
 [[[9, 10, 1]],[],[]]
 
-let update3=()=>{ document.querySelector('#player').style.background=`url("${config.playerskin1}");`;config.playerskin1=playerskin;config.bg=bgimg;config.blocks=TILES;config.savedTileMap=tileMap;config.px=(playerX)/tileSize;config.py=playerY/tileSize; /*console.log(config)*/ }
+let update3=()=>{ document.querySelector('#player').style.background=`url("${config.playerskin1}");`;config.playerskin1=playerskin;config.bg=bgimg;config.blocks=TILES;config.px=(playerX)/tileSize;config.py=playerY/tileSize; /*console.log(config)*/ }
 //playerskin=config.playerskin1
 setTimeout(function(){
  // alert(config.bg)
@@ -538,10 +475,10 @@ document.getElementById('project').style.zoom="1.0"
 
 
 
-  <button class="notaproject d" style="position: absolute; left:30vw; bottom:0px; background: blue; z-index: 99999" onclick="saveToFile()">Zapisz do pliku</button>
+  <button class="notaproject d hide" style="position: absolute; left:30vw; bottom:0px; background: blue; z-index: 99999999999999999999999999999999999999999999" onclick="saveToFile()">Save Project File</button>
 
 
-<button class="notaproject d" style="position: absolute; left:0vw; bottom:0px; background: blue; z-index: 99999" onclick="chooseFile()">Wybierz plik WAV</button>
+<button class="notaproject d hide" style="position: absolute; left:50vw; bottom:0px; background: blue; z-index: 99999999999999999999999999999999999999999999999999" onclick="chooseFile()">Project Loop main Music</button>
 
 <script>
 let toonce = 1;
@@ -801,12 +738,58 @@ top:20px; right:20px; width: 30px ; height:30px ; background: red;"> -->
   
 </div>
 
+
+
+
+<style>
+  #resizableDiv {
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    overflow: auto;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  #resizableHandle {
+    width: 50px;
+    height: 50px;
+    background-color: #5B25257D;
+    color:#A886867D;
+    position: absolute;
+    z-index: 9999;
+    bottom:0;
+    right:0;
+    cursor: nwse-resize;
+   // touch-action: none; /* zapobiega domyślnemu przewijaniu na urządzeniach dotykowych */
+  }
+
+  #dimensions {
+    text-align: center;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
 <div id="project">
 
   <div id="content2">
 
   </div>
-  <div id="viewport">
+  <div id="alaviewport">
+    
+<div id="resizableHandle" class="">drag to resize renderer</div>
+  <div id="viewport" >
+
   <div id="player" class="player">
   </div>
 
@@ -814,7 +797,7 @@ top:20px; right:20px; width: 30px ; height:30px ; background: red;"> -->
     <div id="Econtent" ></div>
     <div id="Scontent" ></div>
 <div id="Dcontent" ></div>
-</div>
+</div></div>
   <div id="project2">
 
   </div>
@@ -836,6 +819,134 @@ top:20px; right:20px; width: 30px ; height:30px ; background: red;"> -->
  	   	  <div class="jumpbtn added" id="Attack" style="transform: translate(0%,-100%)" onclick="attack2()"></div>
 
 </div>
+<script>
+  var container3 = document.getElementById("viewport");
+  
+
+  var initialTouchDistance = 0;
+  var initialZoom = 1;
+
+  function touchStart(event) {
+    if (event.touches.length === 2) {
+      initialTouchDistance = Math.hypot(event.touches[0].pageX - event.touches[1].pageX, event.touches[0].pageY - event.touches[1].pageY);
+      initialZoom = parseFloat(window.getComputedStyle(container3).zoom);
+    }
+  }
+
+  function touchMove(event) {
+    if (event.touches.length === 2) {
+      var currentTouchDistance = Math.hypot(event.touches[0].pageX - event.touches[1].pageX, event.touches[0].pageY - event.touches[1].pageY);
+      var scaleFactor = currentTouchDistance / initialTouchDistance;
+      container3.style.zoom = initialZoom * scaleFactor * 0.5;
+      
+      if (!('zoom' in config)) {
+  // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
+  config['zoom'] = 0;
+}
+      
+config.zoom=initialZoom * scaleFactor * 0.5;
+
+//cfigZ=initialZoom * scaleFactor * 0.5; 
+
+
+
+ 
+    }
+  }
+
+  function touchEnd(event) {
+    initialTouchDistance = 0;
+  }
+
+  function onWheel(event) {
+    event.preventDefault(); // Zapobiega domyślnemu zachowaniu scrolla
+    var delta = Math.sign(event.deltaY); // Określa kierunek scrolla
+    var currentZoom = parseFloat(window.getComputedStyle(container).zoom);
+    container3.style.zoom = currentZoom + (delta * 0.1);
+  }
+
+  function onMouseEnter() {
+    container3.style.border = "2px solid red"; // Zmiana obramowania na czerwone po najechaniu myszką
+  }
+
+  function onMouseLeave() {
+    container3.style.border = "1px solid black"; // Powrót do standardowego obramowania po opuszczeniu myszką
+  }
+</script>
+<script>
+
+
+
+
+
+  const resizableDiv = document.getElementById('viewport');
+  const resizableHandle = document.getElementById('resizableHandle');
+//  const dimensionsDiv = document.getElementById('dimensions');
+
+  let isResizing = false;
+  let startX;
+  let startY;
+  let startWidth;
+  let startHeight;
+
+  resizableHandle.addEventListener('mousedown', startResize);
+  resizableHandle.addEventListener('touchstart', startResizeTouch, { passive: false });
+  document.addEventListener('mouseup', stopResize);
+  document.addEventListener('touchend', stopResize);
+  document.addEventListener('mousemove', resize);
+  document.addEventListener('touchmove', resize);
+
+  function startResize(e) {
+    e.preventDefault(); // Zapobiegamy domyślnej akcji (np. przewijaniu strony) na urządzeniach dotykowych
+    isResizing = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startWidth = resizableDiv.offsetWidth;
+    startHeight = resizableDiv.offsetHeight;
+  }
+
+  function startResizeTouch(e) {
+    e.preventDefault(); // Zapobiegamy domyślnej akcji (np. przewijaniu strony) na urządzeniach dotykowych
+    const touch = e.touches[0];
+    isResizing = true;
+    startX = touch.clientX;
+    startY = touch.clientY;
+    startWidth = resizableDiv.offsetWidth;
+    startHeight = resizableDiv.offsetHeight;
+  }
+
+  function stopResize() {
+    isResizing = false;
+  }
+
+  function resize(e) {
+    if (isResizing) {
+      let clientX, clientY;
+      if (e.type === 'touchmove') {
+        const touch = e.touches[0];
+        clientX = touch.clientX;
+        clientY = touch.clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+      const newWidth = startWidth + (clientX - startX);
+      const newHeight = startHeight + (clientY - startY);
+      resizableDiv.style.width = `${newWidth}px`;
+      viewportWidth=newWidth
+      viewportHeight=newHeight
+      config.width=newWidth
+      config.height=newHeight
+      resizableDiv.style.height = `${newHeight}px`;
+    /*  resizableHandle.style.right = `-${resizableHandle.offsetWidth / 2}px`;
+      resizableHandle.style.bottom = `-${resizableHandle.offsetHeight / 2}px`;*/
+    //  dimensionsDiv.innerHTML = `Width: ${newWidth}px, Height: ${newHeight}px`;
+    }
+  }
+</script>
+
+
+
 <style>
   #project{
     position: absolute;
@@ -875,6 +986,15 @@ white-space: pre-wrap; overflow : scroll; " onclick="togglemode1()" class="notap
 .f{
   
 }
+@keyframes rainbow {
+  0% { color: #FF7C7C; }
+  16% { color: #FFE47E; }
+  33% { color: #89FF7E; }
+  50% { color: #7BF1FC; }
+  66% { color: #C3B2FF; }
+  83% { color: #D89FCC; }
+  100% { color: #FBBED3; }
+}
   .f div{
     margin-right:5px;
   }
@@ -904,7 +1024,7 @@ if(TILES[i][2]){
  display: inline-block;
  image-rendering: pixelated;
  background:url('${TILES[i][2]}');
- background-size:100%; color:black; font-size:6px;
+ background-size:100%; color: lightgrey; font-size:6px;
  " ondblclick="changeTexture(${TILES[i][0]})" onclick="build(${TILES[i][0]})">i${TILES[i][0]} , S${TILES[i][1]}
 </div>`
 
@@ -913,7 +1033,7 @@ cnt.innerHTML=v
 }}
 },0)
 }
-window.setInterval(checki1,2000)
+window.setInterval(checki1,3000)
 function build(e){
   item=e
 }
@@ -1047,25 +1167,25 @@ overflow: scroll;
 
   </div>
   <div class="tile-details">
-    <h2>Make Sprite</h2>
-  <input type="file" class="a hide2" accept="image/png/gif" id="imageInput" style="display: none;">
-  <button class="a hide2" id="addButton">add block <br></button>
+    <h2 style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);" >Make Sprite</h2>
+  <input type="file" class="a hide2" accept="image/png, image/gif" id="imageInput" style="display: none;">
+  <button class="a hide2" id="addButton" style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);">add block <br></button>
   
   
   
-    <input type="file" class="a hide2"  accept="image/png/gif" id="imageInput2" style="display: none;">
-  <button class="a hide2" id="addButton2">add deco <br></button>
+    <input type="file" class="a hide2"  accept="image/png, image/gif"id="imageInput2" style="display: none;">
+  <button class="a hide2" style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1); filter: hue-rotate(50deg); filter: sepia(50%);" id="addButton2"> Add normal deco <br></button>
   
-        <input type="file" class="a hide2" accept="image/png/gif" id="imageInput5" style="display: none;">
-        <button class="a hide2" id="addButton5">add entity<br></button>
-        <input type="file" class="a hide2" accept="image/png/gif" id="imageInput6" style="display: none;">
+        <input type="file" class="a hide2" accept="image/png, image/gif" id="imageInput5" style="display: none;">
+        <button class="a hide2" style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);" id="addButton5" style="animation: 5s rainbow infinite ;" >add entity<br></button>
+        <input type="file" class="a hide2" accept="image/png, image/gif" id="imageInput6" style="display: none;">
         <button class="a hide2"  id="addButton6">add Text Element (experiment can doesn't work properly)<br></button>
-      <input type="file" class="a hide2"  id="imageInput3" style="display: none;">
-      <button class="a hide2"  id="addButton3">Change Player<br></button>
+      <input type="file" class="a hide2"  id="imageInput3" accept="image/png, image/gif" style="display: none;">
+      <button style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);" class="a hide2"  id="addButton3">Change Player<br></button>
   
   
-      <input class="a hide2" type="file"  accept="image/png" id="imageInput4" style="display: none;">
-      <button class="a hide2" id="addButton4">change BG<br></button>
+      <input class="a hide2" type="file"  accept="image/png, image/gif" id="imageInput4" style="display: none;">
+      <button class="a hide2" id="addButton4" style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);">change BG<br></button>
       
   </div>
   <div class="options">
@@ -1091,12 +1211,50 @@ overflow: scroll;
 
 ENTITY IDENTYFICATOR
 <div id="container123212" class="notaproject  a hide2">
-  <div  class="box0" onclick="add123212()"   >+</div>
+  <div  class="box0 " onclick="add123212()"   >+</div>
   <input type="number" id="value123212" oninput="DZ(this.value)" class="box1"></input>
   <div class="box0" onclick="sub123212()"   >-</div>
 </div>
 <script>
+
+
 var isentity=2;
+
+function testupd(){
+//let dzfgsh=config.entities
+ 
+ 
+   let elemento = "alltiles" + isentity;
+
+if (elemento in config.entities) {
+  document.getElementById('value123212').style.color = "red";
+} else {
+  document.getElementById('value123212').style.color = "lime";
+}
+
+ 
+}
+function entityupd(){
+  let entityName=isentity
+  
+  let testexample2={"examples":{"alltiles0":[2,"move , follow , avoid",0,3,0,1,[0,0,999999,999999],true,"[[0,0],[0,0]]",0,1,0,"player"]}}
+  if (entityName) {
+  const entityId = parseInt(entityName);
+  const entityKey = "alltiles" + entityId;
+  if(!(entityKey in config)){
+  if (!isNaN(entityId)) {
+    const selectedExample = "alltiles0";
+    
+    if(!(entityKey in config.entities)){
+   //   alert(entityKey)
+    config.entities[entityKey] = JSON.parse(JSON.stringify(testexample2.examples[selectedExample]));
+    displayEntities();}
+  } else {
+    
+  }}
+}
+}
+window.setInterval(testupd,500)
   function add123212(){ if(isentity > -1 ){ isentity +=1; updt212()}}function sub123212(){if(isentity > 0 ){ isentity -=1 ; updt212()}}function updt212(){document.getElementById('value123212').value=isentity; updateViewport()}
   function DZ(data){
     isentity=parseInt(data)
@@ -1158,12 +1316,12 @@ var translateY=0;
       <button class="a hide2" style="position: fixed; top:calc(5% + 120px);left:20%;" id="addButton4">zmień tlo<br></button>
       
 	  <p id="cns" ><p id="fps"></p>
-	  <p id="console" class="notaproject"></p></p>
+	  <p id="console" style="z-index: 999999999999999" class="notaproject"></p></p>
 <style>
 #cns{
   position :absolute ;
   top :0;
-  left :200px;
+  right :200px;
   z-index :5;
 }
 .darkness{
@@ -1193,12 +1351,13 @@ var translateY=0;
   }
 }
 #console {
-width: 100%;
+width: 140px;
 color:white;
 background: #00000047;
 position: absolute;
 z-index: 999;
-bottom: 0
+bottom: 0;
+right:30px;
 }
 .player {
   position: absolute;
@@ -1345,6 +1504,13 @@ height: 10%
 }
 </style>
 <script>
+
+
+
+var leftButtonDown = 0;
+var rightButtonDown = 0;
+var upButtonDown = 0;
+var downButtonDown = 0;
 const viewport = document.getElementById('viewport');
 const content = document.getElementById('content');
 var showlines=0
@@ -1383,8 +1549,8 @@ vp.style.zoom = cfigZ;
 vp.style.width = newWidth + 'px';
 vp.style.height = newHeight + 'px';
 }
-const viewportWidth = viewport.clientWidth;
-const viewportHeight = viewport.clientHeight;
+let viewportWidth = viewport.clientWidth;
+let viewportHeight = viewport.clientHeight;
 const numTilesX = 99999// Liczba kafelków w osi X
 const numTilesY = 99999; // Liczba kafelków w osi Y
 const contentWidth = numTilesX ;
@@ -1459,6 +1625,9 @@ function up1() {
       document.querySelector('#content2').style.zoom = vp.style.zoom 
     }
     if (config.testmode === 1) {
+      
+      
+      
       document.getElementById('viewport').style.left = "50%"
       var elementsToHide = document.getElementsByClassName('notaproject');
       Array.from(elementsToHide).forEach(element => {
@@ -1468,8 +1637,33 @@ function up1() {
       Array.from(elementsTomove).forEach(element => {
         element.style.right = '1px';
       });
+      document.getElementById('withgui').style.transform = ""
+      document.getElementById('pastemark').style.left = "5px"
+      document.getElementById('pastemark').style.top = ""
+      document.getElementById('pastemark').style.opacity="0.5"
+document.getElementById('withgui').style.position = ""
     } else {
-      document.getElementById('viewport').style.left = "50%"
+      // editor mode
+      
+      if(editor=="left"){
+      document.getElementById('viewport').style.left = "calc(50% + 100px)"
+      document.getElementById('pastemark').style.left = "220px"
+      document.getElementById('pastemark').style.opacity="1"
+      document.getElementById('pastemark').style.top = "0px"
+     document.getElementById('withgui').style.transform = "translate(150px,0%)"
+      document.getElementById('withgui').style.position="absolute"
+      document.getElementById('sus').style.right = ""
+document.getElementById('sus').style.left = "0px"
+
+document.getElementById('sus').style.right = ""
+document.getElementById('sus').style.left = "0px"
+      }else{
+        document.getElementById('sus').style.right="0px"
+        document.getElementById('sus').style.left=""
+        document.getElementById('viewport').style.left = "calc(50%)"
+        document.getElementById('withgui').style.transform = "translate(0%,0%)"
+        document.getElementById('toggleButton').style.left="0px"
+      }
       var elementsToHide = document.getElementsByClassName('notaproject');
       Array.from(elementsToHide).forEach(element => {
         element.classList.remove('hide3')
@@ -1699,6 +1893,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var entityblocks = [[], [], []];
 var killed=0
+if (!('killed' in config)) {
+  // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
+  config['killed'] = killed;
+} else {
+ killed=config.killed
+}
 var score=0
 var tileConfig = config.entities
 var stop=0
@@ -1900,7 +2100,139 @@ return true;
     
 }
 
+function loadoldergamestate(){
+  config.bg=config.oldbg
+  tileMap=config.savedTileMap
+//  config = config
+deletedtiles = []
+const playerskin69 = config.playerskin1
+//alert(playerskin69)
+document.querySelector('.player').style.background = `url(${playerskin69})`
+playerskin = playerskin69
+updateViewport();
+setTimeout(function() {
+  if (config.DarknessEffect == 1) {
+    let vp = document.getElementById("viewport")
+    let el = document.createElement('div')
+    el.style = `width:${vp.style.width};height:${vp.style.height};`
+    el.className = 'dark effects added'
+    document.querySelector('#project').appendChild(el)
+  } else {
+    let y = document.querySelectorAll('.effects')
+    for (var i = 0; i < y.length; i++) {
+      if (y[i].classList == 'dark') {
+        y[i].remove()
+      }
+    }
+  }
+}, 1000)
+bgimg = config.bg
 
+
+deletedtiles = []
+document.getElementById('edytor').textContent = config.code
+stop = 1
+code = config.code;
+classicspeed = config.norspeed;
+playerY = config.spawnY;
+playerX = config.spawnX;
+setPlayer(config.spawnX, config.spawnY)
+speed = config.speed;
+playerskin = config.playerskin1;
+TILES = config.blocks;
+tileMap = config.savedTileMap;
+gravity = config.gravity;
+content.style.backgroundSize = (config.bgsize) + "px"
+code = config.code
+if (audioInstance) {
+  // Jeżeli istnieje istniejący odtwarzacz audio, zatrzymaj go
+  audioInstance.pause();
+  audioInstance.currentTime = 0;
+  audioInstance = null;
+}
+
+if (config.music !== '') {
+  const base64Wav = config.oldmusic;
+//alert(config.oldmusic)
+  // Utwórz nowy odtwarzacz audio
+  audioInstance = new Audio();
+  audioInstance.src = base64Wav;
+  audioInstance.setAttribute('preload', 'auto');
+
+  // Dodaj odtwarzacz do dokumentu
+  document.body.appendChild(audioInstance);
+
+  // Odtwórz plik audio WAV
+  audioInstance.play();
+  audioInstance.loop = true;
+  toonce = 0;
+}
+
+if (config.customcamera == 1) {
+  viewport.scrollTo(config.cameraX * tileSize2 - viewportWidth / 2, (config.cameraY * tileSize2) - viewportHeight / viewportHeight * viewportHeight / 2)
+}
+
+const contentElement = document.getElementById("content");
+document.querySelector('gui').innerHTML = config.guiHTML
+ukonczoneGUI()
+//contentElement.style.backgroundImage = `url('${config.bg}')`;
+//alert(bgimg)
+contentElement.style.backgroundImage = `url('${bgimg}')`;
+document.getElementById('Scontent').innerHTML = ''
+document.getElementById('Econtent').innerHTML = ''
+tileConfig = config.entities
+//document.getElementById('entitiesconfig').innerText = JSON.stringify(config.entities);
+moveTilesRandomly()
+setTimeout(function() {
+  curline = 0
+  currentLine = 0
+  generateAllTiles()
+  candocmd = 1
+  curline = 0
+  currentLine = 0;
+  candothath = 0
+  defy = 0
+  jmptimes = 0
+  stop = 0
+  RESET()
+
+  if (config.stickybg1 == 0) {
+    
+    document.getElementById('content').style.backgroundImage = `url('${config.bg}')`
+
+    document.getElementById('content2').style.backgroundImage = ``
+
+
+  } else {
+    document.getElementById('content2').style.backgroundImage = `url('${config.bg}')`
+
+    document.getElementById('content').style.backgroundImage = ``
+
+  }
+
+
+
+}, 3000)
+//alert(content.style.backgroundSize)
+tileSize = config.tilesize; // Rozmiar pojedynczego kafelk
+cfigZ = config.zoomoff;
+vp = document.getElementById("viewport");
+/*
+vp.style.zoom = cfigZ * config.zoomadd;
+document.querySelector('#content2').style.width = vp.style.width
+document.querySelector('#content2').style.height = vp.style.height
+document.querySelector('#content2').style.zoom = vp.style.zoom*/
+}
+function savegameslot(){
+  
+}
+function loadgameslot(){
+  
+}
+let currentbase64=''
+let currentdimension=dimension
+let currentbase64img=''
+var currentsoundformessage=''
 function moveTilesRandomly() {
   if(stop==0){
     for (let tileId in tileConfig) {
@@ -1940,6 +2272,64 @@ changebackground, backgroundtexture,
 hideifevent,
 showifevent,
 
+mindistance,
+playertextureleft,
+playertextureright,
+playertextureup,
+playertexturedown,
+playertexturestayleft,
+playertexturestayright,
+playertexturedefault,
+playertexturestaydown,
+changeplayertexture,
+resetkills,
+ifentityexistonVPmovetilesandthiskill,
+otherentitycollision,
+addotherclasses,
+collisionchangedimension,
+
+
+lookatobject,
+spawningdistance,//number
+spawningoffset,//[x,y]
+spawnnumber,
+despawnMS,
+
+playercollisiondistance,
+damageplayer,
+changeplayerdamage,
+spawn3inside,
+changeloopmusicwhendialogueends,
+
+changedimensionifdeffacted,
+collisionchangerandomdimension,
+whenkilledspawnSprite,
+dialiguesounds,//+stop
+
+ifvariablekillthiswhencollision,
+ifvariablekillthiswhenshown,
+regenerateplayerpos,
+/*
+
+"🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);' >changedimensionifdeffacted (number) </p>",
+
+
+"collisionchangerandomdimension [min ,max, dimension ]",
+"whenkilledspawnSprite (S...)",
+"T: dialiguesounds", //+stop
+
+
+*/
+/*"🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);'> collision change random dimension [min,max] </p>",
+"🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);'>when killed spawn But no index just (S...) </p>",
+"🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);'>every damage it will be speeder (power by an damage)</p>",
+"T: 🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);'>dialogue sound and stop when ended one message</p>",
+"🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);'>follow on entities [entities,...]</p>",*/
+
+
+
+
+NOTHING
 /*
 spawningonlywhenlooking, // 1/0
 spawningonlywhenlookingaway, // 1/0
@@ -1957,13 +2347,107 @@ spawn2onlyifrandom, // [min,max]*/
 tiles.forEach((tile) => {
   var closestIndex = 0;
   var closestDistance; // Zmienna closestDistance musi być zdefiniowana
+  
+  let executeall=0
+  let executeall2=0
+  let viewport3 = document.getElementById('viewport');
+  
+  if (damageplayer !== undefined && damageplayer !== null) {
+  tile.dataset.damage = parseInt(damageplayer) || 1
+} else {
+  tile.dataset.damage = 1
+}
+                let dist = 1
+                if (playercollisiondistance !== undefined &&playercollisiondistance&& playercollisiondistance !== null) {
+                  dist = parseInt(playercollisiondistance) ||1
+                  
+                }
+                tile.dataset.damagedist=dist
+
+let tileRect8 = tile.getBoundingClientRect();
+const viewportRect8 = viewport3.getBoundingClientRect();
+if (
+  tileRect8.top + 2 * tileSize >= viewportRect8.top &&
+  tileRect8.left + 2 * tileSize >= viewportRect8.left &&
+  tileRect8.bottom - 2 * tileSize <= viewportRect8.bottom &&
+  tileRect8.right - 2 * tileSize <= viewportRect8.right&& tile.dataset.x
+) {
+  
+  function findTileDimension(tileMapp, x, y, s) {
+  // Przejście przez wszystkie wymiary tileMap
+  for (var dimensioned = 0; dimensioned < tileMapp.length; dimensioned++) {
+    // Sprawdzenie, czy kafelek o podanych współrzędnych istnieje w danym wymiarze
+    const foundTile = tileMapp[dimensioned].find(block =>
+      parseInt(block[0]) === x &&
+      parseInt(block[1]) === y &&
+      parseInt(block[2]) === s
+    );
+
+    // Jeśli kafelek został znaleziony w danym wymiarze, zwróć numer tego wymiaru
+    if (foundTile) {
+      return dimensioned;
+    }
+  }
+
+  // Jeśli kafelek nie został znaleziony w żadnym wymiarze, zwróć -1
+  return -1;
+}
+
+// Przykładowe użycie:
+const xc = parseInt(tile.dataset.x)
+const yc = parseInt(tile.dataset.y)
+const sc = parseInt(tile.dataset.s)
+if(xc!== undefined){
+
+const dimensionIndex = findTileDimension(tileMap, xc, yc, sc);
+
+if (parseInt(dimensionIndex) == parseInt(dimension)||parseInt(dimensionIndex) == -1) {
+executeall=1
+
+//alert("something is there",parseInt(dimensionIndex));
+
+} else {
+  
+  tile.remove()
+  //alert("removing")
+  executeall=0
+}}
+  
+  
+}else{executeall=1/*
+  if(vi==1){executeall=0}else{
+  executeall=1}*/
+}
+
+
+if (
+  tileRect8.top + 2 * tileSize >= viewportRect8.top &&
+  tileRect8.left + 2 * tileSize >= viewportRect8.left &&
+  tileRect8.bottom - 2 * tileSize <= viewportRect8.bottom &&
+  tileRect8.right - 2 * tileSize <= viewportRect8.right && vi==1
+) {
+  executeall2=1
+}else if(vi==1){
+  executeall2=0
+}
+if(vi!==1){
+  executeall2=1
+}
+
+  if(executeall==1&&executeall2==1){
+  
   function removefromtilemap(){
+    
     const currentX = parseInt(tile.dataset.x)
 const currentY = parseInt(tile.dataset.y)
 const currentS = parseInt(tile.dataset.s)
 //alert(currentX+" "+currentY+" "+currentS)
 //alert(currentX+' '+currentY+' '+currentS)
 // Znajdź indeks bloku w tileMap[dimension] na podstawie dataset x, y i s
+
+
+
+
 setTimeout(function() {
   if (onece5 == 1) {
     if (finishproject == 1) {
@@ -2008,6 +2492,265 @@ var targetToY2 = null;
     var shootingTargettargetToX=-100;
     var shootingTargettargetToY=-100;
     
+if (addotherclasses!==undefined&&addotherclasses!==null&&addotherclasses!==""&&addotherclasses!=="null") {
+  for (var i = 0; i < addotherclasses.length; i++) {
+    if (!tile.classList.contains(addotherclasses[i])) {
+      tile.classList.add(addotherclasses[i]);
+    }
+  }
+}
+
+
+
+function KillThis(){
+  if(true){
+    
+   // alert("1")
+   if(cantbedamaged==1){}else{
+    let gototarget = findClosestProjetitle(tile, collisionobject);
+if (gototarget&&gototarget!==NaN&&gototarget!==null&&gototarget!==undefined) {
+  gototarget.remove()
+}}
+//alert("2")
+                  // Player attacks entity, decrement HP
+                  
+                  if(ifvariablekillthiswhenshown!==undefined&&ifvariablekillthiswhenshown!==null){
+                    tile.dataset.hp -= 5;
+                  }
+                  if (ifvariablekillthiswhencollision !== undefined && ifvariablekillthiswhencollision !== null) {
+  tile.dataset.hp -= 5;
+}
+                  tile.dataset.hp -= config.playerdamage;
+
+if(config.folder!==undefined){
+ // alert(config.folder.sounds.player[2])
+  if(config.folder.sounds.player[2]){
+  let newaudio;
+  const base64Wav = config.folder.sounds.player[2];
+  
+  // Utwórz nowy odtwarzacz audio
+  newaudio = new Audio();
+  newaudio.src = base64Wav;
+  newaudio.setAttribute('preload', 'auto');
+  
+  // Dodaj odtwarzacz do dokumentu
+  document.body.appendChild(newaudio);
+  
+  // Odtwórz plik audio WAV
+  newaudio.play();
+  }}
+                  if (tile.dataset.hp < 1) {
+
+                    
+if(changedimensionifdeffacted!==undefined&&changedimensionifdeffacted!==null&&changedimensionifdeffacted!==" "){
+  dimension=parseInt(changedimensionifdeffacted)
+  config.dimension=parseInt(changedimensionifdeffacted)
+}
+/*
+
+if(spawn_if_killed!==undefined&&spawn_if_killed!==null&&spawn_if_killed!=="undefined"){
+  
+     let numbersprites=1
+     if(spawnnumber!==undefined&&spawnnumber!==null&&spawnnumber!=="null"&&spawnnumber!==""){
+       numbersprites=spawnnumber
+       
+     }else{
+       numbersprites=1
+     }
+  //   alert(spawnnumber)
+     for(let i=0;i<numbersprites;i++){
+          let el= document.createElement('div')
+     
+//     alert("spawned")
+     
+     let ofss=1
+     if(ofss!==undefined&&ofss!==null){
+       ofss=spawningdistance*tileSize
+     }else{
+       ofss=1
+     }
+     let offsetXt=0
+     let offsetYt=0
+     if(spawningoffset!==undefined&&spawningoffset!==null){
+     if (spawningoffset[0] !== undefined && spawningoffset[1] !== undefined && spawningoffset[0] !== null && spawningoffset[1] !== null && spawningoffset !== undefined && spawningoffset !== null) {
+       if(spawningoffset[0]!==undefined){
+  offsetXt = parseFloat(spawningoffset[0])*tileSize
+       }if(spawningoffset[1]!==undefined){
+  offsetYt = parseFloat(spawningoffset[1])*tileSize
+       }
+}
+if(offsetXt==undefined&&offsetYt==undefined){offsetXt = 0
+offsetYt = 0}else{
+  
+}}
+     let x=(left+Math.floor(Math.random()*(ofss*2))-ofss)+offsetXt
+     let y=(top+Math.floor(Math.random()*(ofss*2))-ofss)+offsetYt
+     if(isNaN(x)){
+       x=(left+Math.floor(Math.random()*(ofss*2))-ofss)
+       y=(top+Math.floor(Math.random()*(ofss*2))-ofss)
+if (isNaN(x)) {
+  x = left
+  y = top
+}
+     }
+     
+//alert(x+" "+y+" "+left)
+    let elm=parseInt(spawn_if_killed)
+    
+     el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
+     
+     el.style.backgroundImage = `url('${TILES[elm][2]}')`;
+       
+       el.style.left = x+"px"
+       el.style.top = y+"px"
+       el.style.zIndex="5"
+       el.classList.add('SPRITE')
+       
+       // tile.style.willChange = 'transform';
+       el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
+       el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
+       el.style.transform=`scale(${TILES[elm][3]||1})`;
+       //alert(TILES[elm][1]+' '+TILES[elm][2])
+       document.querySelector('#Econtent').appendChild(el);
+     }
+}
+*/
+
+
+
+if(spawn_if_killed!==undefined&&spawn_if_killed!==null&&spawn_if_killed!=="undefined"){
+  
+     let numbersprites=1
+     if(spawnnumber!==undefined&&spawnnumber!==null&&spawnnumber!=="null"&&spawnnumber!==""){
+       numbersprites=spawnnumber
+       
+     }else{
+       numbersprites=1
+     }
+  //   alert(spawnnumber)
+     for(let i=0;i<numbersprites;i++){
+          let el= document.createElement('div')
+     
+//     alert("spawned")
+     
+     let ofss=1
+     if(ofss!==undefined&&ofss!==null){
+       ofss=spawningdistance*tileSize
+     }else{
+       ofss=1
+     }
+     let offsetXt=0
+     let offsetYt=0
+     if(spawningoffset!==undefined&&spawningoffset!==null){
+     if (spawningoffset[0] !== undefined && spawningoffset[1] !== undefined && spawningoffset[0] !== null && spawningoffset[1] !== null && spawningoffset !== undefined && spawningoffset !== null) {
+       if(spawningoffset[0]!==undefined){
+  offsetXt = parseFloat(spawningoffset[0])*tileSize
+       }if(spawningoffset[1]!==undefined){
+  offsetYt = parseFloat(spawningoffset[1])*tileSize
+       }
+}
+if(offsetXt==undefined&&offsetYt==undefined){offsetXt = 0
+offsetYt = 0}else{
+  
+}}
+     let x=(left+Math.floor(Math.random()*(ofss*2))-ofss)+offsetXt
+     let y=(top+Math.floor(Math.random()*(ofss*2))-ofss)+offsetYt
+     if(isNaN(x)){
+       x=(left+Math.floor(Math.random()*(ofss*2))-ofss)
+       y=(top+Math.floor(Math.random()*(ofss*2))-ofss)
+if (isNaN(x)) {
+  x = left
+  y = top
+}
+     }
+     
+//alert(x+" "+y+" "+left)
+    let elm=parseInt(spawn_if_killed)
+    
+     el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
+     
+     el.style.backgroundImage = `url('${TILES[elm][2]}')`;
+       
+       el.style.left = x+"px"
+       el.style.top = y+"px"
+       el.style.zIndex="5"
+       el.classList.add('SPRITE')
+       
+       // tile.style.willChange = 'transform';
+       el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
+       el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
+       el.style.transform=`scale(${TILES[elm][3]||1})`;
+       //alert(TILES[elm][1]+' '+TILES[elm][2])
+       document.querySelector('#Econtent').appendChild(el);
+     }
+}
+// Pobierz wartości dataset x, y i s dla bieżącego bloku
+const currentX = parseInt(tile.dataset.x)
+const currentY = parseInt(tile.dataset.y)
+const currentS = parseInt(tile.dataset.s)
+//alert(currentX+" "+currentY+" "+currentS)
+//alert(currentX+' '+currentY+' '+currentS)
+// Znajdź indeks bloku w tileMap[dimension] na podstawie dataset x, y i s
+setTimeout(function() {
+  if (onece5 == 1) {
+    if (finishproject == 1) {
+      onece5 = 0;
+      for (var i = 0; i < 2; i++) {
+
+        const blocksToRemove = tileMap[dimension].filter(block =>
+          parseInt(block[0]) === currentX &&
+          parseInt(block[1]) === currentY &&
+          parseInt(block[2]) === currentS
+        );
+
+        blocksToRemove.forEach(blockToRemove => {
+          const indexToRemove = tileMap[dimension].indexOf(blockToRemove);
+          tileMap[dimension].splice(indexToRemove, 1);
+        });
+
+   //     config.savedTileMap = tileMap;
+
+        setTimeout(function() {
+          onece5 = 1;
+        }, 100);
+      }
+    }
+  }
+}, 300);
+
+
+
+
+
+
+
+
+
+if(movetilesdeffacted!==undefined&&movetilesdeffacted!==null){
+  movemap(movetilesdeffacted[1],movetilesdeffacted[2],movetilesdeffacted[0]);
+}
+if(despawn!==undefined&&despawnMS!==undefined||cantbedamaged!==1){
+  
+                    if (score1 == 1) {
+                      score += 1
+                    } else {
+                      killed += 1;
+                      config.killed+=1
+                    }
+}
+                    // Remove 
+                    // Entity is defeated, remove the tile
+                    tile.remove();
+                    deletedtiles.push(tile);
+                  }
+                                      }
+}
+
+
+
+
+
+
 
 
     const viewport = document.getElementById('viewport');
@@ -2076,17 +2819,41 @@ Array.from(document.getElementsByClassName(collisionobject)).forEach(element => 
 console.log(closestIndex)
 
 
+
+if(despawnMS!==undefined&&despawnMS!==null&&despawnMS!==""){
+  if (!tile.dataset.desapwning) {
+  tile.dataset.desapwning = 1
+  setTimeout(function(){
+if (initialHp > 10) {
+  deletedtiles.push(tile);
+  tile.remove()
+} else {
+  KillThis()
+}
+  },parseInt(despawnMS))
+  }
+}
+
+
               if (despawn!==undefined&&despawn!==null&&despawn!=="") {
                 if (!tile.dataset.despawn) {
                   tile.dataset.despawn = despawn
                 }
                 tile.dataset.despawn--;
                 if (tile.dataset.despawn < 1) {
+                  if(initialHp>10){
                   deletedtiles.push(tile);
                   
                   tile.remove()
+                  }else{
+                    KillThis()
+                  }
                 }
               }
+              
+              
+
+
                if(spawn!==undefined&&spawn!==null&&spawn!==""){
     if (!tile.dataset.spawnduration) {
       tile.dataset.spawnduration = spawn[0];
@@ -2101,6 +2868,16 @@ console.log(closestIndex)
     if (!tile.dataset.currentdurationtime2) {
       tile.dataset.currentdurationtime2 = spawn2[0];
     }}
+    
+    if(spawn3inside!==undefined&&spawn3inside!==null&&spawn3inside!==""){
+    if (!tile.dataset.spawnduration3) {
+      tile.dataset.spawnduration3 = spawn3inside[0];
+    }
+    if (!tile.dataset.currentdurationtime3) {
+      tile.dataset.currentdurationtime3 = spawn3inside[0];
+    }}
+
+
     if (document.getElementsByClassName(collisionobject).length > 0) {
         gototarget = document.getElementsByClassName(collisionobject)[closestIndex];
         targetToX = parseInt(gototarget.style.left) / tileSize;
@@ -2147,31 +2924,148 @@ if(puzzleblock==1){
     }
 }
 */
+
+
+if (spawn3inside !== undefined && spawn3inside !== null && spawn3inside !== "") {
+  let duration = tile.dataset.spawnduration3
+  let counting = tile.dataset.currentdurationtime3
+  let element = spawn3inside[1]
+  tile.dataset.currentdurationtime3--
+  if (tile.dataset.currentdurationtime3 < 1) {
+tile.dataset.currentdurationtime3 = duration
+     let numbersprites=1
+     //alert("he")
+     
+
+     for(let i=0;i<numbersprites;i++){
+       
+     let el= document.createElement('div')
+     
+//     alert("spawned")
+     
+     let ofss=1
+     if(ofss!==undefined&&ofss!==null){
+       ofss=1
+     }else{
+       ofss=1
+     }
+     let offsetXt=0
+     let offsetYt=0
+     if(spawningoffset!==undefined&&spawningoffset!==null){
+     if (spawningoffset[0] !== undefined && spawningoffset[1] !== undefined && spawningoffset[0] !== null && spawningoffset[1] !== null && spawningoffset !== undefined && spawningoffset !== null) {
+       if(spawningoffset[0]!==undefined){
+  offsetXt = parseFloat(spawningoffset[0])*tileSize
+       }if(spawningoffset[1]!==undefined){
+  offsetYt = parseFloat(spawningoffset[1])*tileSize
+       }
+}
+if(offsetXt==undefined&&offsetYt==undefined){offsetXt = 0
+offsetYt = 0}else{
+  
+}}
+     let x=(left+Math.floor(Math.random()*(ofss*2))-ofss)+offsetXt
+     let y=(top+Math.floor(Math.random()*(ofss*2))-ofss)+offsetYt
+     if(isNaN(x)){
+       x=(left+Math.floor(Math.random()*(ofss*2))-ofss)
+       y=(top+Math.floor(Math.random()*(ofss*2))-ofss)
+if (isNaN(x)) {
+  x = left
+  y = top
+}
+     }
+     
+//alert(x+" "+y+" "+left)
+    let elm=parseInt(element)
+    
+     el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
+     
+     el.style.backgroundImage = `url('${TILES[elm][2]}')`;
+       
+       el.style.left = x+"px"
+       el.style.top = y+"px"
+       el.style.zIndex="5"
+       el.classList.add('SPRITE')
+       el.style.transform=`scale(${TILES[elm][3]||1})`;
+       // tile.style.willChange = 'transform';
+       el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
+       el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
+       //alert(TILES[elm][1]+' '+TILES[elm][2])
+       document.querySelector('#Econtent').appendChild(el);
+     }
+  }
+}
+
 if (spawn2 !== undefined && spawn2 !== null && spawn2 !== "") {
   let duration = tile.dataset.spawnduration2
   let counting = tile.dataset.currentdurationtime2
   let element = spawn2[1]
   tile.dataset.currentdurationtime2--
   if (tile.dataset.currentdurationtime2 < 1) {
-    tile.dataset.currentdurationtime2 = duration
-    let el = document.createElement('div')
-    let x = left
-    let y = top
-    let elm = parseInt(element)
-
-    el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
-
-    el.style.backgroundImage = `url('${TILES[elm][2]}')`;
-
-    el.style.left = x + "px"
-    el.style.top = y + "px"
-    el.style.zIndex = "5"
-    el.classList.add('SPRITE')
-    // tile.style.willChange = 'transform';
-    el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
-    el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
-    //alert(TILES[elm][1]+' '+TILES[elm][2])
-    document.querySelector('#Econtent').appendChild(el);
+tile.dataset.currentdurationtime2 = duration
+     let numbersprites=1
+     //alert("he")
+     if(spawnnumber!==undefined&&spawnnumber!==null&&spawnnumber!=="null"&&spawnnumber!==""){
+       numbersprites=spawnnumber
+       
+     }else{
+       numbersprites=1
+     }
+     for(let i=0;i<numbersprites;i++){
+       
+     let el= document.createElement('div')
+     
+//     alert("spawned")
+     
+     let ofss=1
+     if(ofss!==undefined&&ofss!==null){
+       ofss=spawningdistance*tileSize
+     }else{
+       ofss=1
+     }
+     let offsetXt=0
+     let offsetYt=0
+     if(spawningoffset!==undefined&&spawningoffset!==null){
+     if (spawningoffset[0] !== undefined && spawningoffset[1] !== undefined && spawningoffset[0] !== null && spawningoffset[1] !== null && spawningoffset !== undefined && spawningoffset !== null) {
+       if(spawningoffset[0]!==undefined){
+  offsetXt = parseFloat(spawningoffset[0])*tileSize
+       }if(spawningoffset[1]!==undefined){
+  offsetYt = parseFloat(spawningoffset[1])*tileSize
+       }
+}
+if(offsetXt==undefined&&offsetYt==undefined){offsetXt = 0
+offsetYt = 0}else{
+  
+}}
+     let x=(left+Math.floor(Math.random()*(ofss*2))-ofss)+offsetXt
+     let y=(top+Math.floor(Math.random()*(ofss*2))-ofss)+offsetYt
+     if(isNaN(x)){
+       x=(left+Math.floor(Math.random()*(ofss*2))-ofss)
+       y=(top+Math.floor(Math.random()*(ofss*2))-ofss)
+if (isNaN(x)) {
+  x = left
+  y = top
+}
+     }
+     
+//alert(x+" "+y+" "+left)
+    let elm=parseInt(element)
+    
+     el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
+     
+     el.style.backgroundImage = `url('${TILES[elm][2]}')`;
+       
+       el.style.left = x+"px"
+       el.style.top = y+"px"
+       el.style.zIndex="5"
+       tile.style.transform=`scale(${TILES[elm][3]||1})`;
+       el.classList.add('SPRITE')
+       el.style.transform=`scale(${TILES[elm][3]||1})`;
+       // tile.style.willChange = 'transform';
+       el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
+       el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
+       //alert(TILES[elm][1]+' '+TILES[elm][2])
+       document.querySelector('#Econtent').appendChild(el);
+     }
   }
 }
 if(!tile.delaylagreduce&&showindicator === 1||showindicator === "1"){
@@ -2224,9 +3118,50 @@ if(!tile.delaylagreduce&&showindicator === 1||showindicator === "1"){
    tile.dataset.currentdurationtime --
    if(tile.dataset.currentdurationtime  < 1){
      tile.dataset.currentdurationtime = duration
+     let numbersprites=1
+     if(spawnnumber!==undefined&&spawnnumber!==null&&spawnnumber!=="null"&&spawnnumber!==""){
+       numbersprites=spawnnumber
+       
+     }else{
+       numbersprites=1
+     }
+     for(let i=0;i<numbersprites;i++){
      let el= document.createElement('div')
-     let x=left
-     let y=top
+     
+//     alert("spawned")
+     
+     let ofss=1
+     if(ofss!==undefined&&ofss!==null){
+       ofss=spawningdistance*tileSize
+     }else{
+       ofss=1
+     }
+     let offsetXt=0
+     let offsetYt=0
+     if(spawningoffset!==undefined&&spawningoffset!==null){
+     if (spawningoffset[0] !== undefined && spawningoffset[1] !== undefined && spawningoffset[0] !== null && spawningoffset[1] !== null && spawningoffset !== undefined && spawningoffset !== null) {
+       if(spawningoffset[0]!==undefined){
+  offsetXt = parseFloat(spawningoffset[0])*tileSize
+       }if(spawningoffset[1]!==undefined){
+  offsetYt = parseFloat(spawningoffset[1])*tileSize
+       }
+}
+if(offsetXt==undefined&&offsetYt==undefined){offsetXt = 0
+offsetYt = 0}else{
+  
+}}
+     let x=(left+Math.floor(Math.random()*(ofss*2))-ofss)+offsetXt
+     let y=(top+Math.floor(Math.random()*(ofss*2))-ofss)+offsetYt
+     if(isNaN(x)){
+       x=(left+Math.floor(Math.random()*(ofss*2))-ofss)
+       y=(top+Math.floor(Math.random()*(ofss*2))-ofss)
+if (isNaN(x)) {
+  x = left
+  y = top
+}
+     }
+     
+//alert(x+" "+y+" "+left)
     let elm=parseInt(element)
     
      el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
@@ -2235,14 +3170,16 @@ if(!tile.delaylagreduce&&showindicator === 1||showindicator === "1"){
        
        el.style.left = x+"px"
        el.style.top = y+"px"
+       el.style.transform=`scale(${TILES[element][3]||1})`;
        el.style.zIndex="5"
        el.classList.add('SPRITE')
+       
        // tile.style.willChange = 'transform';
        el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
        el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
        //alert(TILES[elm][1]+' '+TILES[elm][2])
        document.querySelector('#Econtent').appendChild(el);
-     }
+     }}
    }
  
     
@@ -2283,7 +3220,211 @@ if(anableshootingattackforentities==1){
                    distanceToProjectile = Math.sqrt((shootingTargettargetToX - left / tileSize) ** 2 + (shootingTargettargetToY - top / tileSize) ** 2);
                 }
                 let distanceToPlayer = Math.sqrt((targetToX - left / tileSize) ** 2 + (targetToY - top / tileSize) ** 2);
-                if(distanceToPlayer <= 1.1 ){
+                
+                
+if(otherentitycollision!==undefined&&otherentitycollision!==null&&otherentitycollision!==NaN&&otherentitycollision!==""){
+  
+for (let tileId in tileConfig) {
+  let tiles = document.querySelectorAll(`.${tileId}`);
+  tiles.forEach((tiled) => {
+    let viewport2 = document.getElementById('viewport');
+    const tileRect = tiled.getBoundingClientRect();
+    const viewportRect = viewport2.getBoundingClientRect();
+    if (
+      tileRect.top + 2 * tileSize >= viewportRect.top &&
+      tileRect.left + 2 * tileSize >= viewportRect.left &&
+      tileRect.bottom - 2 * tileSize <= viewportRect.bottom &&
+      tileRect.right - 2 * tileSize <= viewportRect.right
+    ) {
+      let elm = parseInt(tiled.dataset.s)
+      let snum = TILES[elm][1]
+      if (snum == parseInt(otherentitycollision)) {
+        let targetDX= parseInt(tiled.style.left)/tileSize
+        let targetDY= parseInt(tiled.style.left)/tileSize
+        let distanceToElement = Math.sqrt((targetDX - left / tileSize) ** 2 + (targetDY - top / tileSize) ** 2);
+        
+        if(distanceToElement<1.5){
+          KillThis()
+        }
+      }
+    }
+  })
+}
+}
+
+
+if(lookatobject==1){
+  
+const playerCenterXz = targetToX 
+const playerCenterYz = targetToY
+
+const deltaXz = playerCenterXz - (parseInt(tile.style.left)/tileSize);
+const deltaYz = playerCenterYz - (parseInt(tile.style.top)/tileSize);
+//ostclick
+let anglez = Math.atan2(deltaYz, deltaXz) * (180 / Math.PI);
+
+tile.style.transform=`rotate(${anglez}deg)`
+}
+if (ifvariablekillthiswhenshown !== undefined && ifvariablekillthiswhenshown !== null) {
+  let name = ifvariablekillthiswhenshown[0];
+  let operator = ifvariablekillthiswhenshown[1];
+  let value = parseInt(ifvariablekillthiswhenshown[2]);
+
+  
+
+  let operators = {
+    "=": (a, b) => a == b,
+    "==": (a, b) => a == b,
+    "===": (a, b) => a === b,
+    "!=": (a, b) => a !== b,
+    "!==": (a, b) => a !== b,
+    "<": (a, b) => a < b,
+    ">": (a, b) => a > b,
+    "<=": (a, b) => a <= b,
+    ">=": (a, b) => a >= b
+  };
+
+  if (Vables.hasOwnProperty(name) && operators[operator](Vables[name], value)) {
+    KillThis();
+  }
+}
+
+                if(distanceToPlayer <= dist ){
+
+if (ifvariablekillthiswhencollision !== undefined && ifvariablekillthiswhencollision !== null) {
+  let name = ifvariablekillthiswhencollision[0];
+  let operator = ifvariablekillthiswhencollision[1];
+  let value = parseInt(ifvariablekillthiswhencollision[2]);
+
+  
+
+  let operators = {
+    "=": (a, b) => a == b,
+    "==": (a, b) => a == b,
+    "===": (a, b) => a === b,
+    "!=": (a, b) => a !== b,
+    "!==": (a, b) => a !== b,
+    "<": (a, b) => a < b,
+    ">": (a, b) => a > b,
+    "<=": (a, b) => a <= b,
+    ">=": (a, b) => a >= b
+  };
+
+  if (Vables.hasOwnProperty(name) && operators[operator](Vables[name], value)) {
+    KillThis();
+  }
+}
+
+
+
+if(changeplayerdamage!==undefined&&changeplayerdamage!==null&&changeplayerdamage!==' '){
+  config.playerdamage=parseInt(changeplayerdamage)
+}
+
+
+  if(collisionchangerandomdimension!==undefined&&collisionchangerandomdimension!==null){
+  const randomDimension = Math.floor(Math.random() * (collisionchangerandomdimension[1] - collisionchangerandomdimension[0] + 1)) + collisionchangerandomdimension[0];
+  if (randomDimension !== undefined && randomDimension !== null && randomDimension !== "undefined") {
+    dimension = parseInt(randomDimension);
+    config.dimension = parseInt(randomDimension);
+    updateViewport();
+  }}
+
+
+
+
+
+if(collisionchangedimension!==undefined &&collisionchangedimension!==null&&collisionchangedimension!=="undefined"){
+  dimension=parseInt(collisionchangedimension)
+  config.dimension=parseInt(collisionchangedimension)
+  updateViewport()
+}
+if(resetkills==1){
+  killed=0
+  config.killed=0
+}
+/*
+*-----------------------------------------*
+
+*-----------------------------------------*
+
+*-----------------------------------------*
+
+*-----------------------------------------*
+  
+  
+                Distance Player
+  
+
+*-----------------------------------------*
+
+*-----------------------------------------*
+
+*-----------------------------------------*
+
+*-----------------------------------------*
+*/
+if(ifentityexistonVPmovetilesandthiskill!==undefined&&ifentityexistonVPmovetilesandthiskill!==null&&ifentityexistonVPmovetilesandthiskill!=="undefined"&&ifentityexistonVPmovetilesandthiskill!==null){
+  let output1=0
+  for (let tileId in tileConfig) {
+    let tiles = document.querySelectorAll(`.${tileId}`);
+  tiles.forEach((tiled) => {
+    let viewport2 = document.getElementById('viewport');
+    const tileRect = tiled.getBoundingClientRect();
+const viewportRect = viewport2.getBoundingClientRect();
+              if (
+            tileRect.top + 2 * tileSize >= viewportRect.top &&
+            tileRect.left + 2 * tileSize >= viewportRect.left &&
+            tileRect.bottom - 2 * tileSize <= viewportRect.bottom &&
+            tileRect.right - 2 * tileSize <= viewportRect.right
+          ) {
+            let elm=parseInt(tiled.dataset.s)
+            let snum=TILES[elm][1]
+if(snum==parseInt(ifentityexistonVPmovetilesandthiskill)){
+  output1=1
+  KillThis()
+}
+          } 
+  })
+}
+  
+  
+  
+}
+
+if(changeplayertexture==1){
+  if(playertextureleft!==undefined){
+    config.folder.texture.player[1]=playertextureleft
+  }
+  if (playertextureright!==undefined) {
+config.folder.texture.player[2]=playertextureright
+}
+if (playertexturedown!==undefined) {
+config.folder.texture.player[6]=playertexturedown
+}
+if (playertextureup!==undefined) {
+config.folder.texture.player[3]=playertextureup
+}
+/*if(playertexturestayup!==undefined){
+  
+}*/
+if (playertexturestaydown !== undefined) {
+config.folder.texture.player[7]=playertexturestaydown
+}
+if (playertexturestayleft !== undefined) {
+config.folder.texture.player[5]=playertexturestayleft
+}
+if (playertexturestayright !== undefined) {
+config.folder.texture.player[4]=playertexturestayright
+}
+if(playertexturedefault !==undefined){
+playerskin=playertexturedefault
+}
+}
+
+
+
+
 if(hideifevent!==undefined&&hideifevent!==null&&hideifevent!=="undefined"&&hideifevent!==""){
   document.getElementById(hideifevent).style.display="none"
 }
@@ -2292,6 +3433,7 @@ if (showifevent !== undefined && showifevent !== null && showifevent !== "undefi
 }
 if(parseInt(changebackground)==1){
   let texture=backgroundtexture
+   currentbase64img=TILES[texture][2]
                       document.getElementById('content').style.backgroundImage = `url('${TILES[texture][2]}')`
 
 
@@ -2326,12 +3468,50 @@ if(parseInt(changebackground)==1){
   movemap(dialogueends_killedmoveandthisremove[2], dialogueends_killedmoveandthisremove[3], dialogueends_killedmoveandthisremove[1]);
   deletedtiles.push(tile)
   tile.remove()
+  
+if (changeloopmusicwhendialogueends !== undefined && changeloopmusicwhendialogueends !== null) {
+  if (audioInstance !== undefined) {
+    // Jeżeli istnieje istniejący odtwarzacz audio, zatrzymaj go
+    audioInstance.pause();
+    audioInstance.currentTime = 0;
+    audioInstance = null;
+  }
+
+  if (changeloopmusicwhendialogueends !== '') {
+    const base64Wav = changeloopmusicwhendialogueends;
+    currentbase64 = changeloopmusicwhendialogueends
+
+    // Utwórz nowy odtwarzacz audio
+    audioInstance = new Audio();
+    audioInstance.src = base64Wav;
+    audioInstance.setAttribute('preload', 'auto');
+
+    // Dodaj odtwarzacz do dokumentu
+    document.body.appendChild(audioInstance);
+
+    // Obsługa zdarzenia canplay
+    audioInstance.addEventListener('canplay', function() {
+      // Odtwórz plik audio WAV
+      audioInstance.play().catch(function(error) {
+        console.log("Błąd odtwarzania dźwięku:", error);
+      });
+    });
+
+    audioInstance.loop = true;
+    toonce = 0;
+  }
+}
+
+
   removefromtilemap()
 }
                   
                   if (!tile.dataset.dialogue&&NPCdialogue!==undefined &&NPCdialogue!==null&& NPCdialogue!==""&& NPCdialogue!=="null") {
   tile.dataset.dialogue = 0
   
+}
+if(dialiguesounds!==undefined&&dialiguesounds!==null){
+  currentsoundformessage=dialiguesounds
 }
 if(tile.dataset.dialogue == 0&&NPCdialogue!==undefined &&NPCdialogue!==null&& NPCdialogue!==""&& NPCdialogue!=="null"){
   
@@ -2358,6 +3538,40 @@ if (NPCdialogueends_spawn !== "" && NPCdialogueends_spawn !== "null" && NPCdialo
     tile.dataset.ONESPAWN=1
 deletedtiles.push(tile)
 tile.remove()
+
+if (changeloopmusicwhendialogueends !== undefined && changeloopmusicwhendialogueends !== null) {
+  if (audioInstance !== undefined) {
+    // Jeżeli istnieje istniejący odtwarzacz audio, zatrzymaj go
+    audioInstance.pause();
+    audioInstance.currentTime = 0;
+    audioInstance = null;
+  }
+
+  if (changeloopmusicwhendialogueends !== '') {
+    const base64Wav = changeloopmusicwhendialogueends;
+    currentbase64 = changeloopmusicwhendialogueends
+
+    // Utwórz nowy odtwarzacz audio
+    audioInstance = new Audio();
+    audioInstance.src = base64Wav;
+    audioInstance.setAttribute('preload', 'auto');
+
+    // Dodaj odtwarzacz do dokumentu
+    document.body.appendChild(audioInstance);
+
+    // Obsługa zdarzenia canplay
+    audioInstance.addEventListener('canplay', function() {
+      // Odtwórz plik audio WAV
+      audioInstance.play().catch(function(error) {
+        console.log("Błąd odtwarzania dźwięku:", error);
+      });
+    });
+
+    audioInstance.loop = true;
+    toonce = 0;
+  }
+}
+
     let element = NPCdialogueends_spawn
 
 
@@ -2372,6 +3586,7 @@ tile.remove()
     el.style.zIndex = "5"
     el.style.left = x + "px"
     el.style.top = y + "px"
+    el.style.transform=`scale(${TILES[element][3]||1})`;
     el.classList.add('SPRITE')
     // tile.style.willChange = 'transform';
     el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
@@ -2403,7 +3618,7 @@ if (collisiontexture !== null && collisiontexture !== undefined && tile.dataset.
   
   tile.style.backgroundImage = `url('${collisiontexture}')`;
 setTimeout(function() {
-  if (distanceToPlayer <= 0.5) {
+  if (distanceToPlayer <= dist/2) {
   tile.style.backgroundImage = `url('${collisiontexture}')`;
 tile.dataset.once0C2 = 0;
 }
@@ -2486,6 +3701,11 @@ if (collisioneventprojectilesize !== null && collisioneventprojectilesize !== un
                     },3000)
                   }
                 if(spawnpoint==1){
+                  config.oldmusic=currentbase64
+                  config.savedTileMap=tileMap;
+                  config.olddimension=dimension
+                  config.dimension=dimension
+                  config.oldbg=currentbase64img
                   config.spawnX=left / tileSize
                   config.spawnY=(top / tileSize)-1
                 }
@@ -2507,6 +3727,7 @@ if (changeLoopMusic !== undefined && changeLoopMusic !== null) {
 
     if (changeLoopMusic !== '') {
         const base64Wav = changeLoopMusic;
+        currentbase64=changeLoopMusic
 
         // Utwórz nowy odtwarzacz audio
         audioInstance = new Audio();
@@ -2537,7 +3758,7 @@ if (changeLoopMusic !== undefined && changeLoopMusic !== null) {
 
     if (config.music !== '') {
         const base64Wav = config.music;
-
+currentbase64=changeLoopMusic
         // Utwórz nowy odtwarzacz audio
         audioInstance = new Audio();
         audioInstance.src = base64Wav;
@@ -2565,7 +3786,7 @@ if (changeLoopMusic !== undefined && changeLoopMusic !== null) {
                 
 if(collectable!==1&&collectable!==undefined){
     }else{
-      if (collecting === 1 && distanceToPlayer <= 2) {
+      if (collecting === 1 && distanceToPlayer <= dist*2) {
       // Pobierz wartości dataset x, y i s dla bieżącego bloku
       
       
@@ -2593,7 +3814,7 @@ setTimeout(function() {
           tileMap[dimension].splice(indexToRemove, 1);
         });
 
-        config.savedTileMap = tileMap;
+    //    config.savedTileMap = tileMap;
 
         setTimeout(function() {
           onece5 = 1;
@@ -2622,244 +3843,15 @@ tile.remove();
     }
                 
                 if(collectable!==1){
-                  if(attack === 1 && distanceToPlayer <= 1 && anableshootingattackforentities !==1 ){
+                  if(attack === 1 && distanceToPlayer <= dist && anableshootingattackforentities !==1 ){
 if(cantbedamaged!==1||cantbedamaged==undefined||cantbedamaged==null){
-                  // Player attacks entity, decrement HP
-                  tile.dataset.hp -= 1;
-
-if(config.folder!==undefined){
- // alert(config.folder.sounds.player[2])
-  if(config.folder.sounds.player[2]){
-  let newaudio;
-  const base64Wav = config.folder.sounds.player[2];
-  
-  // Utwórz nowy odtwarzacz audio
-  newaudio = new Audio();
-  newaudio.src = base64Wav;
-  newaudio.setAttribute('preload', 'auto');
-  
-  // Dodaj odtwarzacz do dokumentu
-  document.body.appendChild(newaudio);
-  
-  // Odtwórz plik audio WAV
-  newaudio.play();
-  }}
-                  if (tile.dataset.hp < 1) {
-
-                    
-
-if(spawn_if_killed!==undefined&&spawn_if_killed!==null&&spawn_if_killed!=="undefined"){
-  let el = document.createElement('div')
-let x = left
-let y = top
-let elm = parseInt(spawn_if_killed)
-
-el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
-
-el.style.backgroundImage = `url('${TILES[elm][2]}')`;
-
-el.style.left = x + "px"
-el.style.top = y + "px"
-el.style.zIndex = "5"
-el.classList.add('SPRITE')
-// tile.style.willChange = 'transform';
-el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
-el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
-//alert(TILES[elm][1]+' '+TILES[elm][2])
-document.querySelector('#Econtent').appendChild(el);
+ KillThis()
 }
-// Pobierz wartości dataset x, y i s dla bieżącego bloku
-const currentX = parseInt(tile.dataset.x)
-const currentY = parseInt(tile.dataset.y)
-const currentS = parseInt(tile.dataset.s)
-//alert(currentX+" "+currentY+" "+currentS)
-//alert(currentX+' '+currentY+' '+currentS)
-// Znajdź indeks bloku w tileMap[dimension] na podstawie dataset x, y i s
-setTimeout(function() {
-  if (onece5 == 1) {
-    if (finishproject == 1) {
-      onece5 = 0;
-      for (var i = 0; i < 2; i++) {
-
-        const blocksToRemove = tileMap[dimension].filter(block =>
-          parseInt(block[0]) === currentX &&
-          parseInt(block[1]) === currentY &&
-          parseInt(block[2]) === currentS
-        );
-
-        blocksToRemove.forEach(blockToRemove => {
-          const indexToRemove = tileMap[dimension].indexOf(blockToRemove);
-          tileMap[dimension].splice(indexToRemove, 1);
-        });
-
-        config.savedTileMap = tileMap;
-
-        setTimeout(function() {
-          onece5 = 1;
-        }, 100);
-      }
-    }
-  }
-}, 300);
-
-
-if(movetilesdeffacted!==undefined&&movetilesdeffacted!==null){
-  movemap(movetilesdeffacted[1],movetilesdeffacted[2],movetilesdeffacted[0]);
-}
-                    if (score1 == 1) {
-                      score += 1
-                    } else {
-                      killed += 1;
-                    }
-                    // Remove 
-                    // Entity is defeated, remove the tile
-                    tile.remove();
-                    deletedtiles.push(tile);
-                  }
-                                      }
                   } else  if (attack === 1 &&  distanceToProjectile <= 1) {
                   //alert("")
                   if(cantbedamaged!==1||cantbedamaged==undefined||cantbedamaged==null){
-                  // Player attacks entity, decrement HP
-                  tile.dataset.hp -= 1;
-                 // console.log(tile.dataset.hp);
-                 let gototarget = findClosestProjetitle(tile, collisionobject);
-                 if(gototarget){
-                 gototarget.remove()
-                 }
-                 
-                 
-
-// Pobierz obecne tło
-
-
-// Ustaw nowe tło
-if (!tile.dataset.once0C) {
-  tile.dataset.once0C = 0;
-}
-
-if (gethurttexture !== null && gethurttexture !== undefined && tile.dataset.once0C == 0) {
-  tile.dataset.once0C = 1;
-  var previousBackground = tile.style.backgroundImage;
-  
-  tile.style.backgroundImage = `url('${gethurttexture}')`;
-  tile.style.backgroundSize = "100%";
-
-  if (gethurtdelay !== undefined && gethurtdelay !== null) {
-    setTimeout(function () {
-      tile.style.backgroundImage = previousBackground;
-      tile.style.backgroundSize = "100%";
-      tile.dataset.once0C = 0;
-    }, parseInt(gethurtdelay));
-  }
-}
-
-// Teraz wartość poprzedniego tła jest przechowywana w zmiennej previousBackground
-
-
-if(config.folder!==undefined){
- // alert(config.folder.sounds.player[2])
-  if(config.folder.sounds.player[2]){
-  let newaudio;
-  const base64Wav = config.folder.sounds.player[2];
-  
-  // Utwórz nowy odtwarzacz audio
-  newaudio = new Audio();
-  newaudio.src = base64Wav;
-  newaudio.setAttribute('preload', 'auto');
-  
-  // Dodaj odtwarzacz do dokumentu
-  document.body.appendChild(newaudio);
-  
-  // Odtwórz plik audio WAV
-  newaudio.play();
-  }}
-                  if (tile.dataset.hp < 1) {
-
-                    
-if (spawn_if_killed !== undefined && spawn_if_killed !== null && spawn_if_killed !== "undefined") {
-  let el = document.createElement('div')
-  let x = left
-  let y = top
-  let elm = parseInt(spawn_if_killed)
-
-  el.className = `alltiles${TILES[elm][1]} tile1 sprite${TILES[elm][1]}`;
-
-  el.style.backgroundImage = `url('${TILES[elm][2]}')`;
-
-  el.style.left = x + "px"
-  el.style.top = y + "px"
-  el.style.zIndex = "5"
-  el.classList.add('SPRITE')
-  // tile.style.willChange = 'transform';
-  el.style.width = tileSize - parseInt(el.style.width / 2) + "px"
-  el.style.height = tileSize - parseInt(el.style.height / 2) + "px"
-  //alert(TILES[elm][1]+' '+TILES[elm][2])
-  document.querySelector('#Econtent').appendChild(el);
-}
-// Pobierz wartości dataset x, y i s dla bieżącego bloku
-const currentX = parseInt(tile.dataset.x)
-const currentY = parseInt(tile.dataset.y)
-const currentS = parseInt(tile.dataset.s)
-//alert(currentX+" "+currentY+" "+currentS)
-//alert(currentX+' '+currentY+' '+currentS)
-// Znajdź indeks bloku w tileMap[dimension] na podstawie dataset x, y i s
-setTimeout(function() {
-  if (onece5 == 1) {
-    if (finishproject == 1) {
-      onece5 = 0;
-      for (var i = 0; i < 2; i++) {
-
-        const blocksToRemove = tileMap[dimension].filter(block =>
-          parseInt(block[0]) === currentX &&
-          parseInt(block[1]) === currentY &&
-          parseInt(block[2]) === currentS
-        );
-
-        blocksToRemove.forEach(blockToRemove => {
-          const indexToRemove = tileMap[dimension].indexOf(blockToRemove);
-          tileMap[dimension].splice(indexToRemove, 1);
-        });
-
-        config.savedTileMap = tileMap;
-
-        setTimeout(function() {
-          onece5 = 1;
-        }, 100);
-      }
-    }
-  }
-}, 300);
-
-/*
-// Sprawdź, czy istnieje blok o danych współrzędnych
-if (existingBlockIndex !== -1) {
-    // Jeśli blok istnieje, usuń go z tileMap[dimension]
-   // alert(existingBlockIndex)
-    alert(existingBlockIndex)
-    if(finishproject==1){
-      tileMap[dimension].splice(existingBlockIndex, 1);
-    
-    }
-}
-*/
-
-
-if(movetilesdeffacted!==undefined&&movetilesdeffacted!==null){
-  movemap(movetilesdeffacted[1],movetilesdeffacted[2],movetilesdeffacted[0]);
-}
-                    if (score1 == 1) {
-                      score += 1
-                    } else {
-                      killed += 1;
-                    }
-                    // Remove 
-                    // Entity is defeated, remove the tile
-                    tile.remove();
-                    deletedtiles.push(tile);
-
-                  }
-                }}
+                    KillThis()
+}}
                   
                   
                 }else{
@@ -3061,8 +4053,14 @@ if(hurt==1){
   tile.classList.add('hurtblock');
 }
             // Check if the tile is within the specified area
+            let minimum=0
+            if (mindistance !== undefined) {
+   minimum = parseInt(mindistance) || 0
+} else {
+   minimum = 0
+}
             if (isWithinArea(left / tileSize, top / tileSize, area)) {
-                if (movementType === 'follow' && distanceToPlayer <= distance || distanceToPlayer >= reversedistance && reversedistance!==undefined&&reversedistance!==null&&reversedistance!=="null") {
+                if (movementType === 'follow' && distanceToPlayer <= distance&& distanceToPlayer >= minimum|| distanceToPlayer >= reversedistance && reversedistance!==undefined&&reversedistance!==null&&reversedistance!=="null") {
                     // Logic for following the player
 if (getPlayerPositionRelativeToTile(tile,parseFloat(tile.style.left)/ tileSize2,parseFloat(tile.style.top)/ tileSize2)&&moveonlywhenplayerlooking==1&&moveonlywhenplayerlookingaway!==1) {
 left += Math.cos(directionInRadians) * speed;
@@ -3076,7 +4074,7 @@ top += Math.sin(directionInRadians) * speed;
 }
 
                     
-                } else if (movementType === 'avoid' && distanceToPlayer <= distance||distanceToPlayer >= reversedistance && reversedistance!==undefined&&reversedistance!==null&&reversedistance!=="null") {
+                } else if (movementType === 'avoid' && distanceToPlayer <= distance&& distanceToPlayer >= minimum||distanceToPlayer >= reversedistance && reversedistance!==undefined&&reversedistance!==null&&reversedistance!=="null") {
                     // Logic for avoiding the player
 
                     
@@ -3210,6 +4208,19 @@ if (currentPositionIndex >= arena.lenght ) {
                 tile.style.left = left + "px";
                 tile.style.top = top + "px";
 
+
+    if (regenerateplayerpos !== undefined && regenerateplayerpos !== null) {
+      if(!tile.dataset.ticksupd){
+        tile.dataset.ticksupd=-1
+      }
+    }
+if (tile.dataset.ticksupd) {
+  tile.dataset.ticksupd++
+  if(tile.dataset.ticksupd>parseInt(regenerateplayerpos)){
+    tile.dataset.direction = Math.atan2(targetToY - top / tileSize, targetToX - left / tileSize) * (180 / Math.PI);
+    tile.dataset.ticksupd=-1
+  }
+}
                 // Change direction randomly after a certain time
                 if(oneDirectionFollow==1){
                 if((tile.dataset.oneDirectionFollow2)){
@@ -3221,8 +4232,14 @@ if (currentPositionIndex >= arena.lenght ) {
                   tile.dataset.oneDirectionFollow2=1
                 }
                 // Math.random() < 0.5
-                if (tile.dataset.oneDirectionFollow2==1) { // Adjust the probability as needed
+                if (tile.dataset.oneDirectionFollow2==1) {
+                  if(oneDirectionFollow==1){
+                    tile.dataset.oneDirectionFollow2=0
+                  }
+
+// Adjust the probability as needed
                     tile.dataset.direction = Math.atan2(targetToY - top / tileSize, targetToX - left / tileSize) * (180 / Math.PI);
+                
                 }
                 
             } else {
@@ -3305,7 +4322,7 @@ setTimeout(function() {
 
       if (existingBlockIndex !== -1) {
         tileMap[dimension].splice(existingBlockIndex, 1);
-        config.savedTileMap=tileMap
+     //   config.savedTileMap=tileMap
       }
       setTimeout(function() {
         onece5 = 1
@@ -3332,7 +4349,7 @@ if(movetilesdeffacted!==undefined&&movetilesdeffacted!==null){
                   }
                                       }
 }
-
+}
         });
     }}
 
@@ -3651,6 +4668,9 @@ function handleFileSelect5(event) {
     reader.addEventListener('load', () => {
       TILES.push([newBlockIndex, isentity, reader.result,thistilesize,translateY]);
       TILES.push([TILES.length,1,"/ NAN.png"])
+      setTimeout(function(){
+        entityupd()
+      },1000)
     })
     updateViewport();
   }
@@ -3856,18 +4876,30 @@ var gravity=config.gravity;
     var ostclick;
   function movright(){
     movePlayer(-0.08*speed,0)
+    if(config.debugmode==1){
+      movePlayer(-0.08*8,0)
+    }
     ostclick="left"
   }
   function movleft() {
     movePlayer(0.08*speed,0)
+    if (config.debugmode == 1) {
+  movePlayer(0.08 * 8, 0)
+}
     ostclick="right"
   }
   function movup() {
 movePlayer(0,-0.08*speed)
+if (config.debugmode == 1) {
+  movePlayer(0,-0.08*8)
+}
 ostclick="up"
   }
   function movdown() {
     movePlayer(0,0.06*speed)
+    if (config.debugmode == 1) {
+  movePlayer(0, 0.08 * 8)
+}
     ostclick="down"
   }
     function updateJoystick(event) {
@@ -3983,7 +5015,7 @@ hpBarContainer.style.bottom=HpbarConfig.bottom+"%"
 }
 
 // Przykładowe użycie
-var currentHp = 0; // Aktualne życie
+var currentHp = 1; // Aktualne życie
 
 let hurtdelayed=0
 // Kod, który zabija gracza
@@ -4001,11 +5033,22 @@ function checkit() {
             const rect1 = player.getBoundingClientRect();
             const rect2 = tile.getBoundingClientRect();
             const wallThickness = 2;
+let fxc=parseInt(tile.dataset.damagedist)*(tileSize2/2)
+let hurtdmg=1
+if(tile.dataset.damage){
+  hurtdmg=parseInt(tile.dataset.damage)
+   
+}else{
+   hurtdmg=1
+}
+if(parseInt(tile.dataset.damagedist)==1||parseInt(tile.dataset.damagedist)==0||(tile.dataset.damagedist)==undefined){
+  fxc=0
+}
 
-            if (rect1.bottom > rect2.top - 5 &&
-                rect1.top < rect2.bottom + 5 &&
-                rect1.right > rect2.left - 5 &&
-                rect1.left < rect2.right + 5) {
+            if (rect1.bottom > rect2.top -(5+fxc) &&
+                rect1.top < rect2.bottom + (5+fxc) &&
+                rect1.right > rect2.left - (5+fxc) &&
+                rect1.left < rect2.right + (5+fxc)) {
 
                 // Sprawdź czy minęło wystarczająco czasu od ostatniego otrzymania obrażeń
                 if (to205) {
@@ -4018,14 +5061,36 @@ setTimeout(function(){
 },2000)
 }
 }}
+
+
+
                   if(config.HpBarConfiguration!==undefined){
+                    
+                    
+
+
                     // Zaktualizuj życie gracza po kolizji
                     
-                    config.HpBarConfiguration.numberHP-=1
+                    config.HpBarConfiguration.numberHP-= hurtdmg
                     currentHp=config.HpBarConfiguration.numberHP
-                    updateHpBar(currentHp);
-                    
+                    updateHpBar(currentHp)
+
+if (currentHp < 1) {
+
+
+  config.bg = config.oldbg
+  dimension = config.olddimension
+  if (config.savedgamestate !== 1 && config.savedgamestate !== "1") {} else {
+    if (config.savedgamestate !== undefined) {
+
+      loadoldergamestate()
+    }
+  }
+}
+
+
                     if (currentHp < 1) {
+                      config.bg=config.oldbg
                       
                         playerY = config.spawnY;
                         playerX = config.spawnX;
@@ -4037,7 +5102,7 @@ setTimeout(function(){
                         }
                         
                         if (config.music !== '') {
-                          const base64Wav = config.music;
+                          const base64Wav = config.oldmusic;
                         
                           // Utwórz nowy odtwarzacz audio
                           audioInstance = new Audio();
@@ -4084,8 +5149,13 @@ updateHpBar(config.HpBarConfiguration.numberHp);
                   }
                   
                   if (config.music !== '') {
-                    const base64Wav = config.music;
-                  
+                    let base64Wav = config.music;
+                  if(config.oldmusic!==undefined&&config.oldmusic!==null){
+if (config.oldmusic.slice(0, 10) !== config.oldmusic) {
+    base64Wav = config.oldmusic;
+} else {
+    base64Wav = config.music;
+}}
                     // Utwórz nowy odtwarzacz audio
                     audioInstance = new Audio();
                     audioInstance.src = base64Wav;
@@ -4102,6 +5172,10 @@ updateHpBar(config.HpBarConfiguration.numberHp);
                   setTimeout(updateViewport, 50)
                   setTimeout(updateViewport, 20)
                 }}
+                
+                
+                
+
             }
         }
     }
@@ -4134,7 +5208,7 @@ function normspeed() {
             rect1.top < rect2.bottom + 80 &&
             rect1.right > rect2.left - 80 &&
             rect1.left < rect2.right + 80)) {
-          speed = classicspeed;
+          speed = config.norspeed;
           //alert("")
         }
       } else {
@@ -4335,7 +5409,7 @@ var collidingjump2=0
           const rect1 = player.getBoundingClientRect();
           const rect2 = tile.getBoundingClientRect();
           const wallThickness = 2;
-          
+       /*   
           if (rect1.bottom > rect2.top + 5 &&
             rect1.top < rect2.bottom - 10 &&
             rect1.right + 5 > rect2.left + 5 &&
@@ -4349,13 +5423,13 @@ var collidingjump2=0
             topside = 0;
          /*   playerY -= 0.6;*/
          //   playerX -= 0.1;
-         speed=config.backspeed
+ /*        speed=config.backspeed
          setTimeout(normspeed,1000)
           } else {
 
             Centercol = 0
 
-          }
+          }*/
           if (rect1.top < rect2.bottom + 3 && rect1.bottom > rect2.bottom + 3 && rect1.right > rect2.left && rect1.left < rect2.right) {
           
             playerY +=power * speed;
@@ -4492,7 +5566,52 @@ var tlo2 = 0
       var yyy=0
       
 function loop() {
+  if(isgamepaused==1){
+classicspeed = 8
+
+speed = 8
+}else{
   
+}
+  config.px=(playerX)/tileSize;config.py=playerY/tileSize;
+  if (!('oldmusic' in config)) {
+
+  config['oldmusic'] = config.music;
+}
+if (!('oldmap' in config)) {
+
+  config['oldmap'] = 0;
+}
+if (!('olddimension' in config)) {
+
+  config['olddimension'] = dimension;
+}
+if (!('oldbg' in config)) {
+
+  config['oldbg'] = config.bg;
+}
+  
+  if (!('playerdamage' in config)) {
+
+  config['playerdamage'] = 1;
+}
+  if (!('maxgravityvelocity' in config)) {
+
+config['maxgravityvelocity'] = 1;
+} 
+  if (!('savedgamestate' in config)) {
+  // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
+  config['savedgamestate'] = 0;
+}
+  
+  if(config.zoom!==1&&config.zoom!==0&&config.zoom!==undefined&& config.testmode==1){
+   viewport.style.zoom= config.zoom
+   document.getElementById('content2').style.zoom=config.zoom
+  }
+if (!('dimension' in config)) {
+  // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
+  config['dimension'] = 0;
+}
   if (!('projectile' in config.folder.texture)) {
   // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
   config.folder.texture['projectile'] = [0,0];
@@ -4783,7 +5902,7 @@ requestAnimationFrame(loop);
 
 
 var brushSize = 1; // Ustaw rozmiar pędzla
-
+let bugfix2=0
 function buildBlock(event) {
   // Oblicz pozycję kliknięcia z uwzględnieniem aktualnej translacji viewport
   const rect = content.getBoundingClientRect();
@@ -4804,6 +5923,7 @@ function buildBlock(event) {
       if (layers === 0) {
         if (existingBlockIndex !== -1) {
           // Jeśli blok istnieje, usuń go
+          
           tileMap[dimension].splice(existingBlockIndex, 1);
         } else {
           // Jeśli blok nie istnieje, dodaj nowy blok
@@ -4815,6 +5935,7 @@ function buildBlock(event) {
         tileMap[dimension].push([currentX, currentY, item]);
         newtilemap[dimension].push([currentX, currentY, item]); // Zakładając, że 1 reprezentuje blok, dostosuj, jeśli trzeba
       }
+      config.savedTileMap=tileMap;
     }
   }
 
@@ -4824,10 +5945,11 @@ function buildBlock(event) {
 }
 
   // Wywołaj funkcję budującą bloki wokół klikniętej pozycji
+  if(config.testmode==0){
   buildBlocksAroundPosition(x, y);
 
   updateViewport();
-}
+}}
 
 dld()
 function dld(){
@@ -4931,9 +6053,14 @@ function cofnijczas(ilerazycofnac) {
     </script>
 </body>
 </html>
+<style>
+  .added{
+    pointer-events: all;
+  }
+  
+</style>
 
-
-<gui>
+<gui id="withgui" style="pointer-events: none">
   <div class="btns">
     <div class="null added"></div>
     <div class="btn added" id="Up"></div>
@@ -4947,14 +6074,21 @@ function cofnijczas(ilerazycofnac) {
   
   </div>
 </gui>
-<div class="f notaproject" style="position: fixed; width: 210px; height: calc(100vh - 5px) ; background: url('./box (3).png'); image-rendering: pixelated; background-size: 100% 100%; z-index: 999999;overflow: hidden;right:0;
-white-space: pre-wrap; overflow : scroll;"><div onclick="toggleVS()" style="align-items: center; justify-content: center; width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime;
-padding:0px; margin:-5px; display: inline-block; font-size:20px; position: absolute; left: 10px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0">+</d></div>
-  <div onclick="toggleMENS(); playUpdateSound2()" style="align-items: center; justify-content: center;  width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime; 
-  padding:0px; margin:-5px; display: inline-block; font-size:20px;  position: absolute; left: 42px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0 ;">⚙️</d></div>
-  <div onclick="togglemode1(); playUpdateSound()" style="align-items: center; justify-content: center;  width:30px;height:30px; background: url('./box (3).png'); background-size: 100%; color:lime; 
-  padding:0px; margin:-5px; display: inline-block; font-size:20px;  position: absolute; left: 74px; top:16px"><d style="margin:-5px; position: absolute; top:0; left:0 ;">...</d></div>
-  <div id="Iblocks" style="margin-top:0px;padding: 0;"></div>
+<!--<div onclick="toggleUplayer()" style="width:50px; height:50px; background: url('./zlayer1.png') center center/contain no-repeat; color:lime; text-align:center; font-size:30px; line-height:30px; position:absolute; right: 215px; top:16px; z-index: 99" class="notaproject"></div>
+
+<script>
+  
+</script>-->
+
+<div class="f notaproject" id="sus" style="position: absolute; width: 210px; height: calc(100vh - 2px) ; background: url('./box (3).png'); image-rendering: pixelated; background-size: 100% 100%; z-index: 999999;overflow: hidden;left:0;
+overflow : scroll;">
+  
+  <div onclick="toggleVS()" style="width:50px; height:50px; background: url('./box (3).png') center center/contain no-repeat; color:yellow; text-align:center; font-size:30px; line-height:30px; position:absolute; left: 10px; top:16px; animation: rainbow 3s infinite;">+</div>
+<div onclick="toggleMENS(); playUpdateSound2()" style="width:50px; height:50px; background: url('./box (3).png') center center/contain no-repeat; color:yellow; text-align:center; font-size:30px; line-height:30px; position:absolute; left: 62px; top:16px; animation: rainbow 3s infinite;">⚙️</div>
+<div onclick="togglemode1(); playUpdateSound()" style="width:50px; height:50px; background: url('./box (3).png') center center/contain no-repeat; color:yellow; text-align:center; font-size:30px; line-height:30px; position:absolute; left: 114px; top:16px; animation: rainbow 3s infinite;">...</div>
+
+
+  <div id="Iblocks" style="margin-top:70px; margin-left:20px;padding: 0;"></div>
 </div>
 <style>
   .btn{
@@ -5165,7 +6299,7 @@ window.setInterval(testy, 3000);
 
 </script>
 
-<div style="overflow:hidden;overflow:scroll;position: absolute; top:50vh; left:50vw; transform: translate(-50%,-50%); width: 90%; height:80%; background: black; padding: 10px; z-index: 9999;"class="entitymenu">
+<div style="overflow:hidden;overflow:scroll;position: absolute; top:50vh; left:50vw; transform: translate(-50%,-50%); width: 90%; height:80%; background: black; padding: 10px; z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;"class="entitymenu">
 <div onclick="togglemenu()">
   close menu
 </div>
@@ -5174,11 +6308,14 @@ window.setInterval(testy, 3000);
     zoom:0.8;
   }
 </style>
-<div id="contentofjsoneditor" style="z-index: 9999999999;">
+<div id="contentofjsoneditor" style="z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999; ">
 <div class="json-editor" >
     <button onclick="addEntity()">add</button>
     <button onclick="saveJson()">save</button>
   </div>
+  <details>1.type null in editor to turn off the option <br>
+2. ENTITIES configuration is really hard to work with it there is almost everything possible 
+but update will come with others options :) </details>
   <div id="entities-container"></div>
   </div>
 </div>
@@ -5190,15 +6327,17 @@ window.setInterval(testy, 3000);
 
 <style>
   #container123{
-    position: absolute; top:0;right:0;zoom:0.7
+    position: absolute; top:0;right:100px;zoom:0.7;
+    transform : translate(-50px,0);
+    font-size: 7px;
   }
   .box0{ width:50px;height:60px;background: #6F6F6F; float: left; margin:4px; justify-content: center; align-items: center ; display: flex; font-size: 30px}
-  .box1{ width:50px;height:60px;background: #ACACAC; float: left; margin:4px; justify-content: center; align-items: center ; display: flex; font-size: 30px}
+  .box1{ width:50px;height:60px;background: #ACACAC; float: left; margin:4px; justify-content: center; align-items: center ; display: flex; font-size: 20px}
   
 </style>
-<div id="container123" class="notaproject d dr">
+<div id="container123" class="notaproject d dr hide">
   <div id="add123" class="box0" onclick="add123()"   >+</div>
-  <div id="value123" class="box1"                      ></div>
+  <div id="value123" class="box1"                      >doesn't work :P </div>
   <div id="sub123" class="box0" onclick="sub123()"   >-</div>
 </div>
 <script>
@@ -5209,17 +6348,18 @@ window.setInterval(testy, 3000);
 
 <style>
   #container1232{
-    position: absolute; top:0px;right:55px
+    position: absolute; top:0px;right:155px
     ;zoom:0.7;
-    
+    font-size: 7px;
+    transform : translate(-50px,0);
   }
 .d{
   z-index: 999999
 }
 </style>
-<div id="container1232" class="notaproject d dr">
+<div id="container1232" class="notaproject d dr hide">
   <div  class="box0" onclick="add1232()"   >+</div>
-  <div id="value1232" class="box1"                      ></div>
+  <div id="value1232" class="box1"                      >dimension</div>
   <div class="box0" onclick="sub1232()"   >-</div>
 </div>
 <script>
@@ -5231,13 +6371,15 @@ window.setInterval(testy, 3000);
 
 <style>
   #container1233{
-    position: absolute; top:0px;right:110px;zoom:0.7
+    position: absolute; top:0px;right:210px;zoom:0.7;
+    font-size: 7px;
+    transform : translate(-50px,0);
   }
 
 </style>
-<div id="container1233" class="notaproject d dr">
+<div id="container1233" class="notaproject d dr hide">
   <div  class="box0" onclick="add1233()"   >+</div>
-  <div id="value1233" class="box1"                      ></div>
+  <div id="value1233" class="box1"                      >brush size</div>
   <div class="box0" onclick="sub1233()"   >-</div>
 </div>
 <script>
@@ -5246,7 +6388,7 @@ window.setInterval(testy, 3000);
 
 
 
-<div id="toggleButton" style="width:50px;height:40px;background: #6F6F6F; float: left; margin:4px; justify-content: center; align-items: center ; display: flex; position:absolute;font-size: 5px; top:50px;"onclick="toggleLayers()" class="notaproject">build on blocks</div>
+<div id="toggleButton" style="width:50px;height:40px;background: #6F6F6F; float: left; margin:4px; justify-content: center; align-items: center ; display: flex; position:absolute;font-size: 5px; top:50px; right:50px; z-index:999"onclick="toggleLayers()" class="notaproject">build on blocks</div>
 <script>
   let layers = 0;
 
@@ -5348,17 +6490,29 @@ function toggleLayers() {
 <pre style="white-space: pre-wrap" class="mn">
   <h3>Menu</h3>
 <hr>
-<div onclick="visibility('.menu2-content'); toggleMENS()" style="background: yellow">Code
+<div onclick="visibility('.menu2-content'); toggleMENS()" style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);" style="background: yellow">Code
 </div>
 <div onclick="toggleVS(); playUpdateSound3();toggleMENS()"  style="background: deepskyblue">
 Visuals
 </div>
-<div onclick="togglemenu();playUpdateSound3();toggleMENS()" style="background: deepskyblue">
+<div onclick="togglemenu();playUpdateSound3();toggleMENS()" style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);" style="background: deepskyblue">
   make entity Tiles (menu)
 </div>
 <div onclick="loadfile();" style="background: blue">
   LoadProjectFile
 </div>
+
+<div onclick="editor ='left';up1()" style="background: deepskyblue">
+  Editor Left
+</div>
+<div onclick="editor ='right';up1()" style="background: deepskyblue">
+  Editor right
+</div>
+
+<div onclick="config.savedTileMap.push([]);tileMap.push([])" style="background:wheat">
+  + Add dimension
+</div>
+
 <div onclick="handleFileContent(JSON.stringify(example2));toggleMENS()">
   load example platformer game
 </div>
@@ -5457,12 +6611,22 @@ function handleFileContent(textContent) {
   // Tutaj przetwarzaj zawartość pliku tekstowego
   // Możesz pozostawić resztę Twojego kodu, ale już bez konieczności przekształcania na base64
 //  alert((textContent))
+document.getElementById('Econtent').innerHTML=""
+//document.querySelector('html').innerText=JSON.parse(textContent)
+//alert(textContent)
 config = JSON.parse(textContent);
-
+dimension=config.dimension||0
   try {
    
     config = JSON.parse(textContent);
      tdt=JSON.parse(textContent)
+     if (!('killed' in config)) {
+  // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
+  config['killed'] = 0;
+} else {
+killed=config.killed
+}
+
     canJUMP=0
     gravity=config.gravity
     if (!('deletedtiles' in config)) {
@@ -5543,8 +6707,7 @@ playerskin=playerskin69
     stop=1
     code = config.code;
     classicspeed = config.norspeed;
-    playerY = config.spawnY;
-    playerX = config.spawnX;
+    
    setPlayer(config.px*tileSize,config.py*tileSize)
     speed = config.speed;
     playerskin = config.playerskin1;
@@ -5561,8 +6724,16 @@ playerskin=playerskin69
     }
     
     if (config.music !== '') {
-      const base64Wav = config.music;
+     
+      let base64Wav = config.music;
     
+if(config.oldmusic!==undefined&&config.oldmusic!==null){
+if (config.oldmusic.slice(0, 10) !== config.oldmusic) {
+    base64Wav = config.oldmusic;
+} else {
+    base64Wav = config.music;
+}}
+
       // Utwórz nowy odtwarzacz audio
       audioInstance = new Audio();
       audioInstance.src = base64Wav;
@@ -5695,6 +6866,7 @@ slider2.addEventListener('touchend', () => {stop=1; slider2.value = 0; currentVa
 <style>
     .json-editor {
         margin-bottom: 10px;
+        
     }
     .json-editor button {
         margin-right: 10px;
@@ -5722,7 +6894,7 @@ slider2.addEventListener('touchend', () => {stop=1; slider2.value = 0; currentVa
     
     entities":{"alltiles13":[0,"null",10,3,0,99999,[0,0,999999,999999],true,[[10,0],[-10,0]],null,1,1,null,null,1, , , ,1],"alltiles3":[8,"follow",10,3,0,199,[0,0,999999,999999],true,[[10,0],[-10,0]],null,1,1,null,null,1],"alltiles5":[1,"null",4,3,0,0,[0,0,999999,999999],true,[[10,0],[-10,0]],0,1,1],"alltiles2":[3,"move",4,3,0,1,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0,null,null,1,null,null,1],"alltiles10":[5,"follow",5,0,0,1,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0,null,"player",1,null,null,1],"alltiles6":[2,"move",4,3,0,100,[0,0,999999,999999],true,[[0,3],[0,-3]],1,0,null,null,1]}
 */
-var testexample={"examples":{"alltiles0":[2,"move , follow , avoid",0,3,0,1,[0,0,999999,999999],true,"[[0,0],[0,0]]",0,1,0,"player"]}}
+var testexample={"examples":{"alltiles0":[2,"move",0,3,0,1,[0,0,999999,999999],true,"[[0,0],[0,0]]",0,1,0,"player"]}}
 // speed, movementType, distance, randomMovement, collision, initialHp, area, deletebool,arena,hurt,vi,score1,collisionobject="player",detectanabled,collisionwithotherblocks,deletewhencustommoveended,anableshootingattackforentities,collectable,spawnpoint
     function displayEntities() {
         const container = document.getElementById('entities-container');
@@ -5734,7 +6906,13 @@ var testexample={"examples":{"alltiles0":[2,"move , follow , avoid",0,3,0,1,[0,0
                 entityDiv.textContent = entity;
                 
                 const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Delete';
+                deleteButton.style.animation='5s rainbow infinite'
+                deleteButton.style.transform="translate(90vw,0)"
+                deleteButton.style.border="none"
+                deleteButton.style.outline="none"
+                deleteButton.style.background="none"
+                
+                deleteButton.textContent = 'x';
                 deleteButton.onclick = function() {
                     delete config.entities[entity];
                     displayEntities();
@@ -5775,7 +6953,8 @@ function addEntity() {
 
 
     function editEntity(entityName) {
-        const options = config.entities[entityName];
+        const options = config.entities[entityName]
+      //  alert(options);
         const optionNames = getOptionNames();
         let optionHTML = '';
         for (let i = 0; i < optionNames.length; i++) {
@@ -5799,11 +6978,13 @@ function addEntity() {
     function updateOption(input) {
     const entityName = input.getAttribute('data-entity');
     const index = parseFloat(input.getAttribute('data-index'));
+    
+    
     let newValue = input.value;
-
+config.entities[entityName][index] = newValue;
     // Sprawdzenie czy wartość jest poprawnym obiektem JSON
     try {
-        const parsedValue = JSON.parse(newValue);
+       let parsedValue = JSON.parse(newValue);
         if (parsedValue !== null && typeof parsedValue === 'object') {
             // Jeśli wartość jest obiektem JSON, zachowaj ją jako obiekt
             newValue = parsedValue;
@@ -5813,11 +6994,9 @@ function addEntity() {
             if (!isNaN(newValue)) {
               newValue = parseFloat(newValue); // lub parseInt(newValue) dla liczby całkowitej
             }
+            
         }
-        if (parsedValue == "null" ||parsedValue == "undefined"||parsedValue == "" ) {
-  // Jeśli wartość jest obiektem JSON, zachowaj ją jako obiekt
-  newValue = null;
-}
+
   // Jeśli wartość jest obiektem JSON, zachowaj ją jako obiekt
   newValue = parsedValue;
 
@@ -5828,7 +7007,17 @@ function addEntity() {
         if (!isNaN(newValue)) {
           newValue = parseFloat(newValue); // lub parseInt(newValue) dla liczby całkowitej
         }
+        
+  
+
+                if (parsedValue == "null" || parsedValue == "undefined" || parsedValue == "") {
+          // Jeśli wartość jest obiektem JSON, zachowaj ją jako obiekt
+          newValue = null 
+        //  alert(newValue)
+        }
     }
+    
+    
 
     config.entities[entityName][index] = newValue;
  //   document.querySelector("#entitiesconfig").innerText = JSON.stringify(config.entities);
@@ -5917,30 +7106,30 @@ if (file) {
     function getOptionNames() {
         // You can define your option names here or fetch them from somewhere
         return [
-            "Speed(num)",
-            "Movement Type(avoid,move,follow)",
-            "Distance(num)",
-            "Random Movement(1/0/3 for Move)",
-            "Collision(1/0)",
-            "Initial HP(Num)",
+            "<p style='color:lime' > Speed(num)",
+            "<p style='color:lime' > Movement Type(avoid,move,follow)",
+            "<p style='color:lime' > Distance(num)",
+            "<p style='color:lime' > Random Movement(1/0/3 for Move)",
+            "<p style='color:red' > Collision for a player(1/0)",
+            "<p style='color:red' > Initial HP(Num)",
             "Area For Entity([startX,startY,endX,endY])",
             "Delete Bool(Boolean)",
-            "arena Pattern moving ([[x,y],[x,y]])",
-            "Hurt(1/0)",
+            "<p style='color:lime' > arena Pattern moving ([[x,y],[x,y]])",
+            "<p style='color:cyan' > Hurt Player(1/0)",
             "Script doesn't work if sprite is out of viewport(1/0)",
             "Score1(1/0)",
-            "Collision Object type ('player') default class that it will be default even for example move follow for player",
+            "<p style='color:yellow' >important !: Collision Object type ('player') default class that it will be default even for example move follow for player",
             "Detect Enabled",
-            "Collision with Other Blocks(1/0)",
+            "<p style='color:cyan' > Collision with Other Blocks(1/0)",
             "Delete When Custom Move Ended(1/0)",
-            "Enable Shooting Attack for Entities(1/0)",
+            "<p style='color:red' > Your Shooting attack can Hurt this entity (1/0)",
             "Collectable(1/0)",
             "SpawnPointBlock(1/0)",
-            "CantBeDamaged(1/0)",
+            "<p style='color:cyan' > CantBeDamaged(1/0) only By player doesn't wor for example for a despawn",
             "Teleport by([y,x])",
-            "Move Tiles when it is defaced by([(i...),x,y])",
-            "spawn [duration,(i...)]",
-            "despawn ticks",
+            "<p style='color:pink' > Move Tiles when it is defaced by([(i...),x,y])",
+            "<p style='color:pink' > spawn [duration,(i...)]",
+            "<p style='color:red' > despawn ticks",
             "goes 1 tick one direction good for projectiles :) (1)on else off",
 "changeLoopMusicTodefaul",
             "T: changeLoopMusic",
@@ -5956,32 +7145,93 @@ if (file) {
             "Code In Entities 0 _ 0 how ? ['1:\\n2:\\n3:',0]",
             "Puzzle Block (1/0) with i(object) // doesn't work for now ",
             "back to start position when pattern ended",
-            "gravity",
+            "<p style='color:lime' > gravity",
             "changeVariablecollisionevent [variable,value]",
             "T: hurttexture ",
             " hurtdelaytexture (number ms)",
-            "reversedistance !( distance ) <num>",
+            "<p style='color:lime' > reversedistance !( distance ) <num>",
 "T: collisiontexture",
 "distance2 <number> /disabled",
 "movementType2 [move avoid follow]/disabled",
 "collisionobject2 [name]/disabled",
-"whendistance2makepattern (in PM 2.8)/disabled",
-"NPC Dialogue ['hello','world']",
-"collision (eval javascript )",
+"whendistance2makepattern (in PM 2.9 full)/disabled",
+"<p style='color:orange' > < NPC > Dialogue by an collision ['hello','world']",
+"collision (eval javascript ) / doesn't work",
 "NPCdialogueends_remove (1)else",
-"NPCdialogueends_spawn and kill this (i...)",
+"<p style='color:pink' > NPCdialogueends_spawn and kill this (i...)",
 "collisiondistance <num> 'disabled'",
 "Spawn 2 [duration,(i...)]",
-" show Hp near entity (1)/0",
-"moveonlywhenplayerlooking, // 1/0 ",
-"moveonlywhenplayerlookingaway // 1/0",
+"<p style='color: purple' > show Hp near entity (1)/0",
+"<p style='color:pink' >moveonlywhenplayerlooking, // 1/0 ",
+"<p style='color:pink' >moveonlywhenplayerlookingaway // 1/0",
 "random teleporting [duration, xmin, xmax, ymin, ymax] !=='undefined' ",
 "collision and killed then remove and move tiles [killed,(i..),x,y]",
-"spawn if defaced (i..)",
+"<p style='color:yellow' > interesting OPTION : spawn if defaced (i..)",
 "ChangeifcollisionBaclgroundtexture(1/0)",
 "backgroundimg from (i...)",
 "hide id when collision (ID)",
 "show id when collision (ID)",
+
+
+"<p style='color: lime' > minimumdistance",
+
+"T: playertextureleft",
+"T: playertextureright",
+"T: playertextureup",
+"T: playertexturedown",
+"T: playertexturestayleft",
+"T: playertexturestayright",
+"T: playertexturedefault",
+"T: playertexturestaydown",
+"changeplayertexture collision 1/0",
+"resetkills 1/0 collision ",
+"if collision and entity exist on viewport attack this < S > give cant be damaged and 1 hp for better experience",
+"if collision with other entity attack this < S >",
+"addotherclasses ['class']  projetitle is special class it used for all hurtable with anableshootingattackforentities sprites for kiling it ",
+"collisionchangedimension (number of dimension)",
+"lookatobject1/0",
+"spawningdistance", //number
+"spawningoffset [x,y]", //[x,y]
+"spawnnumber",
+"despawnMS despawning in Mili seconds (num) /buggy doesn't work on spawned objects",
+"distance collision player (number def 1)",
+"deal damage player (num def 1) ",
+"changeplayerdamage on collision (number def 1)",
+"🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);' >Spawn3without Spawn distance spawning inside [duration,i..] </p>",
+"T:🆕 <p style='animation: 5s rainbow infinite; filter:sepia(50%);' >drop a music loop will be played if dialogue ends </p>",
+"🆕<p style='animation: 5s rainbow infinite; filter:sepia(50%);' >changedimensionifdeffacted (number) </p>",
+
+
+"collisionchangerandomdimension [min ,max]",
+"disabled - use index instead whenkilledspawnSprite (S...)",
+"T: dialiguesounds", //+stop
+"ifvariablekillthiswhencollision ['definedVariable','=,>,<,!=',number] ",
+"ifvariablekillthiswhenitspawnonmap ['definedVariable','=,>,<,!=',number] ",
+"<p style='animation: 5s rainbow infinite; filter:sepia(50%);' >Interesting: </p> regenerate Player position by a ticks (10) is more like a 1 second and use one direction follow good for projectile this will reset player current position by a time (enter number) ",
+
+"<p style='animation: 5s rainbow infinite;'>3.0[nafu] not a finnal update  50% of this instructions configuration are not understandable for a human :P  </p>",
+
+
+/*
+
+playertextureleft,
+playertextureright,
+playertextureup,
+playertexturedown,
+playertexturestayleft,
+playertexturestayright,
+playertexturedefault,
+playertexturestaydown,
+changeplayertexture,
+resetkills,
+ifentityexistonVPmovetilesandthiskill,
+otherentitycollision,
+addotherclasses,
+collisionchangedimension,
+
+*/
+
+
 //"add ID (yourID)"
 //"can hurt and move when you damaged it (1/0)",
         ];
@@ -6176,6 +7426,14 @@ scale
 <input type="text" id="leftInput" oninput="editInputVariable2(this.value, 'playersizeNOHITBOX'); updspeed()">
 <button onclick="handleFileButtonClickA('fileInput1', 1)">player SIZE With HITBOX(1/0)</button>
 <input type="text" id="leftInput" oninput="editInputVariable2(this.value, 'playersizeHasHitBox'); updspeed()">
+config.savedgamestate
+<input type="text" id="leftInput" oninput="editInputVariable2(this.value, 'savedgamestate'); updspeed()">(1/0) reset progress to ost save point if player died  
+
+config['maxgravityvelocity']
+<input type="text" id="leftInput" value="1" oninput="editInputVariable2(this.value, 'maxgravityvelocity'); updspeed()">(number) max gravity multiple speed def use 1
+
+<input type="text" id="leftInput" value="1" oninput="editInputVariable2(this.value, 'gravitypower'); updspeed()">(number) gravity power default 0.1/0.2
+
 <script>
 function updspeed(){
   
@@ -6652,6 +7910,7 @@ dialogue < text > will display dialogue :)
     const dialogQueue = [];
 var indialogue=0
     // NPC dialog function
+    
     function message(text) {
         const npcDialog = document.getElementById('npcDialog');
         const npcText = document.getElementById('npcText');
@@ -6666,48 +7925,114 @@ var indialogue=0
         }
     }
 
-    // Function to display the next dialog message
-    function displayNextDialog() {
-        const npcDialog = document.getElementById('npcDialog');
-        const npcText = document.getElementById('npcText');
-        indialogue=1
-        // If there are no more messages in the queue, hide the dialog and return
-        if (dialogQueue.length === 0) {
-            npcDialog.style.display = 'none';
-            indialogue = 0
-pausemove = 0
-            return;
+let newaudio2;
+
+function displayNextDialog() {
+    const npcDialog = document.getElementById('npcDialog');
+    const npcText = document.getElementById('npcText');
+
+    if (indialogue !== 1) {
+        if (currentsoundformessage.length > 20) {
+            const base64Wav = currentsoundformessage;
+
+            // Utwórz nowy odtwarzacz audio
+            newaudio2 = new Audio();
+            newaudio2.src = base64Wav;
+            newaudio2.setAttribute('preload', 'auto');
+            newaudio2.loop = true;
+            // Dodaj odtwarzacz do dokumentu
+            document.body.appendChild(newaudio2);
+
+            // Odtwórz plik audio WAV
+            newaudio2.play();
         }
+    }
+
+    indialogue = 1;
+    
+    // If there are no more messages in the queue, hide the dialog and return
+    
+    if (dialogQueue.length === 0) {
+        npcDialog.style.display = 'none';
+        if (newaudio2) {
+            newaudio2.pause();
+            newaudio2.currentTime = 0;
+        }
+        indialogue = 0;
         
-        // Show NPC dialog
-        npcDialog.style.display = 'block';
-        
-        // Clear previous text
-        npcText.textContent = '';
-        
-        // Get the next message from the queue
-        const nextMessage = dialogQueue.shift();
-        
-        // Animate text appearance
-        let index = 0;
-        const delay = 20; // Delay between each character appearance
-        const timer = setInterval(function() {
-            npcText.textContent += nextMessage[index];
-            index++;
-            // If the entire text is displayed, clear the timer
-            if (index === nextMessage.length) {
+        npcDialog.style.display = 'none';
+indialogue = 0
+pausemove = 0
+if (newaudio2) {
+  newaudio2.pause();
+  newaudio2.currentTime = 0;
+}
+        return;
+    }
+
+    // Show NPC dialog
+    npcDialog.style.display = 'block';
+
+    // Clear previous text
+    npcText.textContent = '';
+
+    // Get the next message from the queue
+    const nextMessage = dialogQueue.shift();
+
+    // Animate text appearance
+    let index = 0;
+    let wordIndex = 0; // Index of the current word
+    const delay = 50; // Delay between each character appearance (increased for better readability)
+    const timer = setInterval(function() {
+        // Add the next letter to the text
+        npcText.textContent += nextMessage[wordIndex][index];
+        index++;
+        // If we reached the end of the current word, move to the next word
+        if (index >= nextMessage[wordIndex].length) {
+            index = 0;
+            wordIndex++;
+            // If we reached the end of all words, clear the timer
+            if (wordIndex === nextMessage.length) {
                 clearInterval(timer);
+                if (newaudio2) {
+                    newaudio2.pause();
+                    newaudio2.currentTime = 0;
+                }
+                
                 // Add click event listener to the dialog to display the next message
                 npcDialog.addEventListener('click', function displayNext() {
                     npcDialog.removeEventListener('click', displayNext); // Remove the click event listener
+
+              
+  if (currentsoundformessage.length > 20) {
+    const base64Wav = currentsoundformessage;
+
+    // Utwórz nowy odtwarzacz audio
+    newaudio2 = new Audio();
+    newaudio2.src = base64Wav;
+    newaudio2.setAttribute('preload', 'auto');
+    newaudio2.loop = true;
+    // Dodaj odtwarzacz do dokumentu
+    document.body.appendChild(newaudio2);
+
+    // Odtwórz plik audio WAV
+    newaudio2.play();
+  }
+
+                    
+                    
                     displayNextDialog(); // Display the next dialog message
-if (dialogQueue.length === 0) {
-  pausemove = 0;
-}
+                    if (dialogQueue.length === 0) {
+                      
+                    }
+                    
                 });
             }
-        }, delay);
-    }
+        }
+    }, delay);
+}
+
+// Pamiętaj, aby ustawić początkowe wartości dla zmiennych dialogQueue, indialogue, currentsoundformessage.
 
     // Test messages
     
@@ -6777,8 +8102,11 @@ function checkclassCollision(class1, class2) {
       CY=parseInt(elements2[j].style.top)
 let distanceToPlayer = Math.sqrt(((CX - AX) / tileSize) ** 2 + ((CY - AY) / tileSize) ** 2);
 
+let dist =1.1
+
+
       if (
-        distanceToPlayer<=1
+        distanceToPlayer<=dist
       ) {
         return 1; // Zwraca 1 w przypadku kolizji
       }
@@ -6839,7 +8167,8 @@ function showelements(element){
   if(document.querySelector(element)){
     let elements = document.querySelectorAll(element)
   for (var i = 0; i < elements.length; i++) {
-elements[i].style.visibility="visible"
+//elements[i].style.visibility="visible"
+elements[i].style.display="block"
 elements[i].style.touchaction="auto"
   }}
 }
@@ -6892,9 +8221,14 @@ function setTouchPosition(event) {
         
     }
 }
-
+function notouchposition(){
+  touchX = Infinity;
+touchY = Infinity;
+}
 // Przykład użycia:
 document.querySelector('*').addEventListener('touchstart', setTouchPosition);
+document.querySelector('*').addEventListener('touchend', notouchposition);
+
 
 function trzymamId(klasaElementu) {
   
@@ -6996,7 +8330,7 @@ else if (trimmedLine.startsWith("movem")) {
   }
 }
 else if (trimmedLine.startsWith("show")) {
-  const match = trimmedLine.match(/hide\s+(.+)/);
+  const match = trimmedLine.match(/show\s+(.+)/);
   if (match) {
     const [_, element] = match;
 
@@ -7936,7 +9270,7 @@ zrub ustawienia deweloperskie
     
     font-size: 16px;
     margin: 4px 2px;"
-    class="notaproject d"
+    class="notaproject d hide"
     onclick="pokazModal()">opcje zaw</button>
 
     <button style="position: absolute; top:70px; left:0px;background-color: #4CAF50;
@@ -7946,7 +9280,7 @@ zrub ustawienia deweloperskie
     text-decoration: none;
     
     font-size: 16px;
-    margin: 4px 2px;" class="notaproject d" onclick="usunElementy()">Usun wsz</button>
+    margin: 4px 2px;" class="notaproject d hide" onclick="usunElementy()">delete gui</button>
 
     <div id="modal-container" >
         <div id="modal-content">
@@ -8652,7 +9986,7 @@ emitParticles()
 </head>
 <body>
 
-  <div id="editor" class="d notaproject"></div>
+  <div id="editor"  class="d notaproject hide"></div>
 
 <script>
     var example = config;
@@ -8890,10 +10224,11 @@ setTimeout(function() {
 tileSize = config.tilesize; // Rozmiar pojedynczego kafelk
 cfigZ = config.zoomoff;
 vp = document.getElementById("viewport");
+/*
 vp.style.zoom = cfigZ * config.zoomadd;
 document.querySelector('#content2').style.width = vp.style.width
 document.querySelector('#content2').style.height = vp.style.height
-document.querySelector('#content2').style.zoom = vp.style.zoom
+document.querySelector('#content2').style.zoom = vp.style.zoom*/
 }
 
 
@@ -9084,4 +10419,74 @@ if (!('airjump' in config)) {
     outline: none;
 }
 
+</style>
+<script>
+  function togglemode1(){
+    var elementsToHide = document.getElementsByClassName('d');
+    Array.from(elementsToHide).forEach(element => {
+      element.classList.toggle('hide')
+    });
+  }/*
+  setTimeout(function(){
+    var elementsToHide = document.getElementsByClassName('d');
+    Array.from(elementsToHide).forEach(element => {
+      element.classList.toggle('hide')
+    });
+  },4000)
+  
+
+*/
+</script>
+
+    <div id="blackScreen" >
+      <pre id="helloWorldText" style="white-space: pre-wrap"></pre>
+    </div>
+
+    <script>
+    
+    
+    
+      const helloWorldText = document.getElementById('helloWorldText');
+      
+      let currentIndex = 0;
+
+      setTimeout(() => {
+        
+document.querySelector('html').style.filter="brightness(100%)"
+
+
+        const blackScreen = document.getElementById('blackScreen');
+        fadeInNextText();
+
+        function fadeInNextText() {
+          helloWorldText.style.opacity = 0;
+
+          setTimeout(() => {
+            if (currentIndex < textsArray.length) {
+              helloWorldText.innerHTML = textsArray[currentIndex];
+              helloWorldText.style.opacity = 1;
+
+              setTimeout(() => {
+                fadeInNextText();
+              }, 3500);
+
+              currentIndex++;
+            } else {
+              blackScreen.style.opacity = 0;
+
+              setTimeout(() => {
+                blackScreen.style.display = 'none';
+              }, 3000);
+            }
+          }, 400);
+        }
+      }, 1000);
+    </script>
+
+
+
+<style>
+  #Start{
+    border-radius: 0%;
+  }
 </style>
