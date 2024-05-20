@@ -1,6 +1,5 @@
 
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -14,9 +13,9 @@
   }
 </style>
 
-<script id="game" src="./degame" type="text/plain"></script>
+<script id="game" src="newproject" type="text/plain"></script>
         <script>
-          let path = './degame';// newproject
+          let path = 'newproject';// newproject
         </script>
 <e_gameinfoinput>
 Howdy you using PaperMaker
@@ -4709,7 +4708,7 @@ var last = TILES[TILES.length - 1][2]
 
 
     <script>
-        async function loadFile(path, retries = 5, delay = 500) {
+        async function loadFile(path, retries = 1, delay = 500) {
             for (let i = 0; i < retries; i++) {
                 try {
                     let response = await fetch(path);
