@@ -1,8 +1,5 @@
 
 
-
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -97,6 +94,11 @@ let targetFPS = 15;
 
 
 <script>
+if(path!=="newproject"){
+  config.playerskin1=""
+}
+
+
   let finishproject=1
   
   function playUpdateSound() {
@@ -1540,7 +1542,7 @@ document.getElementById('sus').style.left = "0px"
   }, 300)
 }
 setTimeout(up1,1000)
-function updateViewport() {
+var updateViewport= function() {
   content.innerHTML=""
   const scrollLeft = viewport.scrollLeft;
   const scrollTop = viewport.scrollTop;
@@ -4709,13 +4711,24 @@ var last = TILES[TILES.length - 1][2]
 
 
 
+<script>
+  const channel = new BroadcastChannel('sync_channel');
 
+  channel.onmessage = (event) => {
+    if (event.data === 'another_tab_fetching') {
+      alert('Inna karta już wykonuje operację fetch. Ta karta zostanie zamknięta.');
+      window.close();
+    }
+  };
+  channel.postMessage('another_tab_fetching'); // Powiadom inne karty, że wykonujemy fetch.
+</script>
     <script>
     var ended=0
-        async function loadFile(path, retries = 5, delay = 500) {
+        async function loadFile(path, retries = 30, delay = 500) {
             for (let i = 0; i < retries; i++) {
               if(ended==0){
                 try {
+                  hideProjectPath();
                     let response = await fetch(path);
 
                     if (!response.ok) {
@@ -4725,7 +4738,7 @@ var last = TILES[TILES.length - 1][2]
                     //alert(data)
                     setTimeout(function(){
                     handleFileContent(data);
-                    hideProjectPath();
+                    
                     if (path !== "newproject") {
                         document.querySelector('#pastemark').style.display = "none";
                         document.querySelector('#resizableHandle').style.display = "none";
@@ -4754,6 +4767,7 @@ var last = TILES[TILES.length - 1][2]
                 }
             }}
             console.error('Nie udało się załadować pliku po maksymalnej liczbie prób.');
+            
         }
 
         function handleFileContent(data) {
