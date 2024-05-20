@@ -1,5 +1,6 @@
 
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -12,6 +13,16 @@
     filter: brightness(0);
   }
 </style>
+
+
+        <script>
+          let path = './degame';
+        </script>
+<_gameinfoinput_>
+hello
+</_gameinfoinput_>
+
+
 <!-- put your water mark -->
 <div class="Ylyl" style="position: fixed; left:0; bottom:0px; background: #333 ; z-index: 9; width:30px;height:30px" onclick="saveToFile()">S</div>
 <div class="Ylyl" style="position: fixed; left:30px; bottom:0px; background: #333; z-index: 9; width:30px;height:30px" onclick="loadfile()">L</div>
@@ -37,7 +48,9 @@
 </style>
 <script>
 var editor="right"
-
+if(document.querySelector('_gameinfoinput_')){
+document.querySelector('_gameinfoinput_').style.display="none"
+}
 var config ={  "HpBarConfiguration": {
       "texture": "./cross.png",
       "textureempty": "./grass.png",
@@ -66,167 +79,89 @@ var config ={  "HpBarConfiguration": {
 
 <p style='animation: 5s rainbow infinite; filter:sepia(50%);' > loading uben platin </p>
 v 1.0
-`];
+`,`
+IF you see black screen try reload page`];
 // changing max fps game change game 
 let defaultFps = 15;
 let targetFPS = 15;
 </script>
 
 
-<!--put your project here-->
-<project-loader author="" license="">
-<project-path>
-	<script>
-	//
-	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
-//	let savinggamestate=1
-		let path='./degame'
-	</script>
-</project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
-<about-project>
-<!-- some informations about project
- 
- 
--->
-</about-project>
-<script>
 
+    <script>
+        async function loadFile(path, retries = 5, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    let response = await fetch(path);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    let data = await response.text();
+                    handleFileContent(data);
+                    hideProjectPath();
+                    if (path !== "newproject") {
+                        document.querySelector('#pastemark').style.display = "none";
+                        document.querySelector('#resizableHandle').style.display = "none";
+                        setTimeout(() => config.testmode = 1, 6000);
+                        setTimeout(() => {
+                            config.testmode = 1;
+                            gravity = tdt.gravity;
+                        }, 10000);
+                        requestAnimationFrame(hd);
+                        togglemode1();
+                    } else {
+                        setupNewProject();
+                    }
+                    return; // Jeśli załadunek się powiódł, zakończ funkcję.
+                } catch (error) {
+                    console.error('Wystąpił błąd podczas ładowania pliku:', error);
+                    await new Promise(resolve => setTimeout(resolve, delay)); // Odczekaj przed ponowną próbą.
+                }
+            }
+            console.error('Nie udało się załadować pliku po maksymalnej liczbie prób.');
+        }
 
-setTimeout(function(){
-  document.querySelector('project-path').style.display="none"
-},1000)
+        
 
+        function hideProjectPath() {
+            setTimeout(() => {
+                document.querySelector('project-path').style.display = "none";
+            }, 1000);
+        }
 
+        function setupNewProject() {
+            document.getElementById('viewport').style.resize = "both";
+            document.getElementById('viewport').style.border = "1px solid gray";
+            let container3 = document.getElementById("viewport");
+            container3.addEventListener("touchstart", touchStart);
+            container3.addEventListener("touchmove", touchMove);
+            container3.addEventListener("touchend", touchEnd);
+            container3.addEventListener("mouseenter", onMouseEnter);
+            container3.addEventListener("mouseleave", onMouseLeave);
+            container3.addEventListener("wheel", onWheel);
+        }
 
+        document.addEventListener('DOMContentLoaded', () => {
+         //   let path = path;
+            loadFile(path);
+        });
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-
-    function loadFile(path) {
-        fetch(path)
-            .then(response => response.text())
-            .then(data => {
-             handleFileContent(data)
-              setTimeout(function(){
-  
-  if(path!=="newproject"){
-//    loadtestgame2()
-
-
-
-/*
-
-document.querySelector('#playPauseButton').style.display = "none"
-
-*/
-
-
-document.querySelector('#pastemark').style.display = "none"
-document.querySelector('#resizableHandle').style.display = "none"
-resizableHandle
-  setTimeout(function(){config.testmode=1},6000)
-  setTimeout(function(){
-    config.testmode=1
-  
-gravity=tdt.gravity
-  },10000)
-function hd(){
-    up1()
-    config.testmode=1
-  var elementsToHide = document.getElementsByClassName('notaproject');
-Array.from(elementsToHide).forEach(element => {
-  element.style.display="none"
-});
-}
-requestAnimationFrame(hd)
-  togglemode1()
-}else{
-  
-}
-
-
-},1000)
-            })
-            .catch(error => {
-                console.error('Wystąpił błąd podczas ładowania pliku:', error);
-                // Ponowne próbowanie załadowania po błędzie
-                loadFile(path);
+        function hd() {
+            up1();
+            config.testmode = 1;
+            var elementsToHide = document.getElementsByClassName('notaproject');
+            Array.from(elementsToHide).forEach(element => {
+                element.style.display = "none";
             });
-    }
-if(path!=="newproject"){
-    loadFile(path);
-}else{
-  document.getElementById('viewport').style.resize = "both"
-document.getElementById('viewport').style.border = "1px solid gray"
+        }
 
-  let container3 = document.getElementById("viewport");
-  container3.addEventListener("touchstart", touchStart);
-    container3.addEventListener("touchmove", touchMove);
-    container3.addEventListener("touchend", touchEnd);
-    container3.addEventListener("mouseenter", onMouseEnter);
-    container3.addEventListener("mouseleave", onMouseLeave);
-    container3.addEventListener("wheel", onWheel);
+        
+    </script>
+</head>
+<body>
 
-}
-});
-
-
-
-
-
-function loadtestgame2(){
-
-  var gccpath=path
-  if(gccpath!=="newproject"){
-setTimeout(function (){
-  fetch(gccpath)
-    .then(response => response.text())
-    .then(data => handleFileContent(data)
-    )
-    .catch(error => {
-    	alert(error)
-    }
-    );
-},100)}
- }
-  
-setTimeout(function(){
-  
-  if(path!=="newproject"){
-  //  document.querySelector('#playPauseButton').style.display="none"
-    document.querySelector('#pastemark').style.display="none"
-  //  loadtestgame2()
-  setTimeout(function(){config.testmode=1},6000)
-  setTimeout(function(){
-    config.testmode=1
-  
-gravity=tdt.gravity
-  },10000)
-function hd(){
-    up1()
-    config.testmode=1
-  var elementsToHide = document.getElementsByClassName('notaproject');
-Array.from(elementsToHide).forEach(element => {
-  element.style.display="none"
-});
-}
-requestAnimationFrame(hd)
-  togglemode1()
-}else{
-  document.querySelectorAll('.Ylyl').forEach(el=>{
-    el.style.display="none"
-  })
-}
-
-
-
-
-
-
-},1000)
-</script>
-</project-loader>
-
+</body>
+</html>
 
 
 
