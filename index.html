@@ -1,5 +1,6 @@
 
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -13,12 +14,12 @@
   }
 </style>
 
-
+<script id="game" src="./degame" type="text/plain"></script>
         <script>
-          let path = './degame';
+          let path = './degame';// newproject
         </script>
 <e_gameinfoinput>
-hello
+Howdy you using PaperMaker
 </e_gameinfoinput>
 
 
@@ -87,86 +88,7 @@ let targetFPS = 15;
 
 
 
-    <script>
-        async function loadFile(path, retries = 5, delay = 1000) {
-            for (let i = 0; i < retries; i++) {
-                try {
-                    let response = await fetch(path);
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    let data = await response.text();
-                    handleFileContent(data);
-                    hideProjectPath();
-                    if (path !== "newproject") {
-                        document.querySelector('#pastemark').style.display = "none";
-                        document.querySelector('#resizableHandle').style.display = "none";
-                        setTimeout(() => config.testmode = 1, 6000);
-                        setTimeout(() => {
-                            config.testmode = 1;
-                            gravity = tdt.gravity;
-                        }, 10000);
-                        requestAnimationFrame(hd);
-                        togglemode1();
-                        if (typeof updateViewport !== 'function') {
-setTimeout(function(){
-  updateViewport()
-},1500)
-}
-                        updateViewport()
-                    } else {
-                        setupNewProject();
-                    }
-                    return; // Jeśli załadunek się powiódł, zakończ funkcję.
-                } catch (error) {
-                    console.error('Wystąpił błąd podczas ładowania pliku:', error);
-                    await new Promise(resolve => setTimeout(resolve, delay)); // Odczekaj przed ponowną próbą.
-                }
-            }
-            console.error('Nie udało się załadować pliku po maksymalnej liczbie prób.');
-        }
 
-        
-
-        function hideProjectPath() {
-            setTimeout(() => {
-                document.querySelector('project-path').style.display = "none";
-            }, 1000);
-        }
-
-        function setupNewProject() {
-            document.getElementById('viewport').style.resize = "both";
-            document.getElementById('viewport').style.border = "1px solid gray";
-            let container3 = document.getElementById("viewport");
-            container3.addEventListener("touchstart", touchStart);
-            container3.addEventListener("touchmove", touchMove);
-            container3.addEventListener("touchend", touchEnd);
-            container3.addEventListener("mouseenter", onMouseEnter);
-            container3.addEventListener("mouseleave", onMouseLeave);
-            container3.addEventListener("wheel", onWheel);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-         //   let path = path;
-            loadFile(path);
-        });
-
-        function hd() {
-            up1();
-            config.testmode = 1;
-            var elementsToHide = document.getElementsByClassName('notaproject');
-            Array.from(elementsToHide).forEach(element => {
-                element.style.display = "none";
-            });
-        }
-
-        
-    </script>
-</head>
-<body>
-
-</body>
-</html>
 
 
 
@@ -4779,6 +4701,99 @@ var last = TILES[TILES.length - 1][2]
 
 
 </script>
+
+
+
+
+
+
+
+    <script>
+        async function loadFile(path, retries = 5, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    let response = await fetch(path);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    let data = await response.text();
+                    handleFileContent(data);
+                    hideProjectPath();
+                    if (path !== "newproject") {
+                        document.querySelector('#pastemark').style.display = "none";
+                        document.querySelector('#resizableHandle').style.display = "none";
+                        setTimeout(() => config.testmode = 1, 6000);
+                        setTimeout(() => {
+                            config.testmode = 1;
+                            gravity = tdt.gravity;
+                        }, 10000);
+                        requestAnimationFrame(hd);
+                        togglemode1();
+                        if (typeof updateViewport !== 'function') {
+                            setTimeout(function(){
+                                updateViewport()
+                            }, 1500)
+                        }
+                        updateViewport();
+                    } else {
+                        setupNewProject();
+                    }
+                    return; // Jeśli załadunek się powiódł, zakończ funkcję.
+                } catch (error) {
+                    console.error('Wystąpił błąd podczas ładowania pliku:', error);
+                    await new Promise(resolve => setTimeout(resolve, delay)); // Odczekaj przed ponowną próbą.
+                }
+            }
+            console.error('Nie udało się załadować pliku po maksymalnej liczbie prób.');
+        }
+
+        function handleFileContent(data) {
+            // Przetwarzanie zawartości pliku
+            console.log('File content loaded:', data);
+        }
+
+        function hideProjectPath() {
+            setTimeout(() => {
+                document.querySelector('project-path').style.display = "none";
+            }, 1000);
+        }
+
+        function setupNewProject() {
+            document.getElementById('viewport').style.resize = "both";
+            document.getElementById('viewport').style.border = "1px solid gray";
+            let container3 = document.getElementById("viewport");
+            container3.addEventListener("touchstart", touchStart);
+            container3.addEventListener("touchmove", touchMove);
+            container3.addEventListener("touchend", touchEnd);
+            container3.addEventListener("mouseenter", onMouseEnter);
+            container3.addEventListener("mouseleave", onMouseLeave);
+            container3.addEventListener("wheel", onWheel);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let scriptElement = document.getElementById('game');
+            let path = scriptElement.getAttribute('src');
+            console.log('Loading file from path:', path);
+            loadFile(path);
+        });
+
+        function hd() {
+            up1();
+            config.testmode = 1;
+            var elementsToHide = document.getElementsByClassName('notaproject');
+            Array.from(elementsToHide).forEach(element => {
+                element.style.display = "none";
+            });
+        }
+
+
+    </script>
+
+
+
+
+
+
 
 <p style="position:fixed; bottom: 0px; left:50vw; transform: translate(-50%,0%); z-index: 99999; color:white">killed: <t id="killed"></t></p>
 <p style="position:fixed; bottom: 0px; left:calc(50vw + 80px); transform: translate(-50%,0%); z-index: 99999; color:white">score: <t id="score"></t></p>
@@ -10451,3 +10466,6 @@ document.querySelector('html').style.filter="brightness(100%)"
     border-radius: 0%;
   }
 </style>
+
+
+
