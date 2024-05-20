@@ -80,7 +80,7 @@ let targetFPS = 15;
 	//
 	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
 //	let savinggamestate=1
-		let path='degame'
+		let path='./pmeuben.pme'
 	</script>
 </project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
 <about-project>
@@ -1719,7 +1719,7 @@ let blockzindex=0
           if (tileType) {
                           s = tileType[2];
             if (tileType[2] === 1) {
-              tile.className = 'tile alltiles';
+              tile.className = ' alltiles';
               treh = 0;
 
             } else {
@@ -2154,7 +2154,7 @@ if (audioInstance) {
 
 if (config.music !== '') {
   let base64Wav = config.oldmusic;
- if (config.oldmusic.slice(0, 10) !== config.oldmusic) {
+ if (config.oldmusic.lenght>10) {
   base64Wav = config.oldmusic;
 } else {
   base64Wav = config.music;
