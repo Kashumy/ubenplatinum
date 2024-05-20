@@ -18,15 +18,7 @@
           let path = './degame';
         </script>
 <e_gameinfoinput>
-HELLO PUT HERE YOUR DESCRIPTION 
-
-
-in code is no absolutely any information about 
-PAPERMAKER and me ( but this is a information bruh )
-please delete this message if you make custom game 
-and edit code for making that good for you
-
-you can use it for business and fun or something 
+hello
 </e_gameinfoinput>
 
 
@@ -55,7 +47,6 @@ you can use it for business and fun or something
 </style>
 <script>
 var editor="right"
-
 if(document.querySelector('e_gameinfoinput')){
 document.querySelector('e_gameinfoinput').style.display="none"
 }
@@ -85,9 +76,10 @@ var config ={  "HpBarConfiguration": {
   const textsArray = [
 `
 
-<p style='animation: 5s rainbow infinite; filter:sepia(50%);' > Loading Game Engine</p>
-v 3.pre 1
-`,`click somewhere maybe this will load a project`];
+<p style='animation: 5s rainbow infinite; filter:sepia(50%);' > loading uben platin </p>
+v 1.0
+`,`
+IF you see black screen try reload page`];
 // changing max fps game change game 
 let defaultFps = 15;
 let targetFPS = 15;
@@ -97,9 +89,6 @@ let targetFPS = 15;
 
     <script>
         async function loadFile(path, retries = 5, delay = 1000) {
-          
-
-
             for (let i = 0; i < retries; i++) {
                 try {
                     let response = await fetch(path);
@@ -119,6 +108,12 @@ let targetFPS = 15;
                         }, 10000);
                         requestAnimationFrame(hd);
                         togglemode1();
+                        if (typeof updateViewport !== 'function') {
+setTimeout(function(){
+  updateViewport()
+},1500)
+}
+                        updateViewport()
                     } else {
                         setupNewProject();
                     }
@@ -154,9 +149,6 @@ let targetFPS = 15;
         document.addEventListener('DOMContentLoaded', () => {
          //   let path = path;
             loadFile(path);
-            if (document.querySelector('_gameinfoinput_')) {
-  document.querySelector('_gameinfoinput_').style.display = "none"
-}
         });
 
         function hd() {
