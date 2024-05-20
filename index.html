@@ -1,5 +1,6 @@
 
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -4717,7 +4718,8 @@ var last = TILES[TILES.length - 1][2]
                         throw new Error('Network response was not ok');
                     }
                     let data = await response.text()
-                    alert(data)
+                    //alert(data)
+                    setTimeout(function(){
                     handleFileContent(data);
                     hideProjectPath();
                     if (path !== "newproject") {
@@ -4740,6 +4742,7 @@ var last = TILES[TILES.length - 1][2]
                         setupNewProject();
                     }
                     return; // Jeśli załadunek się powiódł, zakończ funkcję.
+                    },1000)
                 } catch (error) {
                     console.error('Wystąpił błąd podczas ładowania pliku:', error);
                     await new Promise(resolve => setTimeout(resolve, delay)); // Odczekaj przed ponowną próbą.
