@@ -1,6 +1,5 @@
 
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -77,7 +76,7 @@ var config ={  "HpBarConfiguration": {
   const textsArray = [
 `
 
-<p style='animation: 5s rainbow infinite; filter:sepia(50%);' > loading uben platin </p>
+<p style='animation: 5s rainbow infinite; filter:sepia(50%);' > loading </p>
 v 1.0
 `,`
 IF you see black screen try reload page`];
@@ -4709,14 +4708,16 @@ var last = TILES[TILES.length - 1][2]
 
 
     <script>
-        async function loadFile(path, retries = 5, delay = 1000) {
+        async function loadFile(path, retries = 5, delay = 500) {
             for (let i = 0; i < retries; i++) {
                 try {
                     let response = await fetch(path);
+
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
-                    let data = await response.text();
+                    let data = await response.text()
+                    alert(data)
                     handleFileContent(data);
                     hideProjectPath();
                     if (path !== "newproject") {
