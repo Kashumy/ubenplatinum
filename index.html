@@ -80,7 +80,7 @@ let targetFPS = 15;
 	//
 	// writing 'newproject' will turn the developer mode and new project and you can also load a project and edit it
 //	let savinggamestate=1
-		let path='./agame1.0.pme'
+		let path='degame'
 	</script>
 </project-path><!-- your project path defaul newproject path  = ./yourproject.dl -->
 <about-project>
@@ -1807,8 +1807,8 @@ const similarDeletedTile = deletedtiles.find((deletedTile) => {
             tile.style.left = x * tileSize + 'px';
             tile.style.top = (y + treh) * tileSize + 'px';
             fragment.appendChild(tile);
-            
             content.appendChild(fragment);
+            
           }
           if(blockzindex>1||blockdataindex>0){
           tile.style.zIndex=blockzindex+blockdataindex+1
@@ -1817,6 +1817,7 @@ const similarDeletedTile = deletedtiles.find((deletedTile) => {
       }
     
   }
+  
 }
 if (!('deletedtiles' in config)) {
   // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
@@ -2152,7 +2153,13 @@ if (audioInstance) {
 }
 
 if (config.music !== '') {
-  const base64Wav = config.oldmusic;
+  let base64Wav = config.oldmusic;
+ if (config.oldmusic.slice(0, 10) !== config.oldmusic) {
+  base64Wav = config.oldmusic;
+} else {
+  base64Wav = config.music;
+}
+  
 //alert(config.oldmusic)
   // Utwórz nowy odtwarzacz audio
   audioInstance = new Audio();
@@ -5643,6 +5650,18 @@ document.querySelector('.player').style.transform=`scale(${parseInt(config.playe
 // Pobierz element .player
 }
 
+
+let resizableDiv=document.getElementById('viewport')
+const newWidth=config.width
+const newHeight=config.height
+resizableDiv.style.width = `${newWidth}px`;
+viewportWidth = newWidth
+viewportHeight = newHeight
+config.width = newWidth
+config.height = newHeight
+resizableDiv.style.height = `${newHeight}px`;
+
+
   document.addEventListener('keydown', function(event) {
   switch (event.key) {
     case 'w':
@@ -8228,7 +8247,8 @@ touchY = Infinity;
 // Przykład użycia:
 document.querySelector('*').addEventListener('touchstart', setTouchPosition);
 document.querySelector('*').addEventListener('touchend', notouchposition);
-
+document.querySelector('*').addEventListener('mousedown', setTouchPosition);
+document.querySelector('*').addEventListener('mouseup', notouchposition);
 
 function trzymamId(klasaElementu) {
   
