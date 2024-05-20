@@ -1,6 +1,5 @@
 
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -2155,7 +2154,8 @@ if (audioInstance) {
 
 if (config.music !== '') {
   let base64Wav = config.oldmusic;
- if (base64Wav.lenght>10) {
+  //alert(base64Wav)
+ if (base64Wav!==null&&base64Wav!==undefined) {
   base64Wav = config.oldmusic;
 } else {
   base64Wav = config.music;
