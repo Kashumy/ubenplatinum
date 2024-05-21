@@ -13,13 +13,8 @@
   }
 </style>
 
-<script id="game" src="./degame" type="text/plain"></script>
-        <script>
-          let path = './degame';// newproject
-        </script>
-<e_gameinfoinput>
-Howdy you using PaperMaker
-</e_gameinfoinput>
+
+
 
 
 <!-- put your water mark -->
@@ -45,11 +40,12 @@ Howdy you using PaperMaker
     margin-left: 50px
   }
 </style>
+
+
 <script>
 var editor="right"
-if(document.querySelector('e_gameinfoinput')){
-document.querySelector('e_gameinfoinput').style.display="none"
-}
+
+
 var config ={  "HpBarConfiguration": {
       "texture": "./cross.png",
       "textureempty": "./grass.png",
@@ -72,14 +68,47 @@ var config ={  "HpBarConfiguration": {
 
 
 </script>
+<script src="./defaul.js"></script>
+<script src="./bigexample.js"></script>
+
+<!-- HEY PUT HERE YOUR PROJECt Path -->
+<!-- ---------+----+----+----------- -->
+<!-- ---------+----+----+----------- -->
+<script src="./game.js"></script>
+<!-- ---------+----+----+----------- -->
+<!-- ---------+----+----+----------- -->
+        <script>
+          let path = './game.js';
+        </script>
+        <e_gameinfoinput>
+          HELLO PUT HERE YOUR DESCRIPTION
+
+
+          in code is no absolutely any information about
+          PAPERMAKER and me ( but this is a information bruh )
+          please delete this message if you make custom game
+          and edit code for making that good for you
+
+          you can use it for business and fun or something
+        </e_gameinfoinput>
+
+<script>
+  if (document.querySelector('e_gameinfoinput')) {
+  document.querySelector('e_gameinfoinput').style.display = "none"
+}
+</script>
+
+
+
+
+
 <script>
   const textsArray = [
 `
 
-<p style='animation: 5s rainbow infinite; filter:sepia(50%);' > loading </p>
-v 1.0
-`,`
-IF you see black screen try reload page`];
+<p style='animation: 5s rainbow infinite; filter:sepia(50%);' > Loading Game Engine</p>
+v 3.pre 1
+`,`PRO TIP: always make copy of your Projects`];
 // changing max fps game change game 
 let defaultFps = 15;
 let targetFPS = 15;
@@ -87,18 +116,83 @@ let targetFPS = 15;
 
 
 
+    <script>
+    
 
+
+
+        function hd() {
+  up1();
+  config.testmode = 1;
+  var elementsToHide = document.getElementsByClassName('notaproject');
+  Array.from(elementsToHide).forEach(element => {
+    element.style.display = "none";
+  });
+}
+
+        
+
+        function hideProjectPath() {
+            setTimeout(() => {
+                document.querySelector('project-path').style.display = "none";
+            }, 1000);
+        }
+
+        function setupNewProject() {
+            document.getElementById('viewport').style.resize = "both";
+            document.getElementById('viewport').style.border = "1px solid gray";
+            let container3 = document.getElementById("viewport");
+            container3.addEventListener("touchstart", touchStart);
+            container3.addEventListener("touchmove", touchMove);
+            container3.addEventListener("touchend", touchEnd);
+            container3.addEventListener("mouseenter", onMouseEnter);
+            container3.addEventListener("mouseleave", onMouseLeave);
+            container3.addEventListener("wheel", onWheel);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+         //   let path = path;
+          //  loadFile(path);
+            if (document.querySelector('_gameinfoinput_')) {
+  document.querySelector('_gameinfoinput_').style.display = "none"
+}
+setTimeout(function() {
+  if (path !== "newproject") {
+    document.querySelector('#pastemark').style.display = "none";
+    document.querySelector('#resizableHandle').style.display = "none";
+    setTimeout(() => config.testmode = 1, 6000);
+    setTimeout(() => {
+      config.testmode = 1;
+      gravity = tdt.gravity;
+      dimension=config.dimension
+      updateViewport()
+    }, 100);
+    requestAnimationFrame(hd);
+    let contentd=config
+    handleFileContent(contentd)
+    requestAnimationFrame(hd);
+    togglemode1();
+  } else {
+    setupNewProject();
+  }
+}, 3000)
+        });
+
+        
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
 
 
 
 
 
 <script>
-if(path!=="newproject"){
-  config.playerskin1=""
-}
-
-
   let finishproject=1
   
   function playUpdateSound() {
@@ -225,8 +319,7 @@ mbs.innerHTML = speed+'mb/s'
 });
 </script>
 
-<script src="./defaul.js"></script>
-<script src="./bigexample.js"></script>
+
 <script>
   var sizescale=config.tilesize;
 </script>
@@ -459,6 +552,29 @@ let code2=JSON.stringify(config)
       a.click();
       
     }
+function saveToFileasJs() {
+  config.blocks.push([TILES.length, 1, "/ NAN.png"])
+  config.code = code;
+  config.debugmode = 0
+  config.testmode = 0
+
+  let code2 = "config ="+JSON.stringify(config)
+  // Tworzymy obiekt Blob, który reprezentuje dane do zapisania
+  let blob = new Blob([code2], { type: "text/plain" });
+
+  // Tworzymy element <a> do generowania pliku
+  let a = document.createElement("a");
+
+  // Przypisujemy do atrybutu "href" obiekt Blob
+  a.href = window.URL.createObjectURL(blob);
+
+  // Nadajemy plikowi nazwę
+  a.download = "defaul.js";
+
+  // Symulujemy kliknięcie przycisku do pobrania pliku
+  a.click();
+
+}
   </script>
 
 
@@ -1542,7 +1658,7 @@ document.getElementById('sus').style.left = "0px"
   }, 300)
 }
 setTimeout(up1,1000)
-var updateViewport= function() {
+function updateViewport() {
   content.innerHTML=""
   const scrollLeft = viewport.scrollLeft;
   const scrollTop = viewport.scrollTop;
@@ -4706,118 +4822,6 @@ var last = TILES[TILES.length - 1][2]
 
 </script>
 
-
-
-
-
-
-<script>
-  const channel = new BroadcastChannel('sync_channel');
-
-  channel.onmessage = (event) => {
-    if (event.data === 'another_tab_fetching') {
-      alert('Inna karta już wykonuje operację fetch. Ta karta zostanie zamknięta.');
-      window.close();
-    }
-  };
-  channel.postMessage('another_tab_fetching'); // Powiadom inne karty, że wykonujemy fetch.
-</script>
-    <script>
-    var ended=0
-        async function loadFile(path, retries = 30, delay = 500) {
-            for (let i = 0; i < retries; i++) {
-              if(ended==0){
-                try {
-                  hideProjectPath();
-                    let response = await fetch(path);
-
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    let data = await response.text()
-                    //alert(data)
-                    setTimeout(function(){
-                    handleFileContent(data);
-                    
-                    if (path !== "newproject") {
-                        document.querySelector('#pastemark').style.display = "none";
-                        document.querySelector('#resizableHandle').style.display = "none";
-                        setTimeout(() => config.testmode = 1, 6000);
-                        setTimeout(() => {
-                            config.testmode = 1;
-                            gravity = tdt.gravity;
-                        }, 10000);
-                        requestAnimationFrame(hd);
-                        togglemode1();
-                        if (typeof updateViewport !== 'function') {
-                            setTimeout(function(){
-                                updateViewport()
-                            }, 1500)
-                        }
-                        updateViewport();
-                    } else {
-                        setupNewProject();
-                    }
-                    ended=1
-                    return; // Jeśli załadunek się powiódł, zakończ funkcję.
-                    },1000)
-                } catch (error) {
-                    console.error('Wystąpił błąd podczas ładowania pliku:', error);
-                    await new Promise(resolve => setTimeout(resolve, delay)); // Odczekaj przed ponowną próbą.
-                }
-            }}
-            console.error('Nie udało się załadować pliku po maksymalnej liczbie prób.');
-            
-        }
-
-        function handleFileContent(data) {
-            // Przetwarzanie zawartości pliku
-            console.log('File content loaded:', data);
-        }
-
-        function hideProjectPath() {
-            setTimeout(() => {
-                document.querySelector('project-path').style.display = "none";
-            }, 1000);
-        }
-
-        function setupNewProject() {
-            document.getElementById('viewport').style.resize = "both";
-            document.getElementById('viewport').style.border = "1px solid gray";
-            let container3 = document.getElementById("viewport");
-            container3.addEventListener("touchstart", touchStart);
-            container3.addEventListener("touchmove", touchMove);
-            container3.addEventListener("touchend", touchEnd);
-            container3.addEventListener("mouseenter", onMouseEnter);
-            container3.addEventListener("mouseleave", onMouseLeave);
-            container3.addEventListener("wheel", onWheel);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            let scriptElement = document.getElementById('game');
-            let path = scriptElement.getAttribute('src');
-            console.log('Loading file from path:', path);
-            loadFile(path);
-        });
-
-        function hd() {
-            up1();
-            config.testmode = 1;
-            var elementsToHide = document.getElementsByClassName('notaproject');
-            Array.from(elementsToHide).forEach(element => {
-                element.style.display = "none";
-            });
-        }
-
-
-    </script>
-
-
-
-
-
-
-
 <p style="position:fixed; bottom: 0px; left:50vw; transform: translate(-50%,0%); z-index: 99999; color:white">killed: <t id="killed"></t></p>
 <p style="position:fixed; bottom: 0px; left:calc(50vw + 80px); transform: translate(-50%,0%); z-index: 99999; color:white">score: <t id="score"></t></p>
 <script>
@@ -6493,7 +6497,9 @@ function toggleLayers() {
 <div onclick="toggleVS(); playUpdateSound3();toggleMENS()"  style="background: deepskyblue">
 Visuals
 </div>
-<div onclick="togglemenu();playUpdateSound3();toggleMENS()" style="animation: 5s rainbow infinite cubic-bezier(0.19, 1, 0.22, 1);" style="background: deepskyblue">
+<div   onclick="saveToFile()">SaveToProjectFile</div>
+<div   onclick="saveToFileasJs()">SaveAsFinnalProjectJSfile</div>
+<div onclick="togglemenu();playUpdateSound3();toggleMENS()" >
   make entity Tiles (menu)
 </div>
 <div onclick="loadfile();" style="background: blue">
@@ -10489,6 +10495,3 @@ document.querySelector('html').style.filter="brightness(100%)"
     border-radius: 0%;
   }
 </style>
-
-
-
