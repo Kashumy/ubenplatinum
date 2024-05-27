@@ -74,11 +74,11 @@ var config ={  "HpBarConfiguration": {
 <!-- HEY PUT HERE YOUR PROJECt Path -->
 <!-- ---------+----+----+----------- -->
 <!-- ---------+----+----+----------- -->
-<script src="./game.js"></script>
+<script src="./gamef.js"></script>
 <!-- ---------+----+----+----------- -->
 <!-- ---------+----+----+----------- -->
         <script>
-          let path = './game.js';
+          let path = './gamef.js';
         </script>
         <e_gameinfoinput>
           HELLO PUT HERE YOUR DESCRIPTION
@@ -415,12 +415,7 @@ setTimeout(function (){
   
   playerskin = config.playerskin1
 },1600)
-function dld2(){
-//const newImage = URL.createObjectURL(config.playerskin1); // Use the selected file as the image
-  
-  
-}
-window.setInterval(dld2,20)
+
 setTimeout(function(){
 document.getElementById('project').style.zoom="1.0"
 //document.getElementById('viewport').style.zoom="1.3"
@@ -1236,7 +1231,7 @@ function entityupd(){
   }}
 }
 }
-window.setInterval(testupd,500)
+window.setInterval(testupd,1500)
   function add123212(){ if(isentity > -1 ){ isentity +=1; updt212()}}function sub123212(){if(isentity > 0 ){ isentity -=1 ; updt212()}}function updt212(){document.getElementById('value123212').value=isentity; updateViewport()}
   function DZ(data){
     isentity=parseInt(data)
@@ -1255,12 +1250,12 @@ var thistilesize=1;
 </script>
 <div id="container123211" class="notaproject  a hide2">
   <div  class="box0" onclick="add123211()"   >+</div>
-  <div id="value123211" class="box1"                      >TY 0</div>
+  <div id="value123211" class="box1"                      >Layer 0-def 5- on the player</div>
   <div class="box0" onclick="sub123211()"   >-</div>
 </div>
 <script>
 var translateY=0;
-  function add123211(){ if(true ){ translateY +=0.5; updt211()}}function sub123211(){if(true){ translateY -=0.5 ; updt211()}}function updt211(){document.getElementById('value123211').innerText=translateY; updateViewport()}
+  function add123211(){ if(true ){ translateY +=1; updt211()}}function sub123211(){if(true){ translateY -=1 ; updt211()}}function updt211(){document.getElementById('value123211').innerText=translateY; updateViewport()}
 </script>
 
 
@@ -1339,7 +1334,7 @@ background: #00000047;
 position: absolute;
 z-index: 999;
 bottom: 0;
-right:30px;
+left:30px;
 }
 .player {
   position: absolute;
@@ -1352,7 +1347,7 @@ right:30px;
   text-align: center;
   align-items: center;
   background-image: none;
-  background: url('/0 (3).png');
+  
   
   background-size: 100%;
   image-rendering: pixelated;
@@ -1444,6 +1439,11 @@ background-size: 100%;
   
   background-size: 32px;
   box-sizing: border-box;
+}
+.nothing {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAK0lEQVQYGWNkYGD4D8Rw8J9hCpwNYjCh8LBwKFfAgm4nI0MOikWUW0HQBACOVgSkom3uKAAAAABJRU5ErkJggg=="); image-rendering: pixelated;
+  
+  background-size: 100%;
 }
 .tile1 {
   position: absolute;
@@ -1701,11 +1701,11 @@ let blockzindex=0
           if (tileType) {
                           s = tileType[2];
             if (tileType[2] === 1) {
-              tile.className = ' alltiles';
+              tile.className = 'tile1 nothing alltiles';
               treh = 0;
 
             } else {
-              tile.className = `tile${parseFloat(tileType[2])} alltiles`;
+              tile.className = ` tile${parseFloat(tileType[2])} alltiles`;
 
               for (let i = 0; i < TILES.length; i++) {
              //   console.log(TILES.length)
@@ -1754,12 +1754,15 @@ const similarDeletedTile = deletedtiles.find((deletedTile) => {
                     }
                     cty = 1;
                   } else {
-                    tile.className = `tile1 alltiles`;
+                    tile.className = `tile1 alltiles nothing`;
+                    
+                    if(TILES[i][2]){
                     tile.style.backgroundImage = `url("${TILES[i][2]}")`;
+                    }
                   }
                   tile.classList.add('sprites'+TILES[i+1][0])
                   tile.style.transform=`scale(${TILES[i][3]||1})`;
-                 // tile.style.transform='translateY('+(TILES[i][4]||0)*tileSize+"px)";
+                  tile.style.zIndex=(TILES[i][4]||0)
                 }
               }
 
@@ -1789,17 +1792,17 @@ const similarDeletedTile = deletedtiles.find((deletedTile) => {
             tile.style.left = x * tileSize + 'px';
             tile.style.top = (y + treh) * tileSize + 'px';
             fragment.appendChild(tile);
-            content.appendChild(fragment);
+            
             
           }
           if(blockzindex>1||blockdataindex>0){
-          tile.style.zIndex=blockzindex+blockdataindex+1
+          tile.style.zIndex=(parseInt(tile.style.zIndex)||0)+blockzindex+blockdataindex+1
           }
         });}
       }
     
   }
-  
+  content.appendChild(fragment);
 }
 if (!('deletedtiles' in config)) {
   // Jeśli klucz nie istnieje, dodaj go z domyślną wartością
@@ -1845,7 +1848,7 @@ document.querySelector('#Econtent').appendChild(tile);
 generateAllTiles()
 
 // Obsługa zdarzeń przewijania
-const scrollInterval = 200; // Czas w milisekundach między sprawdzeniami przewijania
+const scrollInterval = 1500; // Czas w milisekundach między sprawdzeniami przewijania
 let isScrolling = false;
 
 viewport.addEventListener('scroll', function () {
@@ -3424,6 +3427,8 @@ if (showifevent !== undefined && showifevent !== null && showifevent !== "undefi
 if(parseInt(changebackground)==1){
   let texture=backgroundtexture
    currentbase64img=TILES[texture][2]
+   bgimg = TILES[texture][2]
+config.bg = TILES[texture][2]
                       document.getElementById('content').style.backgroundImage = `url('${TILES[texture][2]}')`
 
 
@@ -3695,7 +3700,7 @@ if (collisioneventprojectilesize !== null && collisioneventprojectilesize !== un
                   config.savedTileMap=tileMap;
                   config.olddimension=dimension
                   config.dimension=dimension
-                  config.oldbg=currentbase64img
+                  config.oldbg=config.bg
                   config.spawnX=left / tileSize
                   config.spawnY=(top / tileSize)-1
                 }
@@ -4804,11 +4809,11 @@ function handleFileSelect4(event) {
 
 
 // Inicjalizacja
-updateViewport();
-function scrollPage() {
+//updateViewport();
+/*function scrollPage() {
   viewport.scrollBy(0, 0); // Przesuń stronę o 0 pikseli w dół
 }
-setInterval(scrollPage, 1);
+setInterval(scrollPage, 1);*/
 
 
 
@@ -5301,7 +5306,7 @@ if(by4<3){
   blockspassed++;
   if (isScrolling && blockspassed > updatevpifblockspassed) {
     blockspassed = 0
-    requestAnimationFrame(updateViewport)
+  updateViewport()
     isScrolling = false;
   
   }
@@ -5314,7 +5319,7 @@ if(by4<3){
 
   player.style.left = playerX * tileSize2 + 'px';
   player.style.top = playerY * tileSize2 + 'px';
-  }
+  }collision();
 }
 function setPlayer(dx, dy) {
   playerX = dx;
@@ -5351,7 +5356,7 @@ var tiles = document.querySelectorAll('.tile');
 var topside=0
 
 var to1=0
-check()
+//check()
 function check(){
   for (let tile of tiles) {
     const rect1 = player.getBoundingClientRect();
@@ -5554,7 +5559,7 @@ var tlo2 = 0
         
       }
       var yyy=0
-      
+      let yzd=0
 function loop() {
   if(isgamepaused==1){
 classicspeed = 8
@@ -5742,11 +5747,14 @@ document.addEventListener('keyup', function(event) {
         moveTilesRandomly();
     }
     toto += 1;
+   // yzd++
     if (config.debugmode == 0) {
         if (config.sidescroll == 1) {
-            checkIfElementExited(player, viewport);
+         // if(yzd>3){ yzd=0
+            checkIfElementExited(player, viewport);//}
         }
     } else {
+      
         checkIfElementExited(player, viewport);
     }
     if (downButtonDown == 1) {
@@ -5828,7 +5836,7 @@ document.querySelector('.player').style.background=`url(${config.folder.texture.
     stick = document.querySelector('.stick');
     joystick = document.querySelector('.joystick');
     joystickRect = joystick.getBoundingClientRect();
-    collision();
+    
     if (gravity == 1) {
       if(tlo2<3){
         tlo2+=1
@@ -5861,7 +5869,7 @@ document.querySelector('.player').style.background=`url(${config.folder.texture.
     by3++;
     if (isScrolling && by3 > 60) {
       by3 = 0
-      requestAnimationFrame(updateViewport)
+     // updateViewport
       isScrolling = false;
     
     }
@@ -5912,6 +5920,7 @@ function buildBlock(event) {
   const y = Math.floor((event.clientY - rect.top) / tileSize2);
 
   // Funkcja do zbudowania bloków w obszarze o określonym rozmiarze
+ // alert(TILES[item][0])
   function buildBlocksAroundPosition(startX, startY) {
     
     if(config.testmode==0){
@@ -5952,12 +5961,12 @@ function buildBlock(event) {
 
   updateViewport();
 }}
-
+/*
 dld()
 function dld(){
 //  console.log(JSON.stringify(tileMap))
   setTimeout(dld,4000)
-}
+}*/
 content.addEventListener('click', buildBlock);
 
 
@@ -6086,7 +6095,7 @@ function cofnijczas(ilerazycofnac) {
 overflow : scroll;">
   
   <div onclick="toggleVS()" style="width:50px; height:50px; background: url('./box (3).png') center center/contain no-repeat; color:yellow; text-align:center; font-size:30px; line-height:30px; position:absolute; left: 10px; top:16px; animation: rainbow 3s infinite;">+</div>
-<div onclick="toggleMENS(); playUpdateSound2()" style="width:50px; height:50px; background: url('./box (3).png') center center/contain no-repeat; color:yellow; text-align:center; font-size:30px; line-height:30px; position:absolute; left: 62px; top:16px; animation: rainbow 3s infinite;">⚙️</div>
+<div onclick="toggleMENS(); playUpdateSound2()" style="width:50px; height:50px; background: url('./box (3).png') center center/contain no-repeat; color:yellow; text-align:center; font-size:30px; line-height:30px; position:absolute; left: 62px; top:16px; animation: rainbow 3s infinite;" class="nothing" >⚙️</div>
 <div onclick="togglemode1(); playUpdateSound()" style="width:50px; height:50px; background: url('./box (3).png') center center/contain no-repeat; color:yellow; text-align:center; font-size:30px; line-height:30px; position:absolute; left: 114px; top:16px; animation: rainbow 3s infinite;">...</div>
 
 
@@ -6297,7 +6306,7 @@ document.addEventListener('keyup', function(event) {
 }
 
 testa();
-window.setInterval(testy, 3000);
+window.setInterval(testy, 5000);
 
 </script>
 
@@ -9940,7 +9949,7 @@ emitParticles()
       updateParticles();
     }
 
-    initialize();
+    //initialize();
   </script>
 
 
