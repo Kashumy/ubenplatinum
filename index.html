@@ -1,5 +1,6 @@
 
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -5281,7 +5282,7 @@ setTimeout(function(){
 var thix=0
 var thiy=0
 var blockspassed=0
-var updatevpifblockspassed=60
+var updatevpifblockspassed=25
 let by4=0
 var pausemove=0
 function movePlayer(dx, dy) {
@@ -5304,7 +5305,7 @@ if(by4<3){
 }
   
   blockspassed++;
-  if (isScrolling && blockspassed > updatevpifblockspassed) {
+  if (isScrolling && blockspassed > updatevpifblockspassed*speed) {
     blockspassed = 0
   updateViewport()
     isScrolling = false;
