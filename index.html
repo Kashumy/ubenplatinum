@@ -1,6 +1,7 @@
 
+ <!-- Paper Maker Free License -->
 
-
+ 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
@@ -79,7 +80,7 @@ var config ={  "HpBarConfiguration": {
 <!-- ---------+----+----+----------- -->
 <!-- ---------+----+----+----------- -->
         <script>
-          let path = '.js';
+          let path = 'newproject';
         </script>
         <e_gameinfoinput>
           HELLO PUT HERE YOUR DESCRIPTION
@@ -1676,14 +1677,15 @@ function updateViewport() {
 const fragment = document.createDocumentFragment();
 
 
-    var treh = 0;
-    var s = 0;
+    
 
     for (let x = startTileX; x < endTileX; x++) {
       for (let y = startTileY; y < endTileY; y++) {
+        
         let cty = 0;
         const tileKey = `${x}-${y}`;
-
+var treh = 0;
+var s = 0;
         if (true) {
           const tileCoords = [x * 1, y * 1];
           
