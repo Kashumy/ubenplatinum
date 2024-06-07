@@ -1,4 +1,5 @@
 
+
  <!-- Paper Maker Free License -->
 
  
@@ -80,7 +81,7 @@ var config ={  "HpBarConfiguration": {
 <!-- ---------+----+----+----------- -->
 <!-- ---------+----+----+----------- -->
         <script>
-          let path = '..';
+          let path = 'n';
         </script>
         <e_gameinfoinput>
           HELLO PUT HERE YOUR DESCRIPTION
@@ -5284,7 +5285,7 @@ setTimeout(function(){
 var thix=0
 var thiy=0
 var blockspassed=0
-var updatevpifblockspassed=25
+var updatevpifblockspassed=30*3
 let by4=0
 var pausemove=0
 function movePlayer(dx, dy) {
@@ -5307,7 +5308,7 @@ if(by4<3){
 }
   
   blockspassed++;
-  if (isScrolling && blockspassed > updatevpifblockspassed*speed) {
+  if (isScrolling && blockspassed > updatevpifblockspassed/(speed/1.6)) {
     blockspassed = 0
   updateViewport()
     isScrolling = false;
